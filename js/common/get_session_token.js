@@ -1,5 +1,5 @@
 function getSessionToken() {
-    return fetch(pathUrl + '/php/session/get_session_token.php')
+    return fetch(pathUrl + 'php/session/get_session_token.php')
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok');

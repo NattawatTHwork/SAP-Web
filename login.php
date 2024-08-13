@@ -34,7 +34,7 @@
             <section class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
                 <div class="container">
                     <div class="row justify-content-center">
-                        <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
+                        <div class="col-lg-8 col-md-12 d-flex flex-column align-items-center justify-content-center">
 
                             <div class="d-flex justify-content-center py-4">
                                 <a href="index.php" class="logo d-flex align-items-center w-auto">
@@ -95,6 +95,7 @@
     <?php include_once './components/footer.php' ?>
 
     <script src="<?= $path ?>js/common/convert_form_data_to_json.js"></script>
+    <script src="<?= $path ?>js/common/handle_error.js"></script>
     <script src="<?= $path ?>js/login/login.js"></script>
 
 </body>

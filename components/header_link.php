@@ -20,6 +20,9 @@
 <!-- Template Main CSS File -->
 <link href="<?= $path ?>assets/css/style.css" rel="stylesheet">
 
+<!-- DataTables CSS Link -->
+<link rel="stylesheet" href="https://cdn.datatables.net/2.1.3/css/dataTables.dataTables.min.css">
+
 <?php
 session_start();
 if (!isset($_SESSION['language'])) {
