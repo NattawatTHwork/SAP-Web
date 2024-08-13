@@ -264,19 +264,19 @@
   /**
    * Initiate Bootstrap validation check
    */
-  var needsValidation = document.querySelectorAll('.needs-validation')
+  // var needsValidation = document.querySelectorAll('.needs-validation')
 
-  Array.prototype.slice.call(needsValidation)
-    .forEach(function(form) {
-      form.addEventListener('submit', function(event) {
-        if (!form.checkValidity()) {
-          event.preventDefault()
-          event.stopPropagation()
-        }
+  // Array.prototype.slice.call(needsValidation)
+  //   .forEach(function(form) {
+  //     form.addEventListener('submit', function(event) {
+  //       if (!form.checkValidity()) {
+  //         event.preventDefault()
+  //         event.stopPropagation()
+  //       }
 
-        form.classList.add('was-validated')
-      }, false)
-    })
+  //       form.classList.add('was-validated')
+  //     }, false)
+  //   })
 
   /**
    * Initiate Datatables
@@ -315,5 +315,24 @@
       }).observe(mainContainer);
     }, 200);
   }
+
+      /**
+   * เพิ่ม javascript ให้ sidebar.php เรียกใช้จากหลายหน้าได้
+   */
+      var navLinks = document.querySelectorAll('.nav-link');
+      navLinks.forEach(function(navLink) {
+        if (navLink.getAttribute('href') === window.location.pathname) {
+          navLink.classList.remove('collapsed');
+        }
+      });
+    
+      var subNavLinks = document.querySelectorAll('.nav-content a');
+      subNavLinks.forEach(function(subNavLink) {
+        if (subNavLink.getAttribute('href') === window.location.pathname) {
+          subNavLink.closest('.nav-item').querySelector('.nav-link').classList.remove('collapsed');
+          subNavLink.classList.add('active');
+          subNavLink.closest('.nav-content').classList.add('show');
+        }
+      });    
 
 })();
