@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <?php include_once '../php/countries/country_detail.php' ?>
+    <?php include_once '../php/countries/country_update.php' ?>
 
     <?php include_once '../components/header.php' ?>
 
@@ -40,13 +40,23 @@
                         <div class="card-body m-4">
                             <!-- Form for country update -->
                             <form id="countryForm">
-                                <h6 class="fw-bold fs-4"><?= $texts['general_information'] ?></h6>
                                 <input type="hidden" id="country_id" name="country_id" value="">
+                                
                                 <div class="row pb-4">
                                     <div class="col-md-4">
                                         <div class="mb-3">
-                                            <label for="country_code" class="form-label"><?= $texts['other_key'] ?></label>
+                                            <label for="country_code" class="form-label"><?= $texts['country'] ?></label>
                                             <input type="text" class="form-control" id="country_code" name="country_code" required>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <h6 class="fw-bold fs-4"><?= $texts['general_information'] ?></h6>
+                                <div class="row pb-4">
+                                    <div class="col-md-4">
+                                        <div class="mb-3">
+                                            <label for="other_country_key" class="form-label"><?= $texts['other_key'] ?></label>
+                                            <input type="text" class="form-control" id="other_country_key" name="other_country_key">
                                         </div>
                                     </div>
                                     <div class="col-md-4">

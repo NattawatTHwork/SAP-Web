@@ -28,6 +28,7 @@ function showData(data) {
     if (data.status === 'success') {
         const country = data.data;
         document.getElementById('country_code').value = country.country_code;
+        document.getElementById('other_country_key').value = country.other_country_key;
         document.getElementById('name').value = country.name;
         document.getElementById('full_name').value = country.full_name;
         document.getElementById('nationality').value = country.nationality;
