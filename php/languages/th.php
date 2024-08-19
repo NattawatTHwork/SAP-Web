@@ -57,5 +57,9 @@ return [
     'standard_communication' => 'วิธีสื่อสารมาตรฐาน',
     'comment' => 'ข้อคิดเห็น',
     'select_country' => 'เลือกประเทศ',
+    'business_type_create' => 'เพิ่มเขตธุรกิจ',
+    'business_type' => 'เขตธุรกิจ',
+    'business_type_code' => 'รหัสเขตธุรกิจ',
+    'description' => 'คำอธิบาย',
 
 ];

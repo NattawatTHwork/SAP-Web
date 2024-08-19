@@ -60,7 +60,7 @@
                                     <div class="col-md-4">
                                         <div class="mb-3">
                                             <label for="name" class="form-label"><?= $texts['name'] ?></label>
-                                            <input type="text" class="form-control" id="name" name="name" disabled>
+                                            <input type="text" class="form-control" id="country_name" name="country_name" disabled>
                                         </div>
                                     </div>
                                     <div class="col-md-4">

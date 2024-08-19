@@ -30,7 +30,7 @@ function showData(data) {
         document.getElementById('country_id').value = country.country_id;
         document.getElementById('country_code').value = country.country_code;
         document.getElementById('other_country_key').value = country.other_country_key;
-        document.getElementById('name').value = country.name;
+        document.getElementById('country_name').value = country.country_name;
         document.getElementById('full_name').value = country.full_name;
         document.getElementById('nationality').value = country.nationality;
         document.getElementById('full_nationality').value = country.full_nationality;

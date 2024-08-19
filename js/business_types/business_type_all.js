@@ -14,7 +14,7 @@ function handleGetAll(event) {
 }
 
 function fetchData(token) {
-    return fetch(apiUrl + 'countries/get_country_all.php', {
+    return fetch(apiUrl + 'business_types/get_business_type_all.php', {
         method: 'GET',
         headers: {
             'Authorization': `Bearer ${token}`
@@ -30,17 +30,17 @@ function displayTables(datas) {
         if (datas.data.length > 0) {
             datas.data.forEach(data => {
                 html += '<tr>';
-                html += `<td>${data.country_code}</td>
-                    <td>${data.country_name}</td>
+                html += `<td>${data.business_type_code}</td>
+                    <td>${data.description}</td>
                     <td>
                         <div class="dropdown">
                             <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 ${texts.option}
                             </button>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="country_detail.php?country_id=${data.country_id}">${texts.view_data}</a></li>
-                                <li><a class="dropdown-item" href="country_update.php?country_id=${data.country_id}">${texts.edit}</a></li>
-                                <li><a class="dropdown-item" href="#" onclick="delete_data('${data.country_id}', '${data.country_code}'); return false;">${texts.delete}</a></li>
+                                <li><a class="dropdown-item" href="business_type_detail.php?business_type_id=${data.business_type_id}">${texts.view_data}</a></li>
+                                <li><a class="dropdown-item" href="business_type_update.php?business_type_id=${data.business_type_id}">${texts.edit}</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="delete_data('${data.business_type_id}', '${data.business_type_code}'); return false;">${texts.delete}</a></li>
                             </ul>
                         </div>
                     </td>`;
@@ -61,9 +61,9 @@ function displayTables(datas) {
     });
 }
 
-function delete_data(countryId, country_code) {
+function delete_data(business_typeId, business_type_code) {
     Swal.fire({
-        title: country_code,
+        title: business_type_code,
         text: texts.want_delete,
         icon: 'warning',
         showCancelButton: true,
@@ -72,21 +72,21 @@ function delete_data(countryId, country_code) {
     }).then((result) => {
         if (result.isConfirmed) {
             getSessionToken()
-                .then(mySession => fetchDelete(countryId, mySession.token))
+                .then(mySession => fetchDelete(business_typeId, mySession.token))
                 .then(response => handleDeleteResponse(response))
                 .catch(error => handleError(error));
         }
     });
 }
 
-function fetchDelete(countryId, token) {
-    return fetch(apiUrl + 'countries/delete_country.php', {
+function fetchDelete(business_typeId, token) {
+    return fetch(apiUrl + 'business_types/delete_business_type.php', {
         method: 'POST',
         headers: {
             'Authorization': `Bearer ${token}`,
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ country_id: countryId })
+        body: JSON.stringify({ business_type_id: business_typeId })
     })
     .then(response => response.json());
 }

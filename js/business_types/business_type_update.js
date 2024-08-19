@@ -1,43 +1,41 @@
-document.addEventListener("DOMContentLoaded", async function () {
-    handleGetCountries();
+document.addEventListener("DOMContentLoaded", async function() {
+    handleGetDetail();
 });
 
-function handleGetCountries(event) {
+function handleGetDetail(event) {
     if (event) {
         event.preventDefault();
     }
 
     getSessionToken()
         .then(mySession => fetchData(mySession.token))
-        .then(data => populateCountryOptions(data))
+        .then(data => showData(data))
         .catch(error => handleError(error));
 }
 
 function fetchData(token) {
-    return fetch(apiUrl + 'countries/get_country_all.php', {
-        method: 'GET',
-        headers: {
-            'Authorization': `Bearer ${token}`
-        }
-    })
+    const business_typeId = getQueryParam('business_type_id');
+    return fetch(apiUrl + 'business_types/get_business_type.php?business_type_id=' + business_typeId, {
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        })
         .then(response => response.json());
 }
 
-function populateCountryOptions(data) {
-    const countrySelect = document.getElementById('country_id');
+function showData(data) {
     if (data.status === 'success') {
-        data.data.forEach(country => {
-            const option = document.createElement('option');
-            option.value = country.country_id;
-            option.textContent = country.country_code + ' - ' + country.country_name;
-            countrySelect.appendChild(option);
-        });
+        const business_type = data.data;
+        document.getElementById('business_type_id').value = business_type.business_type_id;
+        document.getElementById('business_type_code').value = business_type.business_type_code;
+        document.getElementById('description').value = business_type.description;
     } else {
         handleError(data.message);
     }
 }
 
-document.getElementById('companyForm').addEventListener('submit', function handleFormSubmit(event) {
+document.getElementById('business_typeForm').addEventListener('submit', function handleFormSubmit(event) {
     event.preventDefault();
 
     const submitButton = document.getElementById('submitBtn');
@@ -47,16 +45,16 @@ document.getElementById('companyForm').addEventListener('submit', function handl
     const jsonData = convertFormDataToJson(formData);
 
     getSessionToken()
-        .then(mySession => createData(mySession.token, jsonData))
-        .then(response => handleCreateResponse(response))
+        .then(mySession => updateData(mySession.token, jsonData))
+        .then(response => handleUpdateResponse(response))
         .catch(error => handleError(error))
         .finally(() => {
             submitButton.disabled = false;
         });
 });
 
-function createData(token, jsonData) {
-    return fetch(apiUrl + 'companies/create_company.php', {
+function updateData(token, jsonData) {
+    return fetch(apiUrl + 'business_types/update_business_type.php', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -67,14 +65,14 @@ function createData(token, jsonData) {
     .then(response => response.json());
 }
 
-function handleCreateResponse(data) {
+function handleUpdateResponse(data) {
     if (data.status === 'success') {
         Swal.fire({
             icon: 'success',
             title: texts.success,
         })
         .then(() => {
-            window.location.href = 'company_all.php';
+            location.reload();
         });
     } else {
         Swal.fire({

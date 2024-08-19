@@ -57,5 +57,9 @@ return [
     'standard_communication' => 'Standard Communication',
     'comment' => 'Comment',
     'select_country' => 'Select Country',
+    'business_type_create' => 'Business Type Create',
+    'business_type' => 'Business Type',
+    'business_type_code' => 'Business Type Code',
+    'description' => 'Description',
 
 ];

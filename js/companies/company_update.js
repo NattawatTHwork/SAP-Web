@@ -37,7 +37,7 @@ function populateCountryOptions(data) {
         data.data.forEach(country => {
             const option = document.createElement('option');
             option.value = country.country_id;
-            option.textContent = country.country_code + ' - ' + country.name;
+            option.textContent = country.country_code + ' - ' + country.country_name;
             countrySelect.appendChild(option);
         });
     } else {

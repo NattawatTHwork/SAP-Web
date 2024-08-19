@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <?php include_once '../php/companies/country_create.php' ?>
+    <?php include_once '../php/countries/country_create.php' ?>
 
     <?php include_once '../components/header.php' ?>
 
@@ -60,7 +60,7 @@
                                     <div class="col-md-4">
                                         <div class="mb-3">
                                             <label for="name" class="form-label"><?= $texts['name'] ?></label>
-                                            <input type="text" class="form-control" id="name" name="name">
+                                            <input type="text" class="form-control" id="country_name" name="country_name" required>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
