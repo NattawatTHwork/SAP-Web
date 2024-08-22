@@ -12,5 +12,12 @@ texts = {
     'want_delete': 'Do you want to delete it?',
     'delete': 'Delete',
     'cancel': 'Cancel',
+    'sub_company': 'Subdivision Company',
+    'enable': 'Enable',
+    'disable': 'Disable',
+    'not_match': 'Password and password confirmation do not match.',
+    'password_too_short': 'Password must be at least 6 characters long.',
+    'exists': 'Username already exists',
+    'change_password': 'Change Password',
 
 }

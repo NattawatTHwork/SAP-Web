@@ -1,34 +1,34 @@
 document.addEventListener("DOMContentLoaded", async function () {
-    handleGetCountries();
+    try {
+        const sessionToken = await getSessionToken(); // รับค่า sessionToken เพียงครั้งเดียว
+
+        await handleGetCountries(sessionToken.token); // ส่ง token ไปยังฟังก์ชันที่ต้องการ
+        await handleGetBusinessTypes(sessionToken.token); // ส่ง token ไปยังฟังก์ชันที่ต้องการ
+
+        const data = await fetchData(sessionToken.token); // ใช้ token ที่ได้รับ
+        showData(data);
+    } catch (error) {
+        handleError(error);
+    }
 });
 
-function handleGetCountries(event) {
-    if (event) {
-        event.preventDefault();
+async function handleGetCountries(token) {
+    try {
+        const data = await fetchCountries(token); // ส่ง token ไปยังฟังก์ชันที่ต้องการ
+        populateCountryOptions(data);
+    } catch (error) {
+        handleError(error);
     }
-
-    getSessionToken()
-        .then(mySession => {
-            return fetchCountryData(mySession.token)
-                .then(data => {
-                    populateCountryOptions(data);
-                    return mySession.token;
-                });
-        })
-        .then(token => fetchData(token))
-        .then(data => showData(data))
-        .catch(error => handleError(error));
-
 }
 
-function fetchCountryData(token) {
+function fetchCountries(token) {
     return fetch(apiUrl + 'countries/get_country_all.php', {
         method: 'GET',
         headers: {
             'Authorization': `Bearer ${token}`
         }
     })
-        .then(response => response.json());
+    .then(response => response.json());
 }
 
 function populateCountryOptions(data) {
@@ -45,23 +45,75 @@ function populateCountryOptions(data) {
     }
 }
 
-function fetchData(token) {
-    const companyId = getQueryParam('company_id');
-    return fetch(apiUrl + 'companies/get_company.php?company_id=' + companyId, {
+async function handleGetBusinessTypes(token) {
+    try {
+        const data = await fetchBusinessTypes(token); // ส่ง token ไปยังฟังก์ชันที่ต้องการ
+        populateBusinessTypeOptions(data);
+    } catch (error) {
+        handleError(error);
+    }
+}
+
+function fetchBusinessTypes(token) {
+    return fetch(apiUrl + 'business_types/get_business_type_all.php', {
         method: 'GET',
         headers: {
             'Authorization': `Bearer ${token}`
         }
     })
+    .then(response => response.json());
+}
+
+function populateBusinessTypeOptions(data) {
+    const businessTypeSelect = document.getElementById('business_type_id');
+    if (data.status === 'success') {
+        data.data.forEach(type => {
+            const option = document.createElement('option');
+            option.value = type.business_type_id;
+            option.textContent = type.business_type_code + ' - ' + type.description;
+            businessTypeSelect.appendChild(option);
+        });
+    } else {
+        handleError(data.message);
+    }
+}
+
+function fetchData(token) {
+    const subCompanyId = getQueryParam('sub_company_id');
+    return fetch(apiUrl + 'sub_companies/get_sub_company.php?sub_company_id=' + subCompanyId, {
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        })
         .then(response => response.json());
 }
 
 function showData(data) {
     if (data.status === 'success') {
         const company = data.data;
-        document.getElementById('company_id').value = company.company_id;
+
+        document.getElementById('sub_company_id').value = company.sub_company_id;
         document.getElementById('company_code').value = company.company_code;
+        document.getElementById('name_th_h').value = company.name_th;
+        document.getElementById('sub_company_code').value = company.sub_company_code;
+        document.getElementById('sub_company_name').value = company.sub_company_name;
+
+        document.getElementById('cnpj_bus_place').value = company.cnpj_bus_place;
+        document.getElementById('state_tax').value = company.state_tax;
+        document.getElementById('munic_tax').value = company.munic_tax;
+        document.getElementById('bp_cfop_cat').value = company.bp_cfop_cat;
+
+        document.getElementById('representative_name').value = company.representative_name;
+        document.getElementById('business_type_id').value = company.business_type_id;
+        document.getElementById('industry_type').value = company.industry_type;
+        document.getElementById('tax_number1').value = company.tax_number1;
+        document.getElementById('tax_number2').value = company.tax_number2;
+        document.getElementById('tax_office').value = company.tax_office;
+
+        document.getElementById('sub_name_th').value = company.sub_name_th;
         document.getElementById('name_th').value = company.name_th;
+        document.getElementById('sub_name_en').value = company.sub_name_en;
         document.getElementById('name_en').value = company.name_en;
         document.getElementById('search_first').value = company.search_first;
         document.getElementById('search_second').value = company.search_second;
@@ -84,13 +136,12 @@ function showData(data) {
         document.getElementById('fax_ex').value = company.fax_ex;
         document.getElementById('email').value = company.email;
         document.getElementById('standard_communication').value = company.standard_communication;
-        document.getElementById('comment').value = company.comment;
     } else {
         handleError(data.message);
     }
 }
 
-document.getElementById('companyForm').addEventListener('submit', function handleFormSubmit(event) {
+document.getElementById('subCompanyForm').addEventListener('submit', function handleFormSubmit(event) {
     event.preventDefault();
 
     const submitButton = document.getElementById('submitBtn');
@@ -109,7 +160,7 @@ document.getElementById('companyForm').addEventListener('submit', function handl
 });
 
 function updateData(token, jsonData) {
-    return fetch(apiUrl + 'companies/update_company.php', {
+    return fetch(apiUrl + 'sub_companies/update_sub_company.php', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

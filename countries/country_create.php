@@ -169,7 +169,7 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="mb-3">
-                                            <label for="standard_name_format" class="form-label"><?= $texts['country_name_print'] ?></label>
+                                            <label for="standard_name_format" class="form-label"><?= $texts['standard_name_format'] ?></label>
                                             <input type="text" class="form-control" id="standard_name_format" name="standard_name_format">
                                         </div>
                                     </div>

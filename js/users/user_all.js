@@ -14,7 +14,7 @@ function handleGetAll(event) {
 }
 
 function fetchData(token) {
-    return fetch(apiUrl + 'companies/get_company_all.php', {
+    return fetch(apiUrl + 'users/get_user_all.php', {
         method: 'GET',
         headers: {
             'Authorization': `Bearer ${token}`
@@ -25,23 +25,29 @@ function fetchData(token) {
 
 function displayTables(datas) {
     let html = '';
-    const noDataHtml = '<tr><td></td><td>' + texts.no_data + '</td><td></td></tr>';
+    const noDataHtml = '<tr><td></td><td></td><td>' + texts.no_data + '</td><td></td><td></td></tr>';
     if (datas.status === 'success') {
         if (datas.data.length > 0) {
             datas.data.forEach(data => {
                 html += '<tr>';
-                html += `<td>${data.company_code}</td>
-                    <td>${data.name_th}</td>
-                    <td>
+                html += `<td>${data.username}</td>
+                    <td>${data.firstname} ${data.lastname}</td>
+                    <td>${data.role}</td>
+                <td>
+                    <button class="btn ${data.statusflag == 't' ? 'btn-success' : 'btn-danger'}">
+                        ${data.statusflag == 't' ? texts.enable : texts.disable}
+                    </button>
+                </td>
+                <td>
                         <div class="dropdown">
                             <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 ${texts.option}
                             </button>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="${pathUrl}sub_companies/sub_company_all.php?company_id=${data.company_id}">${texts.sub_company}</a></li>
-                                <li><a class="dropdown-item" href="company_detail.php?company_id=${data.company_id}">${texts.view_data}</a></li>
-                                <li><a class="dropdown-item" href="company_update.php?company_id=${data.company_id}">${texts.edit}</a></li>
-                                <li><a class="dropdown-item" href="#" onclick="delete_data('${data.company_id}', '${data.company_code}'); return false;">${texts.delete}</a></li>
+                                <li><a class="dropdown-item" href="user_detail.php?user_id=${data.user_id}">${texts.view_data}</a></li>
+                                <li><a class="dropdown-item" href="user_update.php?user_id=${data.user_id}">${texts.edit}</a></li>
+                                <li><a class="dropdown-item" href="user_change_password.php?user_id=${data.user_id}">${texts.change_password}</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="delete_data('${data.user_id}', '${data.username}'); return false;">${texts.delete}</a></li>
                             </ul>
                         </div>
                     </td>`;
@@ -62,9 +68,9 @@ function displayTables(datas) {
     });
 }
 
-function delete_data(companyId, company_code) {
+function delete_data(userId, username) {
     Swal.fire({
-        title: company_code,
+        title: username,
         text: texts.want_delete,
         icon: 'warning',
         showCancelButton: true,
@@ -73,23 +79,23 @@ function delete_data(companyId, company_code) {
     }).then((result) => {
         if (result.isConfirmed) {
             getSessionToken()
-                .then(mySession => fetchDelete(companyId, mySession.token))
+                .then(mySession => fetchDelete(userId, mySession.token))
                 .then(response => handleDeleteResponse(response))
                 .catch(error => handleError(error));
         }
     });
 }
 
-function fetchDelete(companyId, token) {
-    return fetch(apiUrl + 'companies/delete_company.php', {
+function fetchDelete(userId, token) {
+    return fetch(apiUrl + 'users/delete_user.php', {
         method: 'POST',
         headers: {
             'Authorization': `Bearer ${token}`,
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ company_id: companyId })
+        body: JSON.stringify({ user_id: userId })
     })
-    .then(response => response.json());
+        .then(response => response.json());
 }
 
 function handleDeleteResponse(response) {

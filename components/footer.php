@@ -30,6 +30,7 @@
 <script src="<?= $path ?>js/api_url.js"></script>
 <script src="<?= $path ?>js/common/get_session_token.js"></script>
 <script src="<?= $path ?>js/language.js"></script>
+<script src="<?= $path ?>js/login/logout.js"></script>
 <?php if (basename($_SERVER['PHP_SELF']) != 'login.php') { ?>
     <script src="<?= $path ?>js/login/check_login.js"></script>
 <?php } ?>

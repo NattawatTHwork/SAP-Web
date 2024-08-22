@@ -4,11 +4,34 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 
         <li class="nav-item">
-            <a class="nav-link collapsed" href="index.html">
+            <a class="nav-link collapsed" href="index.php">
                 <i class="bi bi-grid"></i>
                 <span>Dashboard</span>
             </a>
         </li><!-- End Dashboard Nav -->
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" data-bs-target="#manage-nav" data-bs-toggle="collapse" href="#">
+                <i class="bi bi-menu-button-wide"></i><span>เพิ่มข้อมูลทั่วไป</span><i class="bi bi-chevron-down ms-auto"></i>
+            </a>
+            <ul id="manage-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                <li>
+                    <a href="<?= $path ?>countries/country_all.php">
+                        <i class="bi bi-circle"></i><span>ประเทศ</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="<?= $path ?>business_types/business_type_all.php">
+                        <i class="bi bi-circle"></i><span>ประเภทธุรกิจ</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="<?= $path ?>companies/company_all.php">
+                        <i class="bi bi-circle"></i><span>บริษัท</span>
+                    </a>
+                </li>
+            </ul>
+        </li><!-- End Components Nav -->
 
         <li class="nav-item">
             <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">

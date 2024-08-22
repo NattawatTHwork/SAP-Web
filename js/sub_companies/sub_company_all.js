@@ -14,7 +14,8 @@ function handleGetAll(event) {
 }
 
 function fetchData(token) {
-    return fetch(apiUrl + 'companies/get_company_all.php', {
+    const CompanyId = getQueryParam('company_id');
+    return fetch(apiUrl + 'sub_companies/get_sub_company_all.php?company_id=' + CompanyId, {
         method: 'GET',
         headers: {
             'Authorization': `Bearer ${token}`
@@ -30,18 +31,17 @@ function displayTables(datas) {
         if (datas.data.length > 0) {
             datas.data.forEach(data => {
                 html += '<tr>';
-                html += `<td>${data.company_code}</td>
-                    <td>${data.name_th}</td>
+                html += `<td>${data.sub_company_code}</td>
+                    <td>${data.sub_company_name}</td>
                     <td>
                         <div class="dropdown">
                             <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 ${texts.option}
                             </button>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="${pathUrl}sub_companies/sub_company_all.php?company_id=${data.company_id}">${texts.sub_company}</a></li>
-                                <li><a class="dropdown-item" href="company_detail.php?company_id=${data.company_id}">${texts.view_data}</a></li>
-                                <li><a class="dropdown-item" href="company_update.php?company_id=${data.company_id}">${texts.edit}</a></li>
-                                <li><a class="dropdown-item" href="#" onclick="delete_data('${data.company_id}', '${data.company_code}'); return false;">${texts.delete}</a></li>
+                                <li><a class="dropdown-item" href="sub_company_detail.php?sub_company_id=${data.sub_company_id}">${texts.view_data}</a></li>
+                                <li><a class="dropdown-item" href="sub_company_update.php?sub_company_id=${data.sub_company_id}">${texts.edit}</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="delete_data('${data.sub_company_id}', '${data.sub_company_code}'); return false;">${texts.delete}</a></li>
                             </ul>
                         </div>
                     </td>`;
@@ -62,9 +62,9 @@ function displayTables(datas) {
     });
 }
 
-function delete_data(companyId, company_code) {
+function delete_data(subCompanyId, sub_company_code) {
     Swal.fire({
-        title: company_code,
+        title: sub_company_code,
         text: texts.want_delete,
         icon: 'warning',
         showCancelButton: true,
@@ -73,21 +73,21 @@ function delete_data(companyId, company_code) {
     }).then((result) => {
         if (result.isConfirmed) {
             getSessionToken()
-                .then(mySession => fetchDelete(companyId, mySession.token))
+                .then(mySession => fetchDelete(subCompanyId, mySession.token))
                 .then(response => handleDeleteResponse(response))
                 .catch(error => handleError(error));
         }
     });
 }
 
-function fetchDelete(companyId, token) {
-    return fetch(apiUrl + 'companies/delete_company.php', {
+function fetchDelete(subCompanyId, token) {
+    return fetch(apiUrl + 'sub_companies/delete_sub_company.php', {
         method: 'POST',
         headers: {
             'Authorization': `Bearer ${token}`,
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ company_id: companyId })
+        body: JSON.stringify({ sub_company_id: subCompanyId })
     })
     .then(response => response.json());
 }
