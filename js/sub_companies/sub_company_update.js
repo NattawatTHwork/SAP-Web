@@ -1,11 +1,11 @@
 document.addEventListener("DOMContentLoaded", async function () {
     try {
-        const sessionToken = await getSessionToken(); // รับค่า sessionToken เพียงครั้งเดียว
+        const sessionToken = await getSessionToken();
 
-        await handleGetCountries(sessionToken.token); // ส่ง token ไปยังฟังก์ชันที่ต้องการ
-        await handleGetBusinessTypes(sessionToken.token); // ส่ง token ไปยังฟังก์ชันที่ต้องการ
+        await handleGetCountries(sessionToken.token);
+        await handleGetBusinessTypes(sessionToken.token);
 
-        const data = await fetchData(sessionToken.token); // ใช้ token ที่ได้รับ
+        const data = await fetchData(sessionToken.token);
         showData(data);
     } catch (error) {
         handleError(error);
@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
 async function handleGetCountries(token) {
     try {
-        const data = await fetchCountries(token); // ส่ง token ไปยังฟังก์ชันที่ต้องการ
+        const data = await fetchCountries(token);
         populateCountryOptions(data);
     } catch (error) {
         handleError(error);
@@ -47,7 +47,7 @@ function populateCountryOptions(data) {
 
 async function handleGetBusinessTypes(token) {
     try {
-        const data = await fetchBusinessTypes(token); // ส่ง token ไปยังฟังก์ชันที่ต้องการ
+        const data = await fetchBusinessTypes(token);
         populateBusinessTypeOptions(data);
     } catch (error) {
         handleError(error);

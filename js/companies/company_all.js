@@ -39,6 +39,7 @@ function displayTables(datas) {
                             </button>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="${pathUrl}sub_companies/sub_company_all.php?company_id=${data.company_id}">${texts.sub_company}</a></li>
+                                <li><a class="dropdown-item" href="${pathUrl}companies/company_manage.php?company_id=${data.company_id}">${texts.company_manage}</a></li>
                                 <li><a class="dropdown-item" href="company_detail.php?company_id=${data.company_id}">${texts.view_data}</a></li>
                                 <li><a class="dropdown-item" href="company_update.php?company_id=${data.company_id}">${texts.edit}</a></li>
                                 <li><a class="dropdown-item" href="#" onclick="delete_data('${data.company_id}', '${data.company_code}'); return false;">${texts.delete}</a></li>

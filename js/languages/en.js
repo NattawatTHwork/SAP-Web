@@ -19,5 +19,9 @@ texts = {
     'password_too_short': 'Password must be at least 6 characters long.',
     'exists': 'Username already exists',
     'change_password': 'Change Password',
+    'period': 'Period',
+    'chart_account': 'Chart Account',
+    'company_manage': 'Company Manage',
+    'transaction_period': 'Transaction Period',
 
 }

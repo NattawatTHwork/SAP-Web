@@ -19,5 +19,9 @@ texts = {
     'password_too_short': 'รหัสผ่านต้องมีความยาวไม่น้อยกว่า 6 ตัวอักษร',
     'exists': 'ชื่อผู้ใช้มีอยู่แล้ว',
     'change_password': 'เปลี่ยนรหัสผ่าน',
+    'period': 'งวด',
+    'chart_account': 'ผังบัญชี',
+    'company_manage': 'จัดการบริษัท',
+    'transaction_period': 'งวดการผ่านรายการ',
 
 }

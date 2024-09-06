@@ -1,11 +1,11 @@
 <?php
 if (isset($_SESSION['allowed_menu']) && is_array($_SESSION['allowed_menu'])) {
     $allowed_menu = $_SESSION['allowed_menu'];
-    if (!in_array(19, $allowed_menu)) {
-        header("Location: index.php");
+    if (!in_array(20, $allowed_menu)) {
+        header('Location: ' . $path . 'index.php');
         exit();
     }
 } else {
-    header("Location: login.php");
+    header('Location: ' . $path . 'login.php');
     exit();
 }

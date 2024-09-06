@@ -4,7 +4,7 @@ function logout() {
         .then(data => {
             if (data.status === 'success') {
                 console.log('Session token cleared successfully.');
-                window.location.href = pathUrl + 'login.php'; // Move inside if block
+                window.location.href = pathUrl + 'login.php';
             } else {
                 console.error('Error clearing session token:', data.message);
             }
