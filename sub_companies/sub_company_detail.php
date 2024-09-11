@@ -39,7 +39,7 @@
                     <div class="card">
                         <div class="card-body m-4">
                             <!-- Form for sub company details -->
-                            <form id="subCompanyForm">
+                            <form id="InputForm">
                                 <div class="row pb-4">
                                     <div class="col-12">
                                         <div class="mb-3 row">

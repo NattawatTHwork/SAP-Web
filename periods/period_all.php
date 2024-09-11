@@ -34,7 +34,7 @@
 
         <div class="d-sm-flex justify-content-end mb-2 row">
             <div class="col-sm-12 col-md-4">
-                <a href="period_create.php?fiscal_year_id=<?= $_GET['fiscal_year_id'] ?>" class="btn btn-primary w-100 btn-block">
+                <a href="period_create.php?period_group_id=<?= $_GET['period_group_id'] ?>" class="btn btn-primary w-100 btn-block">
                     <?= $texts['period_create'] ?>
                 </a>
             </div>

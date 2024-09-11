@@ -69,7 +69,7 @@ function populateBusinessTypeOptions(data) {
     }
 }
 
-document.getElementById('subCompanyForm').addEventListener('submit', function handleFormSubmit(event) {
+document.getElementById('InputForm').addEventListener('submit', function handleFormSubmit(event) {
     event.preventDefault();
 
     const submitButton = document.getElementById('submitBtn');

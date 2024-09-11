@@ -41,7 +41,7 @@ function showData(data) {
     }
 }
 
-document.getElementById('periodForm').addEventListener('submit', function handleFormSubmit(event) {
+document.getElementById('InputForm').addEventListener('submit', function handleFormSubmit(event) {
     event.preventDefault();
 
     const submitButton = document.getElementById('submitBtn');

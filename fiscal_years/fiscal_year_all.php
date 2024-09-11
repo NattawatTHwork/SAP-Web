@@ -52,6 +52,10 @@
                                     <tr>
                                         <th><?= $texts['fiscal_year_code'] ?></th>
                                         <th><?= $texts['description'] ?></th>
+                                        <th><?= $texts['dependent_on_fiscal_year'] ?></th>
+                                        <th><?= $texts['calendar_year'] ?></th>
+                                        <th><?= $texts['posting_period_count'] ?></th>
+                                        <th><?= $texts['special_period_count'] ?></th>
                                         <th><?= $texts['option'] ?></th>
                                     </tr>
                                 </thead>

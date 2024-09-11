@@ -39,10 +39,17 @@
                     <div class="card">
                         <div class="card-body m-4">
                             <!-- Form for transaction_period create details -->
-                            <form id="transaction_periodForm">
+                            <form id="InputForm">
                                 <h6 class="fw-bold fs-4"><?= $texts['transaction_period_create'] ?></h6>
                                 <div class="row pb-4">
-                                    <input type="hidden" id="fiscal_year_id" name="fiscal_year_id" value="<?= $_GET['fiscal_year_id'] ?>">
+                                    <div class="col-12">
+                                        <div class="mb-3">
+                                            <label for="transaction_period_group_id" class="form-label"><?= $texts['transaction_period_group_code'] ?></label>
+                                            <select class="form-control" id="transaction_period_group_id" name="transaction_period_group_id" required>
+                                                <!-- Dynamic options will be populated here -->
+                                            </select>
+                                        </div>
+                                    </div>
                                     <div class="col-12">
                                         <div class="mb-3">
                                             <label for="transaction_period_type_id" class="form-label"><?= $texts['account_type'] ?></label>
@@ -65,10 +72,10 @@
                                     </div>
                                     <div class="col-12">
                                         <div class="mb-3">
-                                            <label for="period_from_first" class="form-label"><?= $texts['account_type'] ?></label>
-                                            <select class="form-control" id="period_from_first" name="period_from_first" required>
-                                                <!-- Dynamic options will be populated here -->
-                                            </select>
+                                            <label for="period_from_first" class="form-label"><?= $texts['period_from_first'] ?></label>
+                                            <!-- <select class="form-control" id="period_from_first" name="period_from_first" required>
+                                            </select> -->
+                                            <input type="number" class="form-control" id="period_from_first" name="period_from_first" required>
                                         </div>
                                     </div>
                                     <div class="col-12">
@@ -80,9 +87,9 @@
                                     <div class="col-12">
                                         <div class="mb-3">
                                             <label for="period_to_first" class="form-label"><?= $texts['period_to_first'] ?></label>
-                                            <select class="form-control" id="period_to_first" name="period_to_first" required>
-                                                <!-- Dynamic options will be populated here -->
-                                            </select>
+                                            <!-- <select class="form-control" id="period_to_first" name="period_to_first" required>
+                                            </select> -->
+                                            <input type="number" class="form-control" id="period_to_first" name="period_to_first" required>
                                         </div>
                                     </div>
                                     <div class="col-12">
@@ -94,9 +101,9 @@
                                     <div class="col-12">
                                         <div class="mb-3">
                                             <label for="period_from_second" class="form-label"><?= $texts['period_from_second'] ?></label>
-                                            <select class="form-control" id="period_from_second" name="period_from_second" required>
-                                                <!-- Dynamic options will be populated here -->
-                                            </select>
+                                            <!-- <select class="form-control" id="period_from_second" name="period_from_second" required>
+                                            </select> -->
+                                            <input type="number" class="form-control" id="period_from_second" name="period_from_second" required>
                                         </div>
                                     </div>
                                     <div class="col-12">
@@ -108,9 +115,9 @@
                                     <div class="col-12">
                                         <div class="mb-3">
                                             <label for="period_to_second" class="form-label"><?= $texts['period_to_second'] ?></label>
-                                            <select class="form-control" id="period_to_second" name="period_to_second" required>
-                                                <!-- Dynamic options will be populated here -->
-                                            </select>
+                                            <!-- <select class="form-control" id="period_to_second" name="period_to_second" required>
+                                            </select> -->
+                                            <input type="number" class="form-control" id="period_to_second" name="period_to_second" required>
                                         </div>
                                     </div>
                                     <div class="col-12">
@@ -125,9 +132,13 @@
                                             <input type="text" class="form-control" id="augr" name="augr" required>
                                         </div>
                                     </div>
-
-                                    <div class="row pb-4 text-center">
-                                        <button type="submit" class="btn btn-primary" id="submitBtn"><?= $texts['save'] ?></button>
+                                </div>
+                                
+                                <div class="row pb-4">
+                                    <div class="col-12">
+                                        <div class="text-center">
+                                            <button type="submit" class="btn btn-primary w-100" id="submitBtn"><?= $texts['save'] ?></button>
+                                        </div>
                                     </div>
                                 </div>
                             </form> <!-- End Form -->

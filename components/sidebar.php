@@ -36,8 +36,28 @@
                     </a>
                 </li>
                 <li>
+                    <a href="<?= $path ?>group_accounts/group_account_all.php">
+                        <i class="bi bi-circle"></i><span>กลุ่มบัญชี</span>
+                    </a>
+                </li>
+                <li>
                     <a href="<?= $path ?>fiscal_years/fiscal_year_all.php">
                         <i class="bi bi-circle"></i><span>ชุดการเลือกปีบัญชี</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="<?= $path ?>period_groups/period_group_all.php">
+                        <i class="bi bi-circle"></i><span>กลุ่มงวด</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="<?= $path ?>transaction_period_groups/transaction_period_group_all.php">
+                        <i class="bi bi-circle"></i><span>ชุดงวดการผ่านรายการ</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="<?= $path ?>transaction_periods/transaction_period_all.php">
+                        <i class="bi bi-circle"></i><span>งวดการผ่านรายการ</span>
                     </a>
                 </li>
             </ul>

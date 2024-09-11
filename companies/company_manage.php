@@ -39,7 +39,7 @@
                     <div class="card">
                         <div class="card-body m-4">
                             <!-- Form for company details -->
-                            <form id="companyForm">
+                            <form id="InputForm">
                                 <input type="hidden" id="company_id" name="company_id" value="<?= $_GET['company_id'] ?>">
 
                                 <h6 class="fw-bold fs-4"><?= $texts['manage_account_structure'] ?></h6>
@@ -150,8 +150,10 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="mb-3">
-                                            <label for="entry_period_set" class="form-label"><?= $texts['entry_period_set'] ?></label>
-                                            <input type="text" class="form-control" id="entry_period_set" name="entry_period_set">
+                                            <label for="transaction_period_group_id" class="form-label"><?= $texts['entry_period_set'] ?></label>
+                                            <select class="form-control" id="transaction_period_group_id" name="transaction_period_group_id">
+                                                <!-- Dynamic options will be populated here -->
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -279,8 +281,12 @@
                                     </div>
                                 </div>
 
-                                <div class="row pb-4 text-center">
-                                    <button type="submit" class="btn btn-primary" id="submitBtn"><?= $texts['save'] ?></button>
+                                <div class="row pb-4">
+                                    <div class="col-12">
+                                        <div class="text-center">
+                                            <button type="submit" class="btn btn-primary w-100" id="submitBtn"><?= $texts['save'] ?></button>
+                                        </div>
+                                    </div>
                                 </div>
                             </form>
                         </div>

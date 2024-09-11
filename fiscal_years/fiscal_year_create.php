@@ -39,7 +39,7 @@
                     <div class="card">
                         <div class="card-body m-4">
                             <!-- Form for fiscal_year details -->
-                            <form id="fiscal_yearForm">
+                            <form id="InputForm">
                                 <h6 class="fw-bold fs-4"><?= $texts['fiscal_year_create'] ?></h6>
                                 <div class="row pb-4">
                                     <div class="col-12">
@@ -72,9 +72,33 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="col-12">
+                                        <div class="mb-3">
+                                            <label for="posting_period_count" class="form-label"><?= $texts['posting_period_count'] ?></label>
+                                            <input type="number" class="form-control" id="posting_period_count" name="posting_period_count">
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="mb-3">
+                                            <label for="special_period_count" class="form-label"><?= $texts['special_period_count'] ?></label>
+                                            <input type="number" class="form-control" id="special_period_count" name="special_period_count">
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="mb-3">
+                                            <label for="period_group_id" class="form-label"><?= $texts['period_group_code'] ?></label>
+                                            <select class="form-control" id="period_group_id" name="period_group_id">
+                                                <!-- Dynamic options will be populated here -->
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
 
-                                    <div class="row pb-4 text-center">
-                                        <button type="submit" class="btn btn-primary" id="submitBtn"><?= $texts['save'] ?></button>
+                                <div class="row pb-4">
+                                    <div class="col-12">
+                                        <div class="text-center">
+                                            <button type="submit" class="btn btn-primary w-100" id="submitBtn"><?= $texts['save'] ?></button>
+                                        </div>
                                     </div>
                                 </div>
                             </form> <!-- End Form -->

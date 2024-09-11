@@ -23,5 +23,6 @@ texts = {
     'chart_account': 'ผังบัญชี',
     'company_manage': 'จัดการบริษัท',
     'transaction_period': 'งวดการผ่านรายการ',
+    'transaction_period_group': 'กลุ่มงวดการผ่านรายการ',
 
 }

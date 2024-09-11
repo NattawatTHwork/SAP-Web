@@ -1,6 +1,42 @@
-document.addEventListener("DOMContentLoaded", async function() {
+document.addEventListener("DOMContentLoaded", async function () {
+    handleGetPeriodGroups();
     handleGetDetail();
 });
+
+function handleGetPeriodGroups(event) {
+    if (event) {
+        event.preventDefault();
+    }
+
+    getSessionToken()
+        .then(mySession => fetchPeriodGroups(mySession.token))
+        .then(data => populatePeriodGroupOptions(data))
+        .catch(error => handleError(error));
+}
+
+function fetchPeriodGroups(token) {
+    return fetch(apiUrl + 'period_groups/get_period_group_all.php', {
+        method: 'GET',
+        headers: {
+            'Authorization': `Bearer ${token}`
+        }
+    })
+        .then(response => response.json());
+}
+
+function populatePeriodGroupOptions(data) {
+    const periodGroupSelect = document.getElementById('period_group_id');
+    if (data.status === 'success') {
+        data.data.forEach(periodGroup => {
+            const option = document.createElement('option');
+            option.value = periodGroup.period_group_id;
+            option.textContent = periodGroup.period_group_code;
+            periodGroupSelect.appendChild(option);
+        });
+    } else {
+        handleError(data.message);
+    }
+}
 
 function handleGetDetail(event) {
     if (event) {
@@ -32,12 +68,15 @@ function showData(data) {
         document.getElementById('description').value = fiscal_year.description;
         document.getElementById('fiscal_year_check').checked = fiscal_year.fiscal_year_check === 't';
         document.getElementById('calendar_year_check').checked = fiscal_year.calendar_year_check === 't';
+        document.getElementById('posting_period_count').value = fiscal_year.posting_period_count;
+        document.getElementById('special_period_count').value = fiscal_year.special_period_count;
+        document.getElementById('period_group_id').value = fiscal_year.period_group_id;
     } else {
         handleError(data.message);
     }
 }
 
-document.getElementById('fiscal_yearForm').addEventListener('submit', function handleFormSubmit(event) {
+document.getElementById('InputForm').addEventListener('submit', function handleFormSubmit(event) {
     event.preventDefault();
 
     const submitButton = document.getElementById('submitBtn');

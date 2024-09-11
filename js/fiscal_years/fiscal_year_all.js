@@ -25,21 +25,23 @@ function fetchData(token) {
 
 function displayTables(datas) {
     let html = '';
-    const noDataHtml = '<tr><td></td><td>' + texts.no_data + '</td><td></td></tr>';
+    const noDataHtml = '<tr><td></td><td></td><td></td><td>' + texts.no_data + '</td><td></td><td></td><td></td></tr>';
     if (datas.status === 'success') {
         if (datas.data.length > 0) {
             datas.data.forEach(data => {
                 html += '<tr>';
                 html += `<td>${data.fiscal_year_code}</td>
                     <td>${data.description}</td>
+                    <td><input type="checkbox" ${data.fiscal_year_check === 't' ? 'checked' : ''} disabled></td>
+                    <td><input type="checkbox" ${data.calendar_year_check === 't' ? 'checked' : ''} disabled></td>
+                    <td>${data.posting_period_count}</td>
+                    <td>${data.special_period_count}</td>
                     <td>
                         <div class="dropdown">
                             <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 ${texts.option}
                             </button>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="${pathUrl}periods/period_all.php?fiscal_year_id=${data.fiscal_year_id}">${texts.period}</a></li>
-                                <li><a class="dropdown-item" href="${pathUrl}transaction_periods/transaction_period_all.php?fiscal_year_id=${data.fiscal_year_id}">${texts.transaction_period}</a></li>
                                 <li><a class="dropdown-item" href="fiscal_year_detail.php?fiscal_year_id=${data.fiscal_year_id}">${texts.view_data}</a></li>
                                 <li><a class="dropdown-item" href="fiscal_year_update.php?fiscal_year_id=${data.fiscal_year_id}">${texts.edit}</a></li>
                                 <li><a class="dropdown-item" href="#" onclick="delete_data('${data.fiscal_year_id}', '${data.fiscal_year_code}'); return false;">${texts.delete}</a></li>

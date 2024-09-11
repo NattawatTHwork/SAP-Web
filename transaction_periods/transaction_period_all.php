@@ -34,7 +34,7 @@
 
         <div class="d-sm-flex justify-content-end mb-2 row">
             <div class="col-sm-12 col-md-4">
-                <a href="transaction_period_create.php?fiscal_year_id=<?= $_GET['fiscal_year_id'] ?>" class="btn btn-primary w-100 btn-block">
+                <a href="transaction_period_create.php" class="btn btn-primary w-100 btn-block">
                     <?= $texts['transaction_period_create'] ?>
                 </a>
             </div>
@@ -50,6 +50,7 @@
                             <table id="datatables" class="table table-striped" style="width:100%">
                                 <thead>
                                     <tr>
+                                        <th><?= $texts['transaction_period_group_code'] ?></th>
                                         <th><?= $texts['account_type'] ?></th>
                                         <th><?= $texts['account_from'] ?></th>
                                         <th><?= $texts['account_to'] ?></th>

@@ -58,7 +58,7 @@ function showData(data) {
     }
 }
 
-document.getElementById('countryForm').addEventListener('submit', function handleFormSubmit(event) {
+document.getElementById('InputForm').addEventListener('submit', function handleFormSubmit(event) {
     event.preventDefault();
 
     const submitButton = document.getElementById('submitBtn');

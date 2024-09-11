@@ -1,4 +1,43 @@
-document.getElementById('fiscal_yearForm').addEventListener('submit', function handleFormSubmit(event) {
+document.addEventListener("DOMContentLoaded", async function () {
+    handleGetPeriodGroups();
+});
+
+function handleGetPeriodGroups(event) {
+    if (event) {
+        event.preventDefault();
+    }
+
+    getSessionToken()
+        .then(mySession => fetchPeriodGroups(mySession.token))
+        .then(data => populatePeriodGroupOptions(data))
+        .catch(error => handleError(error));
+}
+
+function fetchPeriodGroups(token) {
+    return fetch(apiUrl + 'period_groups/get_period_group_all.php', {
+        method: 'GET',
+        headers: {
+            'Authorization': `Bearer ${token}`
+        }
+    })
+        .then(response => response.json());
+}
+
+function populatePeriodGroupOptions(data) {
+    const periodGroupSelect = document.getElementById('period_group_id');
+    if (data.status === 'success') {
+        data.data.forEach(periodGroup => {
+            const option = document.createElement('option');
+            option.value = periodGroup.period_group_id;
+            option.textContent = periodGroup.period_group_code;
+            periodGroupSelect.appendChild(option);
+        });
+    } else {
+        handleError(data.message);
+    }
+}
+
+document.getElementById('InputForm').addEventListener('submit', function handleFormSubmit(event) {
     event.preventDefault();
 
     const submitButton = document.getElementById('submitBtn');
@@ -19,7 +58,9 @@ document.getElementById('fiscal_yearForm').addEventListener('submit', function h
 function createData(token, jsonData) {
     jsonData.fiscal_year_check = document.getElementById('fiscal_year_check').checked ? "true" : "false";
     jsonData.calendar_year_check = document.getElementById('calendar_year_check').checked ? "true" : "false";
-
+    jsonData.posting_period_count = document.getElementById('posting_period_count').value || 0;
+    jsonData.special_period_count = document.getElementById('special_period_count').value || 0;
+    
     return fetch(apiUrl + 'fiscal_years/create_fiscal_year.php', {
         method: 'POST',
         headers: {

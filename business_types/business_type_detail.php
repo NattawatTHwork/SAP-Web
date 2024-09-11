@@ -39,7 +39,7 @@
                     <div class="card">
                         <div class="card-body m-4">
                             <!-- Form for business_type details -->
-                            <form id="business_typeForm">
+                            <form id="InputForm">
                                 <h6 class="fw-bold fs-4"><?= $texts['business_type'] ?></h6>
                                 <div class="row pb-4">
                                     <div class="col-md-6">

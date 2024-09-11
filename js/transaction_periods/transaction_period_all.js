@@ -14,8 +14,8 @@ function handleGetAll(event) {
 }
 
 function fetchData(token) {
-    const FiscalYearId = getQueryParam('fiscal_year_id');
-    return fetch(apiUrl + 'transaction_periods/get_transaction_period_all.php?fiscal_year_id=' + FiscalYearId, {
+    const TransactionPeriodGroupId = getQueryParam('transaction_period_group_id');
+    return fetch(apiUrl + 'transaction_periods/get_transaction_period_all.php?transaction_period_group_id=' + TransactionPeriodGroupId, {
         method: 'GET',
         headers: {
             'Authorization': `Bearer ${token}`
@@ -26,21 +26,22 @@ function fetchData(token) {
 
 function displayTables(datas) {
     let html = '';
-    const noDataHtml = '<tr><td></td><td></td><td></td><td></td><td></td><td></td><td>' + texts.no_data + '</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>';
+    const noDataHtml = '<tr><td></td><td></td><td></td><td></td><td></td><td></td><td>' + texts.no_data + '</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>';
     if (datas.status === 'success') {
         if (datas.data.length > 0) {
             datas.data.forEach(data => {
                 html += '<tr>';
-                html += `<td>${data.transaction_period_type_code}</td>
+                html += `<td>${data.transaction_period_group_code}</td>
+                    <td>${data.transaction_period_type_code}</td>
                     <td>${data.account_from}</td>
                     <td>${data.account_to}</td>
-                    <td>${data.period_from_first_code}</td>
+                    <td>${data.period_from_first}</td>
                     <td>${data.period_from_first_year}</td>
-                    <td>${data.period_to_first_code}</td>
+                    <td>${data.period_to_first}</td>
                     <td>${data.period_to_first_year}</td>
-                    <td>${data.period_from_second_code}</td>
+                    <td>${data.period_from_second}</td>
                     <td>${data.period_from_second_year}</td>
-                    <td>${data.period_to_second_code}</td>
+                    <td>${data.period_to_second}</td>
                     <td>${data.period_to_second_year}</td>
                     <td>${data.augr}</td>
                     <td>
@@ -50,7 +51,7 @@ function displayTables(datas) {
                             </button>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="transaction_period_detail.php?transaction_period_id=${data.transaction_period_id}">${texts.view_data}</a></li>
-                                <li><a class="dropdown-item" href="transaction_period_update.php?transaction_period_id=${data.transaction_period_id}&fiscal_year_id=${data.fiscal_year_id}">${texts.edit}</a></li>
+                                <li><a class="dropdown-item" href="transaction_period_update.php?transaction_period_id=${data.transaction_period_id}">${texts.edit}</a></li>
                                 <li><a class="dropdown-item" href="#" onclick="delete_data('${data.transaction_period_id}', '${data.transaction_period_type_code}'); return false;">${texts.delete}</a></li>
                             </ul>
                         </div>

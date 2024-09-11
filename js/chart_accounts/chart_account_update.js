@@ -40,7 +40,7 @@ function showData(data) {
     }
 }
 
-document.getElementById('chart_accountForm').addEventListener('submit', function handleFormSubmit(event) {
+document.getElementById('InputForm').addEventListener('submit', function handleFormSubmit(event) {
     event.preventDefault();
 
     const submitButton = document.getElementById('submitBtn');

@@ -39,7 +39,7 @@
                     <div class="card">
                         <div class="card-body m-4">
                             <!-- Form for chart_account addition -->
-                            <form id="chart_accountForm">
+                            <form id="InputForm">
                                 <input type="hidden" id="chart_account_id" name="chart_account_id" value="" required>
 
                                 <div class="row pb-4">
@@ -100,8 +100,12 @@
                                     </div>
                                 </div>
 
-                                <div class="row pb-4 text-center">
-                                    <button type="submit" class="btn btn-primary" id="submitBtn"><?= $texts['save'] ?></button>
+                                <div class="row pb-4">
+                                    <div class="col-12">
+                                        <div class="text-center">
+                                            <button type="submit" class="btn btn-primary w-100" id="submitBtn"><?= $texts['save'] ?></button>
+                                        </div>
+                                    </div>
                                 </div>
                             </form> <!-- End Form -->
                         </div>

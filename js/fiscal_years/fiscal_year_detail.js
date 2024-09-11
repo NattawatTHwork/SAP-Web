@@ -31,6 +31,9 @@ function showData(data) {
         document.getElementById('description').value = fiscal_year.description;
         document.getElementById('fiscal_year_check').checked = fiscal_year.fiscal_year_check === 't';
         document.getElementById('calendar_year_check').checked = fiscal_year.calendar_year_check === 't';
+        document.getElementById('posting_period_count').value = fiscal_year.posting_period_count;
+        document.getElementById('special_period_count').value = fiscal_year.special_period_count;
+        document.getElementById('period_group_code').value = fiscal_year.period_group_code;
     } else {
         handleError(data.message);
     }

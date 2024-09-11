@@ -27,17 +27,17 @@ function fetchData(token) {
 function showData(data) {
     if (data.status === 'success') {
         const period = data.data;
-
+        document.getElementById('transaction_period_group_code').value = period.transaction_period_group_code;
         document.getElementById('transaction_period_type_code').value = period.transaction_period_type_code;
         document.getElementById('account_from').value = period.account_from;
         document.getElementById('account_to').value = period.account_to;
-        document.getElementById('period_from_first_code').value = period.period_from_first_code;
+        document.getElementById('period_from_first').value = period.period_from_first;
         document.getElementById('period_from_first_year').value = period.period_from_first_year;
-        document.getElementById('period_to_first_code').value = period.period_to_first_code;
+        document.getElementById('period_to_first').value = period.period_to_first;
         document.getElementById('period_to_first_year').value = period.period_to_first_year;
-        document.getElementById('period_from_second_code').value = period.period_from_second_code;
+        document.getElementById('period_from_second').value = period.period_from_second;
         document.getElementById('period_from_second_year').value = period.period_from_second_year;
-        document.getElementById('period_to_second_code').value = period.period_to_second_code;
+        document.getElementById('period_to_second').value = period.period_to_second;
         document.getElementById('period_to_second_year').value = period.period_to_second_year;
         document.getElementById('augr').value = period.augr;
 

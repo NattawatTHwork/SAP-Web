@@ -39,7 +39,7 @@
                     <div class="card">
                         <div class="card-body m-4">
                             <!-- Form for period update details -->
-                            <form id="periodForm">
+                            <form id="InputForm">
                                 <h6 class="fw-bold fs-4"><?= $texts['period_create'] ?></h6>
                                 <div class="row pb-4">
                                     <input type="hidden" id="period_id" name="period_id" value="">
@@ -79,9 +79,13 @@
                                             <input type="text" class="form-control" id="text_period_th" name="text_period_th">
                                         </div>
                                     </div>
+                                </div>
 
-                                    <div class="row pb-4 text-center">
-                                        <button type="submit" class="btn btn-primary" id="submitBtn"><?= $texts['save'] ?></button>
+                                <div class="row pb-4">
+                                    <div class="col-12">
+                                        <div class="text-center">
+                                            <button type="submit" class="btn btn-primary w-100" id="submitBtn"><?= $texts['save'] ?></button>
+                                        </div>
                                     </div>
                                 </div>
                             </form> <!-- End Form -->

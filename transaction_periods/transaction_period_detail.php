@@ -39,9 +39,15 @@
                     <div class="card">
                         <div class="card-body m-4">
                             <!-- Form for transaction_period details -->
-                            <form id="transaction_periodForm">
+                            <form id="InputForm">
                                 <h6 class="fw-bold fs-4"><?= $texts['transaction_period_detail'] ?></h6>
                                 <div class="row pb-4">
+                                    <div class="col-12">
+                                        <div class="mb-3">
+                                            <label for="transaction_period_group_code" class="form-label"><?= $texts['transaction_period_group_code'] ?></label>
+                                            <input type="text" class="form-control" id="transaction_period_group_code" name="transaction_period_group_code" disabled>
+                                        </div>
+                                    </div>
                                     <div class="col-12">
                                         <div class="mb-3">
                                             <label for="transaction_period_type_code" class="form-label"><?= $texts['account_type'] ?></label>
@@ -62,8 +68,8 @@
                                     </div>
                                     <div class="col-12">
                                         <div class="mb-3">
-                                            <label for="period_from_first_code" class="form-label"><?= $texts['account_type'] ?></label>
-                                            <input type="text" class="form-control" id="period_from_first_code" name="period_from_first_code" disabled>
+                                            <label for="period_from_first" class="form-label"><?= $texts['account_type'] ?></label>
+                                            <input type="text" class="form-control" id="period_from_first" name="period_from_first" disabled>
                                         </div>
                                     </div>
                                     <div class="col-12">
@@ -75,7 +81,7 @@
                                     <div class="col-12">
                                         <div class="mb-3">
                                             <label for="period_to_first" class="form-label"><?= $texts['period_to_first'] ?></label>
-                                            <input type="text" class="form-control" id="period_to_first_code" name="period_to_first_code" disabled>
+                                            <input type="text" class="form-control" id="period_to_first" name="period_to_first" disabled>
                                         </div>
                                     </div>
                                     <div class="col-12">
@@ -87,7 +93,7 @@
                                     <div class="col-12">
                                         <div class="mb-3">
                                             <label for="period_from_second" class="form-label"><?= $texts['period_from_second'] ?></label>
-                                            <input type="text" class="form-control" id="period_from_second_code" name="period_from_second_code" disabled>
+                                            <input type="text" class="form-control" id="period_from_second" name="period_from_second" disabled>
                                         </div>
                                     </div>
                                     <div class="col-12">
@@ -99,7 +105,7 @@
                                     <div class="col-12">
                                         <div class="mb-3">
                                             <label for="period_to_second" class="form-label"><?= $texts['period_to_second'] ?></label>
-                                            <input type="text" class="form-control" id="period_to_second_code" name="period_to_second_code" disabled>
+                                            <input type="text" class="form-control" id="period_to_second" name="period_to_second" disabled>
                                         </div>
                                     </div>
                                     <div class="col-12">

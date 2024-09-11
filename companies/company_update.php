@@ -39,7 +39,7 @@
                     <div class="card">
                         <div class="card-body m-4">
                             <!-- Form for company details -->
-                            <form id="companyForm">
+                            <form id="InputForm">
                                 <input type="hidden" id="company_id" name="company_id" value="">
 
                                 <div class="row pb-4">
@@ -221,8 +221,12 @@
                                     </div>
                                 </div>
 
-                                <div class="row pb-4 text-center">
-                                    <button type="submit" class="btn btn-primary" id="submitBtn"><?= $texts['save'] ?></button>
+                                <div class="row pb-4">
+                                    <div class="col-12">
+                                        <div class="text-center">
+                                            <button type="submit" class="btn btn-primary w-100" id="submitBtn"><?= $texts['save'] ?></button>
+                                        </div>
+                                    </div>
                                 </div>
                             </form> <!-- End Form -->
                         </div>

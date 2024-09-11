@@ -37,7 +37,7 @@ function populateCountryOptions(data) {
     }
 }
 
-document.getElementById('companyForm').addEventListener('submit', function handleFormSubmit(event) {
+document.getElementById('InputForm').addEventListener('submit', function handleFormSubmit(event) {
     event.preventDefault();
 
     const submitButton = document.getElementById('submitBtn');

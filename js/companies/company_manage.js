@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", async function () {
-    handleGetCountries();
+    handleGetCompanies();
 });
 
-function handleGetCountries(event) {
+function handleGetCompanies(event) {
     if (event) {
         event.preventDefault();
     }
@@ -11,11 +11,13 @@ function handleGetCountries(event) {
         .then(mySession => {
             return Promise.all([
                 fetchChartAccountData(mySession.token),
-                fetchFiscalYearData(mySession.token)
+                fetchFiscalYearData(mySession.token),
+                fetchTransactionPeriodGroupData(mySession.token)
             ])
-            .then(([chartAccountData, fiscalYearData]) => {
+            .then(([chartAccountData, fiscalYearData, transactionPeriodGroupData]) => {
                 populateChartAccountOptions(chartAccountData);
                 populateFiscalYearOptions(fiscalYearData);
+                populateTransactionPeriodGroupOptions(transactionPeriodGroupData);
                 return mySession.token;
             });
         })
@@ -36,6 +38,16 @@ function fetchChartAccountData(token) {
 
 function fetchFiscalYearData(token) {
     return fetch(apiUrl + 'fiscal_years/get_fiscal_year_all.php', {
+        method: 'GET',
+        headers: {
+            'Authorization': `Bearer ${token}`
+        }
+    })
+    .then(response => response.json());
+}
+
+function fetchTransactionPeriodGroupData(token) {
+    return fetch(apiUrl + 'transaction_period_groups/get_transaction_period_group_all.php', {
         method: 'GET',
         headers: {
             'Authorization': `Bearer ${token}`
@@ -72,6 +84,20 @@ function populateFiscalYearOptions(data) {
     }
 }
 
+function populateTransactionPeriodGroupOptions(data) {
+    const transactionPeriodGroupSelect = document.getElementById('transaction_period_group_id');
+    if (data.status === 'success') {
+        data.data.forEach(transaction_period_group => {
+            const option = document.createElement('option');
+            option.value = transaction_period_group.transaction_period_group_id;
+            option.textContent = transaction_period_group.transaction_period_group_code;
+            transactionPeriodGroupSelect.appendChild(option);
+        });
+    } else {
+        handleError(data.message);
+    }
+}
+
 function fetchData(token) {
     const companyId = getQueryParam('company_id');
     return fetch(apiUrl + 'companies/get_company_additional.php?company_id=' + companyId, {
@@ -84,7 +110,6 @@ function fetchData(token) {
 }
 
 function showData(data) {
-    console.log(data.data)
     if (data.status === 'success') {
         const company = data.data;
         document.getElementById('chart_account_id').value = company.chart_account_id;
@@ -101,7 +126,7 @@ function showData(data) {
         document.getElementById('biz_fin_stmt').checked = company.biz_fin_stmt === 't';
         document.getElementById('field_status_set').value = company.field_status_set;
         document.getElementById('fiscal_year_prop').checked = company.fiscal_year_prop === 't';
-        document.getElementById('entry_period_set').value = company.entry_period_set;
+        document.getElementById('transaction_period_group_id').value = company.transaction_period_group_id;
         document.getElementById('init_val_date').checked = company.init_val_date === 't';
         document.getElementById('max_ex_rate_diff').value = company.max_ex_rate_diff;
         document.getElementById('no_forex_diff_lc_clear').checked = company.no_forex_diff_lc_clear === 't';
@@ -123,7 +148,7 @@ function showData(data) {
     }
 }
 
-document.getElementById('companyForm').addEventListener('submit', function handleFormSubmit(event) {
+document.getElementById('InputForm').addEventListener('submit', function handleFormSubmit(event) {
     event.preventDefault();
 
     const submitButton = document.getElementById('submitBtn');

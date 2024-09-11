@@ -14,8 +14,8 @@ function handleGetAll(event) {
 }
 
 function fetchData(token) {
-    const FiscalYearId = getQueryParam('fiscal_year_id');
-    return fetch(apiUrl + 'periods/get_period_all.php?fiscal_year_id=' + FiscalYearId, {
+    const PeriodGroupId = getQueryParam('period_group_id');
+    return fetch(apiUrl + 'periods/get_period_all.php?period_group_id=' + PeriodGroupId, {
         method: 'GET',
         headers: {
             'Authorization': `Bearer ${token}`

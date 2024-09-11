@@ -39,9 +39,9 @@
                     <div class="card">
                         <div class="card-body m-4">
                             <!-- Form for country update -->
-                            <form id="countryForm">
+                            <form id="InputForm">
                                 <input type="hidden" id="country_id" name="country_id" value="">
-                                
+
                                 <div class="row pb-4">
                                     <div class="col-md-4">
                                         <div class="mb-3">
@@ -201,8 +201,12 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row pb-4 text-center">
-                                    <button type="submit" class="btn btn-primary" id="submitBtn"><?= $texts['save'] ?></button>
+                                <div class="row pb-4">
+                                    <div class="col-12">
+                                        <div class="text-center">
+                                            <button type="submit" class="btn btn-primary w-100" id="submitBtn"><?= $texts['save'] ?></button>
+                                        </div>
+                                    </div>
                                 </div>
                             </form> <!-- End Form -->
                         </div>

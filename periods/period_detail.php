@@ -39,7 +39,7 @@
                     <div class="card">
                         <div class="card-body m-4">
                             <!-- Form for period detail details -->
-                            <form id="periodForm">
+                            <form id="InputForm">
                                 <h6 class="fw-bold fs-4"><?= $texts['period_detail'] ?></h6>
                                 <div class="row pb-4">
                                     <div class="col-12">

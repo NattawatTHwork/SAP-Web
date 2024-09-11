@@ -1,4 +1,4 @@
-document.getElementById('periodForm').addEventListener('submit', function handleFormSubmit(event) {
+document.getElementById('InputForm').addEventListener('submit', function handleFormSubmit(event) {
     event.preventDefault();
 
     const submitButton = document.getElementById('submitBtn');
@@ -6,11 +6,9 @@ document.getElementById('periodForm').addEventListener('submit', function handle
 
     const formData = new FormData(event.target);
     const jsonData = convertFormDataToJson(formData);
-    console.log(jsonData)
 
     getSessionToken()
         .then(mySession => createData(mySession.token, jsonData))
-        // .then(res => console.log(res))
         .then(response => handleCreateResponse(response))
         .catch(error => handleError(error))
         .finally(() => {
@@ -31,14 +29,14 @@ function createData(token, jsonData) {
 }
 
 function handleCreateResponse(data) {
-    const FiscalYearId = getQueryParam('fiscal_year_id');
+    const PeriodGroupId = getQueryParam('period_group_id');
     if (data.status === 'success') {
         Swal.fire({
             icon: 'success',
             title: texts.success,
         })
         .then(() => {
-            window.location.href = 'period_all.php?fiscal_year_id=' + FiscalYearId;
+            window.location.href = 'period_all.php?period_group_id=' + PeriodGroupId;
         });
     } else {
         Swal.fire({

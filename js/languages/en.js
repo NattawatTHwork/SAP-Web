@@ -23,5 +23,6 @@ texts = {
     'chart_account': 'Chart Account',
     'company_manage': 'Company Manage',
     'transaction_period': 'Transaction Period',
+    'transaction_period_group': 'Transaction Period Group',
 
 }

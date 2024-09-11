@@ -35,7 +35,7 @@ function showData(data) {
     }
 }
 
-document.getElementById('business_typeForm').addEventListener('submit', function handleFormSubmit(event) {
+document.getElementById('InputForm').addEventListener('submit', function handleFormSubmit(event) {
     event.preventDefault();
 
     const submitButton = document.getElementById('submitBtn');
