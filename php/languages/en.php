@@ -172,5 +172,9 @@ return [
     'group_account_detail' => 'Group Account Detail',
     'group_account_update' => 'Group Account Update',
     'name_account' => 'Name Account',
+    'central_general_ledger_create' => 'Central General Ledger Create',
+    'central_general_ledger_detail' => 'Central General Ledger Detail',
+    'central_general_ledger_update' => 'Central General Ledger Update',
+    'gl_account' => 'G/L Account',
 
 ];

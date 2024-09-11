@@ -172,5 +172,9 @@ return [
     'group_account_detail' => 'รายละเอียดกลุ่มบัญชี',
     'group_account_update' => 'แก้ไขกลุ่มบัญชี',
     'name_account' => 'ชื่อ',
+    'central_general_ledger_create' => 'เพิ่มบัญชีแยกประเภททั่วไปส่วนกลาง',
+    'central_general_ledger_detail' => 'รายละเอียดบัญชีแยกประเภททั่วไปส่วนกลาง',
+    'central_general_ledger_update' => 'แก้ไขบัญชีแยกประเภททั่วไปส่วนกลาง',
+    'gl_account' => 'บัญชี G/L',
 
 ];
