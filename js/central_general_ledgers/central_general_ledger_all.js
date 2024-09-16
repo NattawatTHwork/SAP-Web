@@ -38,6 +38,7 @@ function displayTables(datas) {
                                 ${texts.option}
                             </button>
                             <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="${pathUrl}central_general_ledgers/central_general_ledger_manage.php?central_general_ledger_id=${data.central_general_ledger_id}">${texts.gl_mamage}</a></li>
                                 <li><a class="dropdown-item" href="central_general_ledger_detail.php?central_general_ledger_id=${data.central_general_ledger_id}">${texts.view_data}</a></li>
                                 <li><a class="dropdown-item" href="central_general_ledger_update.php?central_general_ledger_id=${data.central_general_ledger_id}">${texts.edit}</a></li>
                                 <li><a class="dropdown-item" href="#" onclick="delete_data('${data.central_general_ledger_id}', '${data.gl_account}'); return false;">${texts.delete}</a></li>

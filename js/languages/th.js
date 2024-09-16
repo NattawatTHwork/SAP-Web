@@ -24,5 +24,7 @@ texts = {
     'company_manage': 'จัดการบริษัท',
     'transaction_period': 'งวดการผ่านรายการ',
     'transaction_period_group': 'กลุ่มงวดการผ่านรายการ',
+    'gl_mamage': 'จัดการบัญชีแยกประเภททั่วไปส่วนกลาง',
+    'invalid_range': 'กรุณาเลือกกลุ่มบัญชีที่ตรงกับบัญชี G/L',
 
 }
