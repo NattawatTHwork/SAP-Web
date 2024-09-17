@@ -74,11 +74,11 @@
                                     </li>
 
                                     <li class="nav-item">
-                                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-settings">Settings</button>
+                                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#interest-bank-creation">สร้าง/ธ./ดอกเบี้ย</button>
                                     </li>
 
                                     <li class="nav-item">
-                                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-change-password">Change Password</button>
+                                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#ca-data">ข้อมูล (C/A)</button>
                                     </li>
 
                                 </ul>
@@ -288,77 +288,171 @@
 
                                     </div>
 
-                                    <div class="tab-pane fade pt-3" id="profile-settings">
+                                    <div class="tab-pane fade interest-bank-creation pt-3" id="interest-bank-creation">
 
-                                        <!-- Settings Form -->
-                                        <form>
-
-                                            <div class="row mb-3">
-                                                <label for="fullName" class="col-md-4 col-lg-3 col-form-label">Email Notifications</label>
-                                                <div class="col-md-8 col-lg-9">
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" id="changesMade" checked>
-                                                        <label class="form-check-label" for="changesMade">
-                                                            Changes made to your account
-                                                        </label>
+                                        <!-- Interest Bank Creation Form -->
+                                        <form id="interest_bank_creation">
+                                            <input type="hidden" class="form-control" id="gl_interest_bank_creation_id" name="gl_interest_bank_creation_id" required>
+                                            <h6 class="fw-bold fs-4">การควบคุมการสร้างเอกสารในรหัสบริษัท</h6>
+                                            <div class="row pb-4">
+                                                <div class="col-12">
+                                                    <div class="mb-3">
+                                                        <label for="field_status_group" class="form-label">กลุ่มสถานะฟิลด์</label>
+                                                        <input type="text" class="form-control" id="field_status_group" name="field_status_group">
                                                     </div>
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" id="newProducts" checked>
-                                                        <label class="form-check-label" for="newProducts">
-                                                            Information on new products and services
-                                                        </label>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="mb-3">
+                                                        <div class="form-check">
+                                                            <input type="checkbox" class="form-check-input" id="automatic_posting_only" name="automatic_posting_only">
+                                                            <label class="form-check-label" for="automatic_posting_only">ผ่านรายการอัตโนมัติเท่านั้น</label>
+                                                        </div>
                                                     </div>
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" id="proOffers">
-                                                        <label class="form-check-label" for="proOffers">
-                                                            Marketing and promo offers
-                                                        </label>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="mb-3">
+                                                        <div class="form-check">
+                                                            <input type="checkbox" class="form-check-input" id="automatic_incremental_posting" name="automatic_incremental_posting">
+                                                            <label class="form-check-label" for="automatic_incremental_posting">ผ่านรายการส่วนเพิ่มอัตโนมัติ</label>
+                                                        </div>
                                                     </div>
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" id="securityNotify" checked disabled>
-                                                        <label class="form-check-label" for="securityNotify">
-                                                            Security alerts
-                                                        </label>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="mb-3">
+                                                        <div class="form-check">
+                                                            <input type="checkbox" class="form-check-input" id="reconciliation_account_input" name="reconciliation_account_input">
+                                                            <label class="form-check-label" for="reconciliation_account_input">บ/ชกระทบยอดพร้อมสำหรับป้อนขม</label>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
 
-                                            <div class="text-center">
-                                                <button type="submit" class="btn btn-primary">Save Changes</button>
+                                            <h6 class="fw-bold fs-4">รายละเอียดธนาคาร/ทางการเงินในรหัสบริษัท</h6>
+                                            <div class="row pb-4">
+                                                <div class="col-12">
+                                                    <div class="mb-3">
+                                                        <label for="planning_level" class="form-label">ระดับการวางแผน</label>
+                                                        <input type="text" class="form-control" id="planning_level" name="planning_level">
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="mb-3">
+                                                        <div class="form-check">
+                                                            <input type="checkbox" class="form-check-input" id="cash_flow_related" name="cash_flow_related">
+                                                            <label class="form-check-label" for="cash_flow_related">เกี่ยวกับกระแสเงินสด</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="mb-3">
+                                                        <label for="commitment_item" class="form-label">รายการภาระผูกพัน</label>
+                                                        <input type="text" class="form-control" id="commitment_item" name="commitment_item">
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="mb-3">
+                                                        <label for="correspondent_bank" class="form-label">ธนาคารตัวแทน</label>
+                                                        <input type="text" class="form-control" id="correspondent_bank" name="correspondent_bank">
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="mb-3">
+                                                        <label for="account_number" class="form-label">รหัสบัญชี</label>
+                                                        <input type="text" class="form-control" id="account_number" name="account_number">
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </form><!-- End settings Form -->
+
+                                            <h6 class="fw-bold fs-4">ข้อมูลการคำนวณดอกเบี้ยในรหัสบริษัท</h6>
+                                            <div class="row pb-4">
+                                                <div class="col-12">
+                                                    <div class="mb-3">
+                                                        <label for="interest_indicator" class="form-label">ตัวบ่งชี้ดอกเบี้ย</label>
+                                                        <input type="text" class="form-control" id="interest_indicator" name="interest_indicator">
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="mb-3">
+                                                        <label for="interest_calculation_frequency" class="form-label">ความถี่ในการคำนวณดอกเบี้ย</label>
+                                                        <input type="text" class="form-control" id="interest_calculation_frequency" name="interest_calculation_frequency">
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="mb-3">
+                                                        <label for="last_interest_calculation_date_key" class="form-label">คีย์วันที่การคิดด/บสุดท้าย</label>
+                                                        <input type="text" class="form-control" id="last_interest_calculation_date_key" name="last_interest_calculation_date_key">
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="mb-3">
+                                                        <label for="last_interest_calculation_date" class="form-label">วันที่ประมวณผลด/บสุดท้าย</label>
+                                                        <input type="text" class="form-control" id="last_interest_calculation_date" name="last_interest_calculation_date">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row pb-4">
+                                                <div class="col-12">
+                                                    <div class="text-center">
+                                                        <button type="submit" class="btn btn-primary w-100" id="submitBtnInterestBankCreation"><?= $texts['save'] ?></button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form><!-- End Interest Bank Creation Form -->
 
                                     </div>
 
-                                    <div class="tab-pane fade pt-3" id="profile-change-password">
-                                        <!-- Change Password Form -->
-                                        <form>
+                                    <div class="tab-pane fade ca-data pt-3" id="ca-data">
 
-                                            <div class="row mb-3">
-                                                <label for="currentPassword" class="col-md-4 col-lg-3 col-form-label">Current Password</label>
-                                                <div class="col-md-8 col-lg-9">
-                                                    <input name="password" type="password" class="form-control" id="currentPassword">
+                                        <!-- Interest Bank Creation Form -->
+                                        <form id="ca_data">
+                                            <input type="hidden" class="form-control" id="gl_ca_data_id" name="gl_ca_data_id" required>
+                                            <h6 class="fw-bold fs-4">ข้อมูลในผังบัญชี</h6>
+                                            <div class="row pb-4">
+                                                <div class="col-12">
+                                                    <div class="mb-3">
+                                                        <label for="created_at" class="form-label">สร้างเมื่อ</label>
+                                                        <input type="text" class="form-control" id="created_at" name="created_at" disabled>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="mb-3">
+                                                        <label for="username" class="form-label">สร้างโดย</label>
+                                                        <input type="text" class="form-control" id="username" name="username" disabled>
+                                                    </div>
                                                 </div>
                                             </div>
 
-                                            <div class="row mb-3">
-                                                <label for="newPassword" class="col-md-4 col-lg-3 col-form-label">New Password</label>
-                                                <div class="col-md-8 col-lg-9">
-                                                    <input name="newpassword" type="password" class="form-control" id="newPassword">
+                                            <h6 class="fw-bold fs-4">ข้อความบัญชีแยกประเภททั่วไปในผังบัญชี</h6>
+                                            <div class="row pb-4">
+                                                <div class="col-12">
+                                                    <div class="mb-3">
+                                                        <label for="account_assignment_info" class="form-label">ข้อมูลการกำหนดเลขที่บัญชี</label>
+                                                        <input type="text" class="form-control" id="account_assignment_info" name="account_assignment_info">
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="mb-3">
+                                                        <label for="accounting_note" class="form-label">หมายเหตุการบัญชี</label>
+                                                        <input type="text" class="form-control" id="accounting_note" name="accounting_note">
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="mb-3">
+                                                        <label for="account_assignment_info_9" class="form-label">ข้อมูลการกำหนดเลขที่บัญชี 9</label>
+                                                        <input type="text" class="form-control" id="account_assignment_info_9" name="account_assignment_info_9">
+                                                    </div>
                                                 </div>
                                             </div>
 
-                                            <div class="row mb-3">
-                                                <label for="renewPassword" class="col-md-4 col-lg-3 col-form-label">Re-enter New Password</label>
-                                                <div class="col-md-8 col-lg-9">
-                                                    <input name="renewpassword" type="password" class="form-control" id="renewPassword">
+                                            <div class="row pb-4">
+                                                <div class="col-12">
+                                                    <div class="text-center">
+                                                        <button type="submit" class="btn btn-primary w-100" id="submitBtnCAData"><?= $texts['save'] ?></button>
+                                                    </div>
                                                 </div>
                                             </div>
-
-                                            <div class="text-center">
-                                                <button type="submit" class="btn btn-primary">Change Password</button>
-                                            </div>
-                                        </form><!-- End Change Password Form -->
+                                        </form><!-- End Interest Bank Creation Form -->
 
                                     </div>
 

@@ -1,3 +1,5 @@
+// เรียกฟังก์ชันทั้งหมด --------------------------------------------------
+
 document.addEventListener("DOMContentLoaded", async function () {
     try {
         const central_general_ledgerId = getQueryParam('central_general_ledger_id');
@@ -9,12 +11,15 @@ document.addEventListener("DOMContentLoaded", async function () {
 
         await handleGetGLTypeDetail(sessionToken.token);
         await handleGetGLControlDataDetail(sessionToken.token);
+        await handleGetGLInterestBankCreationDetail(sessionToken.token);
+        await handleGetGLCADataDetail(sessionToken.token);
+
     } catch (error) {
         handleError(error);
     }
 });
 
-// --------------------------------------------------
+// เรียกข้อมูลบัญชี --------------------------------------------------
 
 function handleGetCentralGeneralLedger(token, central_general_ledgerId) {
     fetchCentralGeneralLedger(token, central_general_ledgerId)
@@ -38,12 +43,15 @@ function showCentralGeneralLedger(data) {
 
         document.getElementById('gl_account').value = central_general_ledger.gl_account;
         document.getElementById('company_code').value = central_general_ledger.company_code;
+        document.getElementById('created_at').value = central_general_ledger.created_at.split(' ')[0];
+        document.getElementById('username').value = central_general_ledger.username;
+
     } else {
         handleError(data.message);
     }
 }
 
-// --------------------------------------------------
+// เรียกกลุ่มบัญชี --------------------------------------------------
 
 function handleGetGroupAccount(token) {
     fetchGroupAccount(token)
@@ -75,7 +83,7 @@ function populateGroupAccountOptions(data) {
     }
 }
 
-// --------------------------------------------------
+// เรียกข้อมูล GL Type --------------------------------------------------
 
 function handleGetGLTypeDetail(token) {
     fetchDataGLType(token)
@@ -115,7 +123,7 @@ function showDataGLType(data) {
     }
 }
 
-// --------------------------------------------------
+// เรียกข้อมูล Gl Control Data --------------------------------------------------
 
 function handleGetGLControlDataDetail(token) {
     fetchDataGLControlData(token)
@@ -159,7 +167,83 @@ function showDataGLControlData(data) {
     }
 }
 
-// --------------------------------------------------
+// เรียกข้อมูล Gl Interest Bank Creation --------------------------------------------------
+
+function handleGetGLInterestBankCreationDetail(token) {
+    fetchDataGLInterestBankCreation(token)
+        .then(data => showDataGLInterestBankCreation(data))
+        .catch(error => handleError(error));
+}
+
+function fetchDataGLInterestBankCreation(token) {
+    const central_general_ledgerId = getQueryParam('central_general_ledger_id');
+    return fetch(apiUrl + 'gl_interest_bank_creations/get_gl_interest_bank_creation.php?central_general_ledger_id=' + central_general_ledgerId, {
+        method: 'GET',
+        headers: {
+            'Authorization': `Bearer ${token}`
+        }
+    })
+        .then(response => response.json());
+}
+
+function showDataGLInterestBankCreation(data) {
+    if (data.status === 'success') {
+        const gl_control_data = data.data;
+
+        document.getElementById('gl_interest_bank_creation_id').value = gl_control_data.gl_interest_bank_creation_id;
+        document.getElementById('field_status_group').value = gl_control_data.field_status_group;
+        document.getElementById('automatic_posting_only').checked = gl_control_data.automatic_posting_only === 't';
+        document.getElementById('automatic_incremental_posting').checked = gl_control_data.automatic_incremental_posting === 't';
+        document.getElementById('reconciliation_account_input').checked = gl_control_data.reconciliation_account_input === 't';
+
+        document.getElementById('planning_level').value = gl_control_data.planning_level;
+        document.getElementById('cash_flow_related').checked = gl_control_data.cash_flow_related === 't';
+        document.getElementById('commitment_item').value = gl_control_data.commitment_item;
+        document.getElementById('correspondent_bank').value = gl_control_data.correspondent_bank;
+        document.getElementById('account_number').value = gl_control_data.account_number;
+
+        document.getElementById('interest_indicator').value = gl_control_data.interest_indicator;
+        document.getElementById('interest_calculation_frequency').value = gl_control_data.interest_calculation_frequency;
+        document.getElementById('last_interest_calculation_date_key').value = gl_control_data.last_interest_calculation_date_key;
+        document.getElementById('last_interest_calculation_date').value = gl_control_data.last_interest_calculation_date;
+    } else {
+        handleError(data.message);
+    }
+}
+
+// เรียกข้อมูล Gl CA Data --------------------------------------------------
+
+function handleGetGLCADataDetail(token) {
+    fetchDataGLCAData(token)
+        .then(data => showDataGLCAData(data))
+        .catch(error => handleError(error));
+}
+
+function fetchDataGLCAData(token) {
+    const central_general_ledgerId = getQueryParam('central_general_ledger_id');
+    return fetch(apiUrl + 'gl_ca_datas/get_gl_ca_data.php?central_general_ledger_id=' + central_general_ledgerId, {
+        method: 'GET',
+        headers: {
+            'Authorization': `Bearer ${token}`
+        }
+    })
+        .then(response => response.json());
+}
+
+function showDataGLCAData(data) {
+    if (data.status === 'success') {
+        const gl_control_data = data.data;
+
+        document.getElementById('gl_ca_data_id').value = gl_control_data.gl_ca_data_id;
+        document.getElementById('account_assignment_info').value = gl_control_data.account_assignment_info;
+        document.getElementById('accounting_note').value = gl_control_data.accounting_note;
+        document.getElementById('account_assignment_info_9').value = gl_control_data.account_assignment_info_9;
+    } else {
+        handleError(data.message);
+    }
+}
+
+// อัพเดทข้อมูล GL Type --------------------------------------------------
 
 document.getElementById('type_description').addEventListener('submit', function handleFormSubmit(event) {
     event.preventDefault();
@@ -191,7 +275,7 @@ function updateGLTypeData(token, jsonData) {
         .then(response => response.json());
 }
 
-// --------------------------------------------------
+// อัพเดทข้อมูล GL Control Data --------------------------------------------------
 
 document.getElementById('control_data').addEventListener('submit', function handleFormSubmit(event) {
     event.preventDefault();
@@ -223,7 +307,71 @@ function updateGLControlDataData(token, jsonData) {
         .then(response => response.json());
 }
 
-// --------------------------------------------------
+// อัพเดทข้อมูล Gl Interest Bank Creation --------------------------------------------------
+
+document.getElementById('interest_bank_creation').addEventListener('submit', function handleFormSubmit(event) {
+    event.preventDefault();
+
+    const submitButton = document.getElementById('submitBtnInterestBankCreation');
+    submitButton.disabled = true;
+
+    const formData = new FormData(event.target);
+    const jsonData = convertFormDataToJson(formData);
+
+    getSessionToken()
+        .then(mySession => updateGLInterestBankCreationData(mySession.token, jsonData))
+        .then(response => handleUpdateResponse(response))
+        .catch(error => handleError(error))
+        .finally(() => {
+            submitButton.disabled = false;
+        });
+});
+
+function updateGLInterestBankCreationData(token, jsonData) {
+    return fetch(apiUrl + 'gl_interest_bank_creations/update_gl_interest_bank_creation.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify(jsonData)
+    })
+        .then(response => response.json());
+}
+
+// อัพเดทข้อมูล Gl CA Data --------------------------------------------------
+
+document.getElementById('ca_data').addEventListener('submit', function handleFormSubmit(event) {
+    event.preventDefault();
+
+    const submitButton = document.getElementById('submitBtnCAData');
+    submitButton.disabled = true;
+
+    const formData = new FormData(event.target);
+    const jsonData = convertFormDataToJson(formData);
+
+    getSessionToken()
+        .then(mySession => updateGLCADataData(mySession.token, jsonData))
+        .then(response => handleUpdateResponse(response))
+        .catch(error => handleError(error))
+        .finally(() => {
+            submitButton.disabled = false;
+        });
+});
+
+function updateGLCADataData(token, jsonData) {
+    return fetch(apiUrl + 'gl_ca_datas/update_gl_ca_data.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify(jsonData)
+    })
+        .then(response => response.json());
+}
+
+// แสดง response --------------------------------------------------
 
 function handleUpdateResponse(data) {
     const CentralGeneralLedgerId = getQueryParam('central_general_ledger_id');

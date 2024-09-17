@@ -42,6 +42,7 @@
                             <form id="InputForm">
                                 <h6 class="fw-bold fs-4"><?= $texts['central_general_ledger_create'] ?></h6>
                                 <div class="row pb-4">
+                                    <input type="hidden" class="form-control" id="user_id" name="user_id" value="<?= $_SESSION['user_id'] ?>" required>
                                     <div class="col-12">
                                         <div class="mb-3">
                                             <label for="gl_account" class="form-label"><?= $texts['gl_account'] ?></label>
