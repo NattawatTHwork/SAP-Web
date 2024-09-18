@@ -25,6 +25,7 @@ texts = {
     'transaction_period': 'Transaction Period',
     'transaction_period_group': 'Transaction Period Group',
     'gl_mamage': 'Central General Ledger Manage',
+    'gl': 'General Ledger',
     'invalid_range': 'The provided GL Account is out of the allowed range',
 
 }
