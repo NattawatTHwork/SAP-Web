@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         // ]);
 
         await handleGetDetail(sessionToken.token);
+        await handleGetGLTransactionAll(sessionToken.token);
     } catch (error) {
         handleError(error);
     }
@@ -41,6 +42,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 //     }
 // }
 
+// แสดงรายละเอียดข้อมูลบัญชีทั่วไป
 function handleGetDetail(token) {
     fetchData(token)
         .then(data => showData(data))
@@ -77,6 +79,62 @@ function showData(data) {
     }
 }
 
+// แสดงข้อมูล General Ledger Transactions
+function handleGetGLTransactionAll(token) {
+    fetchGLTransactionData(token)
+        .then(data => displayTables(data))
+        .catch(error => handleError(error));
+}
+
+function fetchGLTransactionData(token) {
+    return fetch(apiUrl + 'gl_transactions/get_gl_transaction_all.php', {
+        method: 'GET',
+        headers: {
+            'Authorization': `Bearer ${token}`
+        }
+    })
+        .then(response => response.json());
+}
+
+function displayTables(datas) {
+    let html = '';
+    const noDataHtml = '<tr><td></td><td>' + texts.no_data + '</td><td></td><td></td></tr>';
+    if (datas.status === 'success') {
+        if (datas.data.length > 0) {
+            datas.data.forEach(data => {
+                html += '<tr>';
+                html += `<td>${data.gl_account}</td>
+                    <td>${data.dc_type}</td>
+                    <td>${data.amount}</td>
+                    <td>
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                ${texts.option}
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="general_ledger_transaction_update.php?gl_transaction_id=${data.gl_transaction_id}">${texts.edit}</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="delete_data('${data.gl_transaction_id}', '${data.amount}'); return false;">${texts.delete}</a></li>
+                            </ul>
+                        </div>
+                    </td>`;
+                html += '</tr>';
+            });
+        } else {
+            html = noDataHtml;
+        }
+    } else {
+        html = noDataHtml;
+    }
+    document.querySelector('tbody').innerHTML = html;
+    $(document).ready(function () {
+        $('#datatables').DataTable({
+            "order": []
+            // "scrollX": true
+        });
+    });
+}
+
+// อัพเดทข้อมูลบัญชีทั่วไป
 document.getElementById('InputForm').addEventListener('submit', function handleFormSubmit(event) {
     event.preventDefault();
 
@@ -88,6 +146,7 @@ document.getElementById('InputForm').addEventListener('submit', function handleF
 
     getSessionToken()
         .then(mySession => updateData(mySession.token, jsonData))
+        // .then(res => console.log(res))
         .then(response => handleUpdateResponse(response))
         .catch(error => handleError(error))
         .finally(() => {
@@ -108,7 +167,7 @@ function updateData(token, jsonData) {
 }
 
 function handleUpdateResponse(data) {
-    const CentralGeneralLedgerId = getQueryParam('general_ledger_id');
+    const general_ledger_id = getQueryParam('general_ledger_id');
 
     if (data.status === 'success') {
         Swal.fire({
@@ -116,7 +175,7 @@ function handleUpdateResponse(data) {
             title: texts.success,
         })
             .then(() => {
-                window.location.href = 'general_ledger_update.php?general_ledger_id=' + CentralGeneralLedgerId;
+                window.location.href = 'general_ledger_update.php?general_ledger_id=' + general_ledger_id;
             });
     } else {
         Swal.fire({

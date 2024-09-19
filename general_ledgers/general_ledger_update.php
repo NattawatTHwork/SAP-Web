@@ -115,6 +115,14 @@
                 <div class="col-xl-12">
 
                     <div class="card">
+                        <div class="d-sm-flex justify-content-end mb-2 row p-4">
+                            <div class="col-sm-12 col-md-4">
+                                <a href="general_ledger_transaction_create.php?general_ledger_id=<?= $_GET['general_ledger_id'] ?>" class="btn btn-primary w-100 btn-block">
+                                    เพิ่มรายการบัญชีแยกประเภททั่วไป
+                                </a>
+                            </div>
+                        </div>
+
                         <div class="card-body">
                             <!-- Table with stripped rows -->
                             <table id="datatables" class="table table-striped" style="width:100%">
