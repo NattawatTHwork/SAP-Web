@@ -40,7 +40,7 @@ function displayTables(datas) {
                                 ${texts.option}
                             </button>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="general_ledger_update.php?general_ledger_id=${data.general_ledger_id}">${texts.edit}</a></li>
+                                <li><a class="dropdown-item" href="general_ledger_update.php?general_ledger_id=${data.general_ledger_id}">แก้ไขและเพิ่มรายการบัญชีประเภททั่วไป</a></li>
                                 <li><a class="dropdown-item" href="#" onclick="delete_data('${data.general_ledger_id}', '${data.document_date}'); return false;">${texts.delete}</a></li>
                             </ul>
                         </div>

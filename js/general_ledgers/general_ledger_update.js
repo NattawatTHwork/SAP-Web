@@ -1,12 +1,14 @@
 document.addEventListener("DOMContentLoaded", async function () {
     try {
         const sessionToken = await getSessionToken();
+        const general_ledger_id = getQueryParam('general_ledger_id');
+
         // await Promise.all([
         //     await handleGetCompanyIds(sessionToken.token)
         // ]);
 
-        await handleGetDetail(sessionToken.token);
-        await handleGetGLTransactionAll(sessionToken.token);
+        await handleGetDetail(sessionToken.token, general_ledger_id);
+        await handleGetGLTransactionAll(sessionToken.token, general_ledger_id);
     } catch (error) {
         handleError(error);
     }
@@ -43,15 +45,14 @@ document.addEventListener("DOMContentLoaded", async function () {
 // }
 
 // แสดงรายละเอียดข้อมูลบัญชีทั่วไป
-function handleGetDetail(token) {
-    fetchData(token)
+function handleGetDetail(token, general_ledger_id) {
+    fetchData(token, general_ledger_id)
         .then(data => showData(data))
         .catch(error => handleError(error));
 }
 
-function fetchData(token) {
-    const general_ledgerId = getQueryParam('general_ledger_id');
-    return fetch(apiUrl + 'general_ledgers/get_general_ledger.php?general_ledger_id=' + general_ledgerId, {
+function fetchData(token, general_ledger_id) {
+    return fetch(apiUrl + 'general_ledgers/get_general_ledger.php?general_ledger_id=' + general_ledger_id, {
         method: 'GET',
         headers: {
             'Authorization': `Bearer ${token}`
@@ -80,14 +81,14 @@ function showData(data) {
 }
 
 // แสดงข้อมูล General Ledger Transactions
-function handleGetGLTransactionAll(token) {
-    fetchGLTransactionData(token)
+function handleGetGLTransactionAll(token, general_ledger_id) {
+    fetchGLTransactionData(token, general_ledger_id)
         .then(data => displayTables(data))
         .catch(error => handleError(error));
 }
 
-function fetchGLTransactionData(token) {
-    return fetch(apiUrl + 'gl_transactions/get_gl_transaction_all.php', {
+function fetchGLTransactionData(token, general_ledger_id) {
+    return fetch(apiUrl + 'gl_transactions/get_gl_transaction_all.php?general_ledger_id=' + general_ledger_id, {
         method: 'GET',
         headers: {
             'Authorization': `Bearer ${token}`
@@ -98,7 +99,7 @@ function fetchGLTransactionData(token) {
 
 function displayTables(datas) {
     let html = '';
-    const noDataHtml = '<tr><td></td><td>' + texts.no_data + '</td><td></td><td></td></tr>';
+    const noDataHtml = '<tr><td></td><td></td><td>' + texts.no_data + '</td><td></td></tr>';
     if (datas.status === 'success') {
         if (datas.data.length > 0) {
             datas.data.forEach(data => {
@@ -146,7 +147,6 @@ document.getElementById('InputForm').addEventListener('submit', function handleF
 
     getSessionToken()
         .then(mySession => updateData(mySession.token, jsonData))
-        // .then(res => console.log(res))
         .then(response => handleUpdateResponse(response))
         .catch(error => handleError(error))
         .finally(() => {
