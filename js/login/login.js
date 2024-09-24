@@ -49,24 +49,46 @@ function handleFetchResponse(data) {
             },
             body: JSON.stringify(postData)
         }).then(response => response.json());
-    } else if (data.status === 'disable') {
+    } else if (data.status === 'exist') {
         Swal.fire({
             icon: 'error',
             title: texts.error,
-            text: texts.disable_login
+            text: texts.username_not_exist
         });
-        return Promise.reject('User disabled');
-    } else if (data.status === 'unauthorized') {
+        return Promise.reject('Username does not exist');
+    } else if (data.status === 'deactivated') {
         Swal.fire({
             icon: 'error',
             title: texts.error,
-            text: texts.unauthorized
+            text: texts.account_deactivated
         });
-        return Promise.reject('Unauthorized access');
+        return Promise.reject('Account is deactivated');
+    } else if (data.status === 'inactive') {
+        Swal.fire({
+            icon: 'error',
+            title: texts.error,
+            text: texts.account_inactive
+        });
+        return Promise.reject('Account is inactive');
+    } else if (data.status === 'incorrect') {
+        Swal.fire({
+            icon: 'error',
+            title: texts.error,
+            text: texts.incorrect_password
+        });
+        return Promise.reject('Incorrect password');
+    } else if (data.status === 'invalid_sysid') {
+        Swal.fire({
+            icon: 'error',
+            title: texts.error,
+            text: texts.invalid_sysid
+        });
+        return Promise.reject('Invalid SYSID');
     } else {
         Swal.fire({
             icon: 'error',
             title: texts.error,
+            text: texts.unknown_error
         });
         return Promise.reject('Unknown error');
     }

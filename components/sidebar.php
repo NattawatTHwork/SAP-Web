@@ -72,6 +72,13 @@
                 </li>
             </ul>
         </li><!-- End Components Nav -->
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="<?= $path ?>users/user_all.php">
+                <i class="bi bi-person"></i>
+                <span>User Management</span>
+            </a>
+        </li>
     </ul>
 
 </aside><!-- End Sidebar-->

@@ -8,13 +8,13 @@ function handleGetAll(event) {
     }
 
     getSessionToken()
-        .then(mySession => fetchData(mySession.token))
+        .then(mySession => fetchData(mySession.token, mySession.sysid))
         .then(data => displayTables(data))
         .catch(error => handleError(error));
 }
 
-function fetchData(token) {
-    return fetch(apiUrl + 'users/get_user_all.php', {
+function fetchData(token, sysid) {
+    return fetch(apiUrl + 'users/get_user_all.php?sysid=' + sysid, {
         method: 'GET',
         headers: {
             'Authorization': `Bearer ${token}`
@@ -32,7 +32,7 @@ function displayTables(datas) {
                 html += '<tr>';
                 html += `<td>${data.username}</td>
                     <td>${data.firstname} ${data.lastname}</td>
-                    <td>${data.role}</td>
+                    <td>${data.sysid}</td>
                 <td>
                     <button class="btn ${data.statusflag == 't' ? 'btn-success' : 'btn-danger'}">
                         ${data.statusflag == 't' ? texts.enable : texts.disable}

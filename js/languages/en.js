@@ -27,5 +27,10 @@ texts = {
     'gl_mamage': 'Central General Ledger Manage',
     'gl': 'General Ledger',
     'invalid_range': 'The provided GL Account is out of the allowed range',
-
+    "username_not_exist": "Username does not exist.",
+    "account_deactivated": "Account is deactivated.",
+    "account_inactive": "Account is inactive.",
+    "incorrect_password": "Incorrect password.",
+    "invalid_sysid": "Invalid SYSID provided.",
+    "unknown_error": "Unknown error occurred."
 }

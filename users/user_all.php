@@ -13,8 +13,6 @@
 </head>
 
 <body>
-    <?php include_once '../php/users/user_all.php' ?>
-
     <?php include_once '../components/header.php' ?>
 
     <?php include_once '../components/sidebar.php' ?>
@@ -52,7 +50,7 @@
                                     <tr>
                                         <th><?= $texts['username'] ?></th>
                                         <th><?= $texts['fullname'] ?></th>
-                                        <th><?= $texts['role'] ?></th>
+                                        <th>SYSID</th>
                                         <th><?= $texts['status'] ?></th>
                                         <th><?= $texts['option'] ?></th>
                                     </tr>

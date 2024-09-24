@@ -3,7 +3,7 @@ session_start();
 header('Content-Type: application/json');
 
 // ตรวจสอบว่ามี session token หรือไม่
-if (isset($_SESSION['token']) || isset($_SESSION['role'])) {
+if (isset($_SESSION['token']) || isset($_SESSION['sysid'])) {
     // ลบ session token
     session_destroy();
     

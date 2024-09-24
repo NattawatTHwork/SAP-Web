@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function () {
     getSessionToken()
         .then(mySession => {
             const currentTimeUTC = Math.floor(Date.now() / 1000);
-            if (!mySession.token || mySession.exp < currentTimeUTC) {
+            if (!mySession.token ||  !mySession.sysid || mySession.exp < currentTimeUTC) {
                 fetch(pathUrl + 'php/session/clear_session_token.php')
                     .then(response => response.json())
                     .then(data => {

@@ -10,13 +10,43 @@
     <meta content="" name="keywords">
 
     <?php include_once './components/header_link.php' ?>
+
+    <style>
+        body {
+            position: relative;
+            overflow: hidden;
+            font-family: 'Prompt', sans-serif;
+        }
+
+        video {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -1;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+        }
+
+        h1,
+        p,
+        label,
+        button,
+        a {
+            font-family: 'Prompt', sans-serif;
+        }
+    </style>
+
 </head>
 
 <body>
 
     <main>
         <div class="container">
-            <div class="d-flex justify-content-end">
+            <div class="d-flex justify-content-end text-white">
                 <ul class="navbar-nav">
                     <li class="nav-item dropdown pe-3">
                         <a id="languageDropdown" class="nav-link d-flex align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -31,6 +61,12 @@
                 </ul>
             </div>
 
+            <!-- Video Background -->
+            <video autoplay muted loop>
+                <source src="<?= $path ?>assets/video/backgroud.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+
             <section class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
                 <div class="container">
                     <div class="row justify-content-center">
@@ -38,8 +74,8 @@
 
                             <div class="d-flex justify-content-center py-4">
                                 <a href="index.php" class="logo d-flex align-items-center w-auto">
-                                    <img src="assets/img/logo.png" alt="">
-                                    <span class="d-none d-lg-block">SAP</span>
+                                    <!-- <img src="assets/img/logo.png" alt=""> -->
+                                    <span class="d-none d-lg-block text-white">CM</span>
                                 </a>
                             </div><!-- End Logo -->
 
@@ -56,14 +92,17 @@
 
                                         <div class="col-12">
                                             <label for="yourUsername" class="form-label">Username</label>
-                                            <div class="input-group has-validation">
-                                                <input type="text" name="username" class="form-control" id="yourUsername" required>
-                                            </div>
+                                            <input type="text" name="username" class="form-control" id="yourUsername" required>
                                         </div>
 
                                         <div class="col-12">
                                             <label for="yourPassword" class="form-label">Password</label>
                                             <input type="password" name="password" class="form-control" id="yourPassword" required>
+                                        </div>
+
+                                        <div class="col-12">
+                                            <label for="yoursysid" class="form-label">SYSID</label>
+                                            <input type="text" name="sysid" class="form-control" id="yoursysid" required>
                                         </div>
 
                                         <!-- <div class="col-12">
