@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>User All</title>
+    <title>Role All</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <?php include_once '../php/users/user_all.php' ?>
+    <?php include_once '../php/roles/role_all.php' ?>
 
     <?php include_once '../components/header.php' ?>
 
@@ -22,20 +22,20 @@
     <main id="main" class="main">
 
         <div class="pagetitle">
-            <h1>User All</h1>
+            <h1>Role All</h1>
             <nav>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-                    <li class="breadcrumb-item">User</li>
-                    <li class="breadcrumb-item active">User All</li>
+                    <li class="breadcrumb-item">Role</li>
+                    <li class="breadcrumb-item active">Role All</li>
                 </ol>
             </nav>
         </div><!-- End Page Title -->
 
         <div class="d-sm-flex justify-content-end mb-2 row">
             <div class="col-sm-12 col-md-4">
-                <a href="user_create.php" class="btn btn-primary w-100 btn-block">
-                    <?= $texts['user_create'] ?>
+                <a href="role_create.php" class="btn btn-primary w-100 btn-block">
+                    เพิ่มสิทธิ์
                 </a>
             </div>
         </div>
@@ -50,10 +50,7 @@
                             <table id="datatables" class="table table-striped" style="width:100%">
                                 <thead>
                                     <tr>
-                                        <th><?= $texts['username'] ?></th>
-                                        <th><?= $texts['fullname'] ?></th>
-                                        <th><?= $texts['role'] ?></th>
-                                        <th><?= $texts['status'] ?></th>
+                                        <th>สิทธิ์</th>
                                         <th><?= $texts['option'] ?></th>
                                     </tr>
                                 </thead>
@@ -72,7 +69,7 @@
 
     <?php include_once '../components/footer.php' ?>
 
-    <script src="<?= $path ?>js/users/user_all.js"></script>
+    <script src="<?= $path ?>js/roles/role_all.js"></script>
     <script src="<?= $path ?>js/common/handle_error.js"></script>
 
 </body>

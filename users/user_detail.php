@@ -13,6 +13,8 @@
 </head>
 
 <body>
+    <?php include_once '../php/users/user_detail.php' ?>
+
     <?php include_once '../components/header.php' ?>
 
     <?php include_once '../components/sidebar.php' ?>
@@ -60,8 +62,8 @@
                                     </div>
                                     <div class="col-12">
                                         <div class="mb-3">
-                                            <label for="sysid" class="form-label">SYSID</label>
-                                            <input type="text" class="form-control" id="sysid" name="sysid" disabled>
+                                            <label for="role" class="form-label"><?= $texts['role'] ?></label>
+                                            <input type="text" class="form-control" id="role" name="role" disabled>
                                         </div>
                                     </div>
                                     <div class="col-12">

@@ -27,10 +27,10 @@ texts = {
     'gl_mamage': 'จัดการบัญชีแยกประเภททั่วไปส่วนกลาง',
     'gl': 'บัญชีแยกประเภททั่วไป',
     'invalid_range': 'กรุณาเลือกกลุ่มบัญชีที่ตรงกับบัญชี G/L',
-    "username_not_exist": "ไม่พบชื่อผู้ใช้",
-    "account_deactivated": "บัญชีถูกยกเลิก",
-    "account_inactive": "บัญชีถูกปิดใช้งาน",
-    "incorrect_password": "รหัสผ่านไม่ถูกต้อง",
-    "invalid_sysid": "SYSID ไม่ถูกต้อง",
-    "unknown_error": "เกิดข้อผิดพลาดที่ไม่ทราบสาเหตุ"
+    'username_not_exist': 'ไม่พบชื่อผู้ใช้',
+    'account_deactivated': 'บัญชีถูกยกเลิก',
+    'account_inactive': 'บัญชีถูกปิดใช้งาน',
+    'incorrect_password': 'รหัสผ่านไม่ถูกต้อง',
+    'invalid_sysid': 'SYSID ไม่ถูกต้อง',
+    'unknown_error': 'เกิดข้อผิดพลาดที่ไม่ทราบสาเหตุ'
 }

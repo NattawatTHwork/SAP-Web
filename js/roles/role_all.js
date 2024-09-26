@@ -14,7 +14,7 @@ function handleGetAll(event) {
 }
 
 function fetchData(token) {
-    return fetch(apiUrl + 'users/get_user_all.php', {
+    return fetch(apiUrl + 'roles/get_role_all.php', {
         method: 'GET',
         headers: {
             'Authorization': `Bearer ${token}`
@@ -25,29 +25,22 @@ function fetchData(token) {
 
 function displayTables(datas) {
     let html = '';
-    const noDataHtml = '<tr><td></td><td></td><td>' + texts.no_data + '</td><td></td><td></td></tr>';
+    const noDataHtml = '<tr><td>' + texts.no_data + '</td><td></td></tr>';
     if (datas.status === 'success') {
         if (datas.data.length > 0) {
             datas.data.forEach(data => {
                 html += '<tr>';
-                html += `<td>${data.username}</td>
-                    <td>${data.firstname} ${data.lastname}</td>
-                    <td>${data.role}</td>
-                <td>
-                    <button class="btn ${data.statusflag == 't' ? 'btn-success' : 'btn-danger'}">
-                        ${data.statusflag == 't' ? texts.enable : texts.disable}
-                    </button>
-                </td>
-                <td>
+                html += `<td>${data.role}</td>
+                    <td>
                         <div class="dropdown">
                             <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 ${texts.option}
                             </button>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="user_detail.php?user_id=${data.user_id}">${texts.view_data}</a></li>
-                                <li><a class="dropdown-item" href="user_update.php?user_id=${data.user_id}">${texts.edit}</a></li>
-                                <li><a class="dropdown-item" href="user_change_password.php?user_id=${data.user_id}">${texts.change_password}</a></li>
-                                <li><a class="dropdown-item" href="#" onclick="delete_data('${data.user_id}', '${data.username}'); return false;">${texts.delete}</a></li>
+                                <li><a class="dropdown-item" href="manage_role_menu.php?role_id=${data.role_id}">จัดการเมนูของสิทธิ์</a></li>
+                                <li><a class="dropdown-item" href="role_detail.php?role_id=${data.role_id}">${texts.view_data}</a></li>
+                                <li><a class="dropdown-item" href="role_update.php?role_id=${data.role_id}">${texts.edit}</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="delete_data('${data.role_id}', '${data.role}'); return false;">${texts.delete}</a></li>
                             </ul>
                         </div>
                     </td>`;
@@ -68,9 +61,9 @@ function displayTables(datas) {
     });
 }
 
-function delete_data(userId, username) {
+function delete_data(roleId, role) {
     Swal.fire({
-        title: username,
+        title: role,
         text: texts.want_delete,
         icon: 'warning',
         showCancelButton: true,
@@ -79,23 +72,23 @@ function delete_data(userId, username) {
     }).then((result) => {
         if (result.isConfirmed) {
             getSessionToken()
-                .then(mySession => fetchDelete(userId, mySession.token))
+                .then(mySession => fetchDelete(roleId, mySession.token))
                 .then(response => handleDeleteResponse(response))
                 .catch(error => handleError(error));
         }
     });
 }
 
-function fetchDelete(userId, token) {
-    return fetch(apiUrl + 'users/delete_user.php', {
+function fetchDelete(roleId, token) {
+    return fetch(apiUrl + 'roles/delete_role.php', {
         method: 'POST',
         headers: {
             'Authorization': `Bearer ${token}`,
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ user_id: userId })
+        body: JSON.stringify({ role_id: roleId })
     })
-        .then(response => response.json());
+    .then(response => response.json());
 }
 
 function handleDeleteResponse(response) {

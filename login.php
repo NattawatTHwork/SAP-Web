@@ -92,17 +92,14 @@
 
                                         <div class="col-12">
                                             <label for="yourUsername" class="form-label">Username</label>
-                                            <input type="text" name="username" class="form-control" id="yourUsername" required>
+                                            <div class="input-group has-validation">
+                                                <input type="text" name="username" class="form-control" id="yourUsername" required>
+                                            </div>
                                         </div>
 
                                         <div class="col-12">
                                             <label for="yourPassword" class="form-label">Password</label>
                                             <input type="password" name="password" class="form-control" id="yourPassword" required>
-                                        </div>
-
-                                        <div class="col-12">
-                                            <label for="yoursysid" class="form-label">SYSID</label>
-                                            <input type="text" name="sysid" class="form-control" id="yoursysid" required>
                                         </div>
 
                                         <!-- <div class="col-12">

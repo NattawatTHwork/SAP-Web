@@ -26,7 +26,7 @@ function showData(data) {
         document.getElementById('username').value = user.username;
         document.getElementById('firstname').value = user.firstname;
         document.getElementById('lastname').value = user.lastname;
-        document.getElementById('sysid').value = user.sysid;
+        document.getElementById('role').value = user.role;
         document.getElementById('statusflag').value = user.statusflag === 't' ? texts.enable : texts.disable;
     } else {
         handleError(data.message);

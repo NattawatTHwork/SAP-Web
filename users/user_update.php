@@ -13,6 +13,8 @@
 </head>
 
 <body>
+    <?php include_once '../php/users/user_update.php' ?>
+
     <?php include_once '../components/header.php' ?>
 
     <?php include_once '../components/sidebar.php' ?>
@@ -56,8 +58,10 @@
                                     </div>
                                     <div class="col-12">
                                         <div class="mb-3">
-                                            <label for="sysid" class="form-label">SYSID</label>
-                                            <input type="text" class="form-control" id="sysid" name="sysid">
+                                            <label for="role_id" class="form-label"><?= $texts['role'] ?></label>
+                                            <select class="form-control" id="role_id" name="role_id">
+                                                <!-- Dynamic options will be populated here -->
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="col-12">

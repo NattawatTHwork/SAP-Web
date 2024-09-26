@@ -1,12 +1,46 @@
 document.addEventListener("DOMContentLoaded", async function () {
     try {
         const sessionToken = await getSessionToken();
+        await handleGetRoles(sessionToken.token);
         const data = await fetchData(sessionToken.token);
         showData(data);
     } catch (error) {
         handleError(error);
     }
 });
+
+async function handleGetRoles(token) {
+    try {
+        const data = await fetchRoles(token);
+        populateRoleOptions(data);
+    } catch (error) {
+        handleError(error);
+    }
+}
+
+function fetchRoles(token) {
+    return fetch(apiUrl + 'roles/get_role_all.php', {
+        method: 'GET',
+        headers: {
+            'Authorization': `Bearer ${token}`
+        }
+    })
+        .then(response => response.json());
+}
+
+function populateRoleOptions(data) {
+    const roleSelect = document.getElementById('role_id');
+    if (data.status === 'success') {
+        data.data.forEach(role => {
+            const option = document.createElement('option');
+            option.value = role.role_id;
+            option.textContent = role.role;
+            roleSelect.appendChild(option);
+        });
+    } else {
+        handleError(data.message);
+    }
+}
 
 function fetchData(token) {
     const userId = getQueryParam('user_id');
@@ -26,7 +60,7 @@ function showData(data) {
         document.getElementById('user_id').value = user.user_id;
         document.getElementById('firstname').value = user.firstname;
         document.getElementById('lastname').value = user.lastname;
-        document.getElementById('sysid').value = user.sysid;
+        document.getElementById('role_id').value = user.role_id;
         document.getElementById('statusflag').value = user.statusflag;
     } else {
         handleError(data.message);

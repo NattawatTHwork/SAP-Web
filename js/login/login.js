@@ -13,7 +13,8 @@ function handleFormSubmit(event) {
     const jsonData = convertFormDataToJson(formData);
 
     fetchData(jsonData)
-        .then(data => handleFetchResponse(data))
+        .then(data => handleFetchmenus(data.token))
+        .then(({ token, data }) => handleFetchResponse(token, data)) // Pass both token and menu data
         .then(data => handleSessionResponse(data))
         .catch(error => handleError(error))
         .finally(() => {
@@ -32,15 +33,30 @@ function fetchData(jsonData) {
         .then(response => response.json());
 }
 
-function handleFetchResponse(data) {
+function handleFetchmenus(token) {
+    return fetch(apiUrl + 'role_menus/get_role_menu_token.php', {
+        method: 'GET',
+        headers: {
+            'Authorization': `Bearer ${token}`,
+            'Content-Type': 'application/json'
+        },
+    })
+        .then(response => response.json())
+        .then(data => ({ token, data })); // Fixed return statement
+}
+
+function handleFetchResponse(token, data) { // Accept token and menuData as parameters
     if (data.status === 'success') {
-        const payloadBase64 = data.token.split('.')[1];
+        const payloadBase64 = token.split('.')[1];
         const data_token = JSON.parse(atob(payloadBase64));
 
         const postData = {
-            token: data.token,
-            ...data_token
+            token,
+            ...data_token,
+            allowed_menu: data.data
         };
+
+        console.log(postData)
 
         return fetch(pathUrl + 'php/session/set_session_token.php', {
             method: 'POST',
@@ -49,41 +65,34 @@ function handleFetchResponse(data) {
             },
             body: JSON.stringify(postData)
         }).then(response => response.json());
-    } else if (data.status === 'exist') {
+    } else if (menuData.status === 'exist') {
         Swal.fire({
             icon: 'error',
             title: texts.error,
             text: texts.username_not_exist
         });
         return Promise.reject('Username does not exist');
-    } else if (data.status === 'deactivated') {
+    } else if (menuData.status === 'deactivated') {
         Swal.fire({
             icon: 'error',
             title: texts.error,
             text: texts.account_deactivated
         });
         return Promise.reject('Account is deactivated');
-    } else if (data.status === 'inactive') {
+    } else if (menuData.status === 'inactive') {
         Swal.fire({
             icon: 'error',
             title: texts.error,
             text: texts.account_inactive
         });
         return Promise.reject('Account is inactive');
-    } else if (data.status === 'incorrect') {
+    } else if (menuData.status === 'incorrect') {
         Swal.fire({
             icon: 'error',
             title: texts.error,
             text: texts.incorrect_password
         });
         return Promise.reject('Incorrect password');
-    } else if (data.status === 'invalid_sysid') {
-        Swal.fire({
-            icon: 'error',
-            title: texts.error,
-            text: texts.invalid_sysid
-        });
-        return Promise.reject('Invalid SYSID');
     } else {
         Swal.fire({
             icon: 'error',

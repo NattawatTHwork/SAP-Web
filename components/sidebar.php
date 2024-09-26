@@ -11,25 +11,10 @@
         </li><!-- End Dashboard Nav -->
 
         <li class="nav-item">
-            <a class="nav-link collapsed" data-bs-target="#manage-nav" data-bs-toggle="collapse" href="#">
-                <i class="bi bi-menu-button-wide"></i><span>เพิ่มข้อมูลทั่วไป</span><i class="bi bi-chevron-down ms-auto"></i>
+            <a class="nav-link collapsed" data-bs-target="#define-accounting-parameters" data-bs-toggle="collapse" href="#">
+                <i class="bi bi-menu-button-wide"></i><span>กำหนดพารามิเตอร์ทางบัญชี</span><i class="bi bi-chevron-down ms-auto"></i>
             </a>
-            <ul id="manage-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-                <li>
-                    <a href="<?= $path ?>countries/country_all.php">
-                        <i class="bi bi-circle"></i><span>ประเทศ</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="<?= $path ?>business_types/business_type_all.php">
-                        <i class="bi bi-circle"></i><span>ประเภทธุรกิจ</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="<?= $path ?>companies/company_all.php">
-                        <i class="bi bi-circle"></i><span>บริษัท</span>
-                    </a>
-                </li>
+            <ul id="define-accounting-parameters" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
                     <a href="<?= $path ?>chart_accounts/chart_account_all.php">
                         <i class="bi bi-circle"></i><span>ผังบัญชี</span>
@@ -60,6 +45,29 @@
                         <i class="bi bi-circle"></i><span>งวดการผ่านรายการ</span>
                     </a>
                 </li>
+            </ul>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" data-bs-target="#set-general-parameters" data-bs-toggle="collapse" href="#">
+                <i class="bi bi-menu-button-wide"></i><span>กำหนดพารามิเตอร์ทั่วไป</span><i class="bi bi-chevron-down ms-auto"></i>
+            </a>
+            <ul id="set-general-parameters" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                <li>
+                    <a href="<?= $path ?>countries/country_all.php">
+                        <i class="bi bi-circle"></i><span>ประเทศ</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="<?= $path ?>business_types/business_type_all.php">
+                        <i class="bi bi-circle"></i><span>ประเภทธุรกิจ</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="<?= $path ?>companies/company_all.php">
+                        <i class="bi bi-circle"></i><span>บริษัท</span>
+                    </a>
+                </li>
                 <li>
                     <a href="<?= $path ?>central_general_ledgers/central_general_ledger_all.php">
                         <i class="bi bi-circle"></i><span>บัญชีแยกประเภททั่วไปส่วนกลาง</span>
@@ -71,12 +79,98 @@
                     </a>
                 </li>
             </ul>
-        </li><!-- End Components Nav -->
+        </li>
+
 
         <li class="nav-item">
-            <a class="nav-link collapsed" href="<?= $path ?>users/user_all.php">
-                <i class="bi bi-person"></i>
-                <span>User Management</span>
+            <a class="nav-link collapsed" data-bs-target="#user-management" data-bs-toggle="collapse" href="#">
+                <i class="bi bi-menu-button-wide"></i><span>User Management</span><i class="bi bi-chevron-down ms-auto"></i>
+            </a>
+            <ul id="user-management" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                <li>
+                    <a href="<?= $path ?>roles/role_all.php">
+                        <i class="bi bi-circle"></i><span>สิทธิ์</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="<?= $path ?>users/user_all.php">
+                        <i class="bi bi-circle"></i><span>ผู้ใช้</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="<?= $path ?>index.php">
+                <i class="bi bi-grid"></i>
+                <span>ระบบงบประมาณ</span>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="<?= $path ?>index.php">
+                <i class="bi bi-grid"></i>
+                <span>ระบบจัดซื้อจัดจ้าง</span>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="<?= $path ?>index.php">
+                <i class="bi bi-grid"></i>
+                <span>ระบบคลังสินค้า</span>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="<?= $path ?>index.php">
+                <i class="bi bi-grid"></i>
+                <span>ระบบการผลิต</span>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="<?= $path ?>index.php">
+                <i class="bi bi-grid"></i>
+                <span>ระบบงานขาย</span>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" data-bs-target="#human-resources" data-bs-toggle="collapse" href="#">
+                <i class="bi bi-menu-button-wide"></i><span>ระบบทรัพยากรบุคคล</span><i class="bi bi-chevron-down ms-auto"></i>
+            </a>
+            <ul id="human-resources" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                <li>
+                    <a href="<?= $path ?>roles/role.php">
+                        <i class="bi bi-circle"></i><span>เวลาเข้า-ออกงาน</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="<?= $path ?>users/user.php">
+                        <i class="bi bi-circle"></i><span>กิจกรรม</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="<?= $path ?>index.php">
+                <i class="bi bi-grid"></i>
+                <span>ระบบรายงาน</span>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="<?= $path ?>index.php">
+                <i class="bi bi-grid"></i>
+                <span>ระบบบริหารผู้ใช้ระบบงาน</span>
+            </a>
+        </li>
+        
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="<?= $path ?>index.php">
+                <i class="bi bi-grid"></i>
+                <span>ระบบเชื่อมโยง API</span>
             </a>
         </li>
     </ul>
