@@ -46,20 +46,6 @@
 
     <main>
         <div class="container">
-            <div class="d-flex justify-content-end text-white">
-                <ul class="navbar-nav">
-                    <li class="nav-item dropdown pe-3">
-                        <a id="languageDropdown" class="nav-link d-flex align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <?= $_SESSION['language'] == 'th' ? 'ไทย' : 'English' ?>
-                            <i class="bi bi-chevron-down ms-1"></i>
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="languageDropdown" style="list-style-type: none;">
-                            <li><a id="lang-th" class="dropdown-item" href="#">ไทย</a></li>
-                            <li><a id="lang-en" class="dropdown-item" href="#">English</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
 
             <!-- Video Background -->
             <video autoplay muted loop>
