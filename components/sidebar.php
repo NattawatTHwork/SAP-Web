@@ -100,24 +100,6 @@
             </ul>
         </li>
 
-        <li class="nav-item">
-            <a class="nav-link collapsed" data-bs-target="#human-resources" data-bs-toggle="collapse" href="#">
-                <i class="bi bi-menu-button-wide"></i><span>ระบบทรัพยากรบุคคล</span><i class="bi bi-chevron-down ms-auto"></i>
-            </a>
-            <ul id="human-resources" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-                <li>
-                    <a href="<?= $path ?>roles/role.php">
-                        <i class="bi bi-circle"></i><span>เวลาเข้า-ออกงาน</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="<?= $path ?>users/user.php">
-                        <i class="bi bi-circle"></i><span>กิจกรรม</span>
-                    </a>
-                </li>
-            </ul>
-        </li>
-
     </ul>
 
 </aside><!-- End Sidebar-->
