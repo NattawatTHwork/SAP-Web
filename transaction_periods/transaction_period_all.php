@@ -35,7 +35,7 @@
         <div class="d-sm-flex justify-content-end mb-2 row">
             <div class="col-sm-12 col-md-4">
                 <a href="transaction_period_create.php" class="btn btn-primary w-100 btn-block">
-                    <?= $texts['transaction_period_create'] ?>
+                    เพิ่มงวดการผ่านบัญชี
                 </a>
             </div>
         </div>
@@ -50,20 +50,20 @@
                             <table id="datatables" class="table table-striped" style="width:100%">
                                 <thead>
                                     <tr>
-                                        <th><?= $texts['transaction_period_group_code'] ?></th>
-                                        <th><?= $texts['account_type'] ?></th>
-                                        <th><?= $texts['account_from'] ?></th>
-                                        <th><?= $texts['account_to'] ?></th>
-                                        <th><?= $texts['period_from_first'] ?></th>
-                                        <th><?= $texts['year'] ?></th>
-                                        <th><?= $texts['period_to_first'] ?></th>
-                                        <th><?= $texts['year'] ?></th>
-                                        <th><?= $texts['period_from_second'] ?></th>
-                                        <th><?= $texts['year'] ?></th>
-                                        <th><?= $texts['period_to_second'] ?></th>
-                                        <th><?= $texts['year'] ?></th>
-                                        <th><?= $texts['augr'] ?></th>
-                                        <th><?= $texts['option'] ?></th>
+                                        <th>รหัสกลุ่มงวดการผ่านรายการ</th>
+                                        <th>ประเภทบัญชี</th>
+                                        <th>จากบัญชี</th>
+                                        <th>ถึงบัญชี</th>
+                                        <th>จากงวด 1</th>
+                                        <th>ปี</th>
+                                        <th>ถึงงวด 1</th>
+                                        <th>ปี</th>
+                                        <th>จากงวด 2</th>
+                                        <th>ปี</th>
+                                        <th>ถึงงวด 2</th>
+                                        <th>ปี</th>
+                                        <th>AuGr</th>
+                                        <th>ตัวเลือก</th>
                                     </tr>
                                 </thead>
                                 <tbody>

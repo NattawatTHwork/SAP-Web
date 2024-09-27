@@ -148,7 +148,7 @@ function handleUpdateResponse(data) {
     if (data.status === 'success') {
         Swal.fire({
             icon: 'success',
-            title: texts.success,
+            title: 'สำเร็จ',
         })
             .then(() => {
                 window.location.href = 'transaction_period_update.php?transaction_period_id=' + TransactionPeriodId;
@@ -156,7 +156,7 @@ function handleUpdateResponse(data) {
     } else {
         Swal.fire({
             icon: 'error',
-            title: texts.error,
+            title: 'เกิดข้อผิดพลาด',
         });
     }
 }

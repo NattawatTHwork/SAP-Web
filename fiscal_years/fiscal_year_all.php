@@ -35,7 +35,7 @@
         <div class="d-sm-flex justify-content-end mb-2 row">
             <div class="col-sm-12 col-md-4">
                 <a href="fiscal_year_create.php" class="btn btn-primary w-100 btn-block">
-                    <?= $texts['fiscal_year_create'] ?>
+                    สร้างชุดการเลือกปีบัญชี
                 </a>
             </div>
         </div>
@@ -50,13 +50,13 @@
                             <table id="datatables" class="table table-striped" style="width:100%">
                                 <thead>
                                     <tr>
-                                        <th><?= $texts['fiscal_year_code'] ?></th>
-                                        <th><?= $texts['description'] ?></th>
-                                        <th><?= $texts['dependent_on_fiscal_year'] ?></th>
-                                        <th><?= $texts['calendar_year'] ?></th>
-                                        <th><?= $texts['posting_period_count'] ?></th>
-                                        <th><?= $texts['special_period_count'] ?></th>
-                                        <th><?= $texts['option'] ?></th>
+                                        <th>รหัสชุดการเลือกปีบัญชี</th>
+                                        <th>คำอธิบาย</th>
+                                        <th>ขึ้นอยู่กับปีงบประมาณ</th>
+                                        <th>ปีปฏิทิน</th>
+                                        <th>จำนวนงวดการผ่านรายการ</th>
+                                        <th>จำนวนของงวดเวลาพิเศษ</th>
+                                        <th>ตัวเลือก</th>
                                     </tr>
                                 </thead>
                                 <tbody>

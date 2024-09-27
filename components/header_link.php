@@ -25,24 +25,4 @@
 
 <?php
 session_start();
-if (!isset($_SESSION['language'])) {
-  $_SESSION['language'] = 'th';
-}
-if (isset($_GET['language'])) {
-  $_SESSION['language'] = $_GET['language'];
-}
-
-$language_file = $_SERVER['DOCUMENT_ROOT'] . $path . 'php/languages/' . $_SESSION['language'] . '.php';
-
-if (file_exists($language_file)) {
-  $texts = include $language_file;
-} else {
-  echo "Error: Language file not found.";
-}
 ?>
-
-<?php if ($_SESSION['language'] == 'th') { ?>
-  <script src="<?= $path ?>js/languages/th.js"></script>
-<?php } else { ?>
-  <script src="<?= $path ?>js/languages/en.js"></script>
-<?php } ?>

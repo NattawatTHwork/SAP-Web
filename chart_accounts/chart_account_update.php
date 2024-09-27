@@ -45,56 +45,56 @@
                                 <div class="row pb-4">
                                     <div class="col-12">
                                         <div class="mb-3">
-                                            <label for="chart_account_code" class="form-label"><?= $texts['chart_account_code'] ?></label>
+                                            <label for="chart_account_code" class="form-label">รหัสผังบัญชี</label>
                                             <input type="text" class="form-control" id="chart_account_code" name="chart_account_code" required>
                                         </div>
                                     </div>
                                 </div>
 
-                                <h6 class="fw-bold fs-4"><?= $texts['general_information'] ?></h6>
+                                <h6 class="fw-bold fs-4">ข้อมูลทั่วไป</h6>
                                 <div class="row pb-4">
                                     <div class="col-12">
                                         <div class="mb-3">
-                                            <label for="language" class="form-label"><?= $texts['language'] ?></label>
+                                            <label for="language" class="form-label">ภาษา</label>
                                             <input type="text" class="form-control" id="language" name="language" required>
                                         </div>
                                     </div>
                                     <div class="col-12">
                                         <div class="mb-3">
-                                            <label for="account_length" class="form-label"><?= $texts['account_length'] ?></label>
+                                            <label for="account_length" class="form-label">ความยาวของเลขทีบัญชีแยกประเภท</label>
                                             <input type="text" class="form-control" id="account_length" name="account_length" required>
                                         </div>
                                     </div>
                                 </div>
 
-                                <h6 class="fw-bold fs-4"><?= $texts['collection'] ?></h6>
+                                <h6 class="fw-bold fs-4">การรวบรวม</h6>
                                 <div class="row pb-4">
                                     <div class="col-12">
                                         <div class="mb-3">
-                                            <label for="collection_control" class="form-label"><?= $texts['collection_control'] ?></label>
+                                            <label for="collection_control" class="form-label">การรวบรวมการควบคุม</label>
                                             <input type="text" class="form-control" id="collection_control" name="collection_control" required>
                                         </div>
                                     </div>
                                 </div>
 
-                                <h6 class="fw-bold fs-4"><?= $texts['address_format'] ?></h6>
+                                <h6 class="fw-bold fs-4">รูปแบบที่อยู่</h6>
                                 <div class="row pb-4">
                                     <div class="col-12">
                                         <div class="mb-3">
-                                            <label for="chart_account_group" class="form-label"><?= $texts['chart_account_group'] ?></label>
+                                            <label for="chart_account_group" class="form-label">ผังบัญชีกลุ่ม</label>
                                             <input type="text" class="form-control" id="chart_account_group" name="chart_account_group" required>
                                         </div>
                                     </div>
                                 </div>
 
-                                <h6 class="fw-bold fs-4"><?= $texts['status'] ?></h6>
+                                <h6 class="fw-bold fs-4">สถานะ</h6>
                                 <div class="row pb-4">
                                     <div class="col-12">
                                         <div class="mb-3">
-                                            <label for="suspend" class="form-label"><?= $texts['suspend'] ?></label>
+                                            <label for="suspend" class="form-label">การระงับ</label>
                                             <div class="form-check">
                                                 <input type="checkbox" class="form-check-input" id="suspend" name="suspend">
-                                                <label class="form-check-label" for="suspend"><?= $texts['suspend'] ?></label>
+                                                <label class="form-check-label" for="suspend">การระงับ</label>
                                             </div>
                                         </div>
                                     </div>
@@ -103,7 +103,7 @@
                                 <div class="row pb-4">
                                     <div class="col-12">
                                         <div class="text-center">
-                                            <button type="submit" class="btn btn-primary w-100" id="submitBtn"><?= $texts['save'] ?></button>
+                                            <button type="submit" class="btn btn-primary w-100" id="submitBtn">บันทึก</button>
                                         </div>
                                     </div>
                                 </div>

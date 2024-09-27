@@ -108,7 +108,7 @@ function handleUpdateResponse(data) {
     if (data.status === 'success') {
         Swal.fire({
             icon: 'success',
-            title: texts.success,
+            title: 'สำเร็จ',
         })
             .then(() => {
                 window.location.href = 'group_account_update.php?group_account_id=' + GroupAccountId;
@@ -116,7 +116,7 @@ function handleUpdateResponse(data) {
     } else {
         Swal.fire({
             icon: 'error',
-            title: texts.error,
+            title: 'เกิดข้อผิดพลาด',
         });
     }
 }

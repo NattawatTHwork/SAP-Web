@@ -92,7 +92,7 @@
                                     </div>
                                     <div class="col-12">
                                         <div class="mb-3">
-                                            <label for="company_id" class="form-label"><?= $texts['company_code'] ?></label>
+                                            <label for="company_id" class="form-label">รหัสบริษัท</label>
                                             <select class="form-control" id="company_id" name="company_id" required>
                                                 <!-- Dynamic options will be populated here -->
                                             </select>
@@ -103,7 +103,7 @@
                                 <div class="row pb-4">
                                     <div class="col-12">
                                         <div class="text-center">
-                                            <button type="submit" class="btn btn-primary w-100" id="submitBtn"><?= $texts['save'] ?></button>
+                                            <button type="submit" class="btn btn-primary w-100" id="submitBtn">บันทึก</button>
                                         </div>
                                     </div>
                                 </div>

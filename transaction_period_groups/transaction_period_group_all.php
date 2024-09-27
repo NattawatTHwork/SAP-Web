@@ -35,7 +35,7 @@
         <div class="d-sm-flex justify-content-end mb-2 row">
             <div class="col-sm-12 col-md-4">
                 <a href="transaction_period_group_create.php" class="btn btn-primary w-100 btn-block">
-                    <?= $texts['transaction_period_group_create'] ?>
+                    เพิ่มกลุ่มงวดการผ่านรายการ
                 </a>
             </div>
         </div>
@@ -50,9 +50,9 @@
                             <table id="datatables" class="table table-striped" style="width:100%">
                                 <thead>
                                     <tr>
-                                        <th><?= $texts['transaction_period_group_code'] ?></th>
-                                        <th><?= $texts['description'] ?></th>
-                                        <th><?= $texts['option'] ?></th>
+                                        <th>รหัสกลุ่มงวดการผ่านรายการ</th>
+                                        <th>คำอธิบาย</th>
+                                        <th>ตัวเลือก</th>
                                     </tr>
                                 </thead>
                                 <tbody>

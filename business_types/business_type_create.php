@@ -40,17 +40,17 @@
                         <div class="card-body m-4">
                             <!-- Form for details -->
                             <form id="InputForm">
-                                <h6 class="fw-bold fs-4"><?= $texts['business_type'] ?></h6>
+                                <h6 class="fw-bold fs-4">สร้างเขตธุรกิจ</h6>
                                 <div class="row pb-4">
                                     <div class="col-md-6">
                                         <div class="mb-3">
-                                            <label for="business_type_code" class="form-label"><?= $texts['business_type_code'] ?></label>
+                                            <label for="business_type_code" class="form-label">รหัสเขตธุรกิจ</label>
                                             <input type="text" class="form-control" id="business_type_code" name="business_type_code" required>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="mb-3">
-                                            <label for="description" class="form-label"><?= $texts['description'] ?></label>
+                                            <label for="description" class="form-label">คำอธิบาย</label>
                                             <input type="text" class="form-control" id="description" name="description" required>
                                         </div>
                                     </div>
@@ -59,7 +59,7 @@
                                 <div class="row pb-4">
                                     <div class="col-12">
                                         <div class="text-center">
-                                            <button type="submit" class="btn btn-primary w-100" id="submitBtn"><?= $texts['save'] ?></button>
+                                            <button type="submit" class="btn btn-primary w-100" id="submitBtn">บันทึก</button>
                                         </div>
                                     </div>
                                 </div>

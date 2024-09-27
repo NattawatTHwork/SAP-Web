@@ -40,41 +40,41 @@
                         <div class="card-body m-4">
                             <!-- Form for period detail details -->
                             <form id="InputForm">
-                                <h6 class="fw-bold fs-4"><?= $texts['period_detail'] ?></h6>
+                                <h6 class="fw-bold fs-4">รายละเอียดงวด</h6>
                                 <div class="row pb-4">
                                     <div class="col-12">
                                         <div class="mb-3">
-                                            <label for="period_code" class="form-label"><?= $texts['period_code'] ?></label>
+                                            <label for="period_code" class="form-label">งวด</label>
                                             <input type="text" class="form-control" id="period_code" name="period_code" disabled>
                                         </div>
                                     </div>
                                     <div class="col-12">
                                         <div class="mb-3">
-                                            <label for="number_month" class="form-label"><?= $texts['month'] ?></label>
+                                            <label for="number_month" class="form-label">เดือน</label>
                                             <input type="text" class="form-control" id="number_month" name="number_month" disabled>
                                         </div>
                                     </div>
                                     <div class="col-12">
                                         <div class="mb-3">
-                                            <label for="number_day" class="form-label"><?= $texts['day'] ?></label>
+                                            <label for="number_day" class="form-label">วัน</label>
                                             <input type="text" class="form-control" id="number_day" name="number_day" disabled>
                                         </div>
                                     </div>
                                     <div class="col-12">
                                         <div class="mb-3">
-                                            <label for="change_year" class="form-label"><?= $texts['change_year'] ?></label>
+                                            <label for="change_year" class="form-label">การเปลี่ยนปี</label>
                                             <input type="text" class="form-control" id="change_year" name="change_year" disabled>
                                         </div>
                                     </div>
                                     <div class="col-12">
                                         <div class="mb-3">
-                                            <label for="text_period_en" class="form-label"><?= $texts['text_period_en'] ?></label>
+                                            <label for="text_period_en" class="form-label">ข้อความงวดภาษาอังกฤษ</label>
                                             <input type="text" class="form-control" id="text_period_en" name="text_period_en" disabled>
                                         </div>
                                     </div>
                                     <div class="col-12">
                                         <div class="mb-3">
-                                            <label for="text_period_th" class="form-label"><?= $texts['text_period_th'] ?></label>
+                                            <label for="text_period_th" class="form-label">ข้อความงวดภาษาไทย</label>
                                             <input type="text" class="form-control" id="text_period_th" name="text_period_th" disabled>
                                         </div>
                                     </div>

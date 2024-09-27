@@ -101,7 +101,7 @@
                                 <div class="row pb-4">
                                     <div class="col-12">
                                         <div class="text-center">
-                                            <button type="submit" class="btn btn-primary w-100" id="submitBtn"><?= $texts['save'] ?></button>
+                                            <button type="submit" class="btn btn-primary w-100" id="submitBtn">บันทึก</button>
                                         </div>
                                     </div>
                                 </div>

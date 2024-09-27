@@ -105,7 +105,7 @@ function handleUpdateResponse(data) {
     if (data.status === 'success') {
         Swal.fire({
             icon: 'success',
-            title: texts.success,
+            title: 'สำเร็จ',
         })
             .then(() => {
                 window.location.href = 'central_general_ledger_update.php?central_general_ledger_id=' + CentralGeneralLedgerId;
@@ -113,7 +113,7 @@ function handleUpdateResponse(data) {
     } else {
         Swal.fire({
             icon: 'error',
-            title: texts.error,
+            title: 'เกิดข้อผิดพลาด',
         });
     }
 }

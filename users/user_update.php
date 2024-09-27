@@ -42,23 +42,23 @@
                             <form id="InputForm">
                                 <input type="hidden" id="user_id" name="user_id" value="">
 
-                                <h6 class="fw-bold fs-4 mb-3"><?= $texts['user_update'] ?></h6>
+                                <h6 class="fw-bold fs-4 mb-3">แก้ไขผู้ใช้</h6>
                                 <div class="row pb-4">
                                     <div class="col-12">
                                         <div class="mb-3">
-                                            <label for="firstname" class="form-label"><?= $texts['firstname'] ?></label>
+                                            <label for="firstname" class="form-label">ชื่อ</label>
                                             <input type="text" class="form-control" id="firstname" name="firstname">
                                         </div>
                                     </div>
                                     <div class="col-12">
                                         <div class="mb-3">
-                                            <label for="lastname" class="form-label"><?= $texts['lastname'] ?></label>
+                                            <label for="lastname" class="form-label">นามสกุล</label>
                                             <input type="text" class="form-control" id="lastname" name="lastname">
                                         </div>
                                     </div>
                                     <div class="col-12">
                                         <div class="mb-3">
-                                            <label for="role_id" class="form-label"><?= $texts['role'] ?></label>
+                                            <label for="role_id" class="form-label">สิทธิ์</label>
                                             <select class="form-control" id="role_id" name="role_id">
                                                 <!-- Dynamic options will be populated here -->
                                             </select>
@@ -66,10 +66,10 @@
                                     </div>
                                     <div class="col-12">
                                         <div class="mb-3">
-                                            <label for="statusflag" class="form-label"><?= $texts['status'] ?></label>
+                                            <label for="statusflag" class="form-label">สถานะ</label>
                                             <select class="form-control" id="statusflag" name="statusflag">
-                                                <option value="t"><?= $texts['enable'] ?></option>
-                                                <option value="f"><?= $texts['disable'] ?></option>
+                                                <option value="t">เปิดใช้งาน</option>
+                                                <option value="f">ปิดใช้งาน</option>
                                             </select>
                                         </div>
                                     </div>
@@ -78,7 +78,7 @@
                                 <div class="row pb-4">
                                     <div class="col-12">
                                         <div class="text-center">
-                                            <button type="submit" class="btn btn-primary w-100" id="submitBtn"><?= $texts['save'] ?></button>
+                                            <button type="submit" class="btn btn-primary w-100" id="submitBtn">บันทึก</button>
                                         </div>
                                     </div>
                                 </div>

@@ -40,53 +40,53 @@
                         <div class="card-body m-4">
                             <!-- Form for fiscal_year details -->
                             <form id="InputForm">
-                                <h6 class="fw-bold fs-4"><?= $texts['fiscal_year_create'] ?></h6>
+                                <h6 class="fw-bold fs-4">สร้างชุดการเลือกปีบัญชี</h6>
                                 <div class="row pb-4">
                                     <div class="col-12">
                                         <div class="mb-3">
-                                            <label for="fiscal_year_code" class="form-label"><?= $texts['fiscal_year_code'] ?></label>
+                                            <label for="fiscal_year_code" class="form-label">รหัสชุดการเลือกปีบัญชี</label>
                                             <input type="text" class="form-control" id="fiscal_year_code" name="fiscal_year_code" required>
                                         </div>
                                     </div>
                                     <div class="col-12">
                                         <div class="mb-3">
-                                            <label for="description" class="form-label"><?= $texts['description'] ?></label>
+                                            <label for="description" class="form-label">คำอธิบาย</label>
                                             <input type="text" class="form-control" id="description" name="description" required>
                                         </div>
                                     </div>
                                     <div class="col-12">
                                         <div class="mb-3">
-                                            <label for="fiscal_year_check" class="form-label"><?= $texts['based_on_the_fiscal_year'] ?></label>
+                                            <label for="fiscal_year_check" class="form-label">ขึ้นอยู่กับปี</label>
                                             <div class="form-check">
                                                 <input type="checkbox" class="form-check-input" id="fiscal_year_check" name="fiscal_year_check">
-                                                <label class="form-check-label" for="fiscal_year_check"><?= $texts['based_on_the_fiscal_year'] ?></label>
+                                                <label class="form-check-label" for="fiscal_year_check">ขึ้นอยู่กับปี</label>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-12">
                                         <div class="mb-3">
-                                            <label for="calendar_year_check" class="form-label"><?= $texts['calendar_year'] ?></label>
+                                            <label for="calendar_year_check" class="form-label">ปีปฏิทิน</label>
                                             <div class="form-check">
                                                 <input type="checkbox" class="form-check-input" id="calendar_year_check" name="calendar_year_check">
-                                                <label class="form-check-label" for="calendar_year_check"><?= $texts['calendar_year'] ?></label>
+                                                <label class="form-check-label" for="calendar_year_check">ปีปฏิทิน</label>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-12">
                                         <div class="mb-3">
-                                            <label for="posting_period_count" class="form-label"><?= $texts['posting_period_count'] ?></label>
+                                            <label for="posting_period_count" class="form-label">จำนวนงวดการผ่านรายการ</label>
                                             <input type="number" class="form-control" id="posting_period_count" name="posting_period_count">
                                         </div>
                                     </div>
                                     <div class="col-12">
                                         <div class="mb-3">
-                                            <label for="special_period_count" class="form-label"><?= $texts['special_period_count'] ?></label>
+                                            <label for="special_period_count" class="form-label">จำนวนของงวดเวลาพิเศษ</label>
                                             <input type="number" class="form-control" id="special_period_count" name="special_period_count">
                                         </div>
                                     </div>
                                     <div class="col-12">
                                         <div class="mb-3">
-                                            <label for="period_group_id" class="form-label"><?= $texts['period_group_code'] ?></label>
+                                            <label for="period_group_id" class="form-label">รหัสกลุ่มงวด</label>
                                             <select class="form-control" id="period_group_id" name="period_group_id">
                                                 <!-- Dynamic options will be populated here -->
                                             </select>
@@ -97,7 +97,7 @@
                                 <div class="row pb-4">
                                     <div class="col-12">
                                         <div class="text-center">
-                                            <button type="submit" class="btn btn-primary w-100" id="submitBtn"><?= $texts['save'] ?></button>
+                                            <button type="submit" class="btn btn-primary w-100" id="submitBtn">บันทึก</button>
                                         </div>
                                     </div>
                                 </div>

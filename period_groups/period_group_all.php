@@ -35,7 +35,7 @@
         <div class="d-sm-flex justify-content-end mb-2 row">
             <div class="col-sm-12 col-md-4">
                 <a href="period_group_create.php" class="btn btn-primary w-100 btn-block">
-                    <?= $texts['period_group_create'] ?>
+                    สร้างกลุ่มงวด
                 </a>
             </div>
         </div>
@@ -50,9 +50,9 @@
                             <table id="datatables" class="table table-striped" style="width:100%">
                                 <thead>
                                     <tr>
-                                        <th><?= $texts['period_group_code'] ?></th>
-                                        <th><?= $texts['description'] ?></th>
-                                        <th><?= $texts['option'] ?></th>
+                                        <th>รหัสกลุ่มงวด</th>
+                                        <th>คำอธิบาย</th>
+                                        <th>ตัวเลือก</th>
                                     </tr>
                                 </thead>
                                 <tbody>

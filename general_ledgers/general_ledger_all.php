@@ -50,11 +50,11 @@
                             <table id="datatables" class="table table-striped" style="width:100%">
                                 <thead>
                                     <tr>
-                                        <th><?= $texts['company_code'] ?></th>
+                                        <th>รหัสบริษัท</th>
                                         <th>วันที่เอกสาร</th>
                                         <th>วันที่ผ่านรายการ</th>
                                         <th>ประเภทเอกสาร</th>
-                                        <th><?= $texts['option'] ?></th>
+                                        <th>ตัวเลือก</th>
                                     </tr>
                                 </thead>
                                 <tbody>

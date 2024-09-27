@@ -35,7 +35,7 @@
         <div class="d-sm-flex justify-content-end mb-2 row">
             <div class="col-sm-12 col-md-4">
                 <a href="period_create.php?period_group_id=<?= $_GET['period_group_id'] ?>" class="btn btn-primary w-100 btn-block">
-                    <?= $texts['period_create'] ?>
+                    สร้างงวด
                 </a>
             </div>
         </div>
@@ -50,12 +50,12 @@
                             <table id="datatables" class="table table-striped" style="width:100%">
                                 <thead>
                                     <tr>
-                                        <th><?= $texts['period_code'] ?></th>
-                                        <th><?= $texts['month'] ?></th>
-                                        <th><?= $texts['change_year'] ?></th>
-                                        <th><?= $texts['text_period_en'] ?></th>
-                                        <th><?= $texts['text_period_th'] ?></th>
-                                        <th><?= $texts['option'] ?></th>
+                                        <th>งวด</th>
+                                        <th>เดือน</th>
+                                        <th>การเปลี่ยนปี</th>
+                                        <th>ข้อความงวดภาษาอังกฤษ</th>
+                                        <th>ข้อความงวดภาษาไทย</th>
+                                        <th>ตัวเลือก</th>
                                     </tr>
                                 </thead>
                                 <tbody>

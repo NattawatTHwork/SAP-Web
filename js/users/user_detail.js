@@ -27,7 +27,7 @@ function showData(data) {
         document.getElementById('firstname').value = user.firstname;
         document.getElementById('lastname').value = user.lastname;
         document.getElementById('role').value = user.role;
-        document.getElementById('statusflag').value = user.statusflag === 't' ? texts.enable : texts.disable;
+        document.getElementById('statusflag').value = user.statusflag === 't' ? 'เปิดใช้งาน' : 'ปิดใช้งาน';
     } else {
         handleError(data.message);
     }

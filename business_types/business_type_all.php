@@ -35,7 +35,7 @@
         <div class="d-sm-flex justify-content-end mb-2 row">
             <div class="col-sm-12 col-md-4">
                 <a href="business_type_create.php" class="btn btn-primary w-100 btn-block">
-                    <?= $texts['business_type_create'] ?>
+                    สร้างเขตธุรกิจ
                 </a>
             </div>
         </div>
@@ -50,9 +50,9 @@
                             <table id="datatables" class="table table-striped" style="width:100%">
                                 <thead>
                                     <tr>
-                                        <th><?= $texts['business_type'] ?></th>
-                                        <th><?= $texts['description'] ?></th>
-                                        <th><?= $texts['option'] ?></th>
+                                        <th>เขตธุรกิจ</th>
+                                        <th>คำอธิบาย</th>
+                                        <th>ตัวเลือก</th>
                                     </tr>
                                 </thead>
                                 <tbody>

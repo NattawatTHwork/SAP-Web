@@ -40,17 +40,17 @@
                         <div class="card-body m-4">
                             <!-- Form for central_general_ledger detail details -->
                             <form id="InputForm">
-                                <h6 class="fw-bold fs-4"><?= $texts['central_general_ledger_detail'] ?></h6>
+                                <h6 class="fw-bold fs-4">รายละเอียดบัญชีแยกประเภททั่วไปส่วนกลาง</h6>
                                 <div class="row pb-4">
                                     <div class="col-12">
                                         <div class="mb-3">
-                                            <label for="gl_account" class="form-label"><?= $texts['gl_account'] ?></label>
+                                            <label for="gl_account" class="form-label">บัญชี G/L</label>
                                             <input type="text" class="form-control" id="gl_account" name="gl_account" disabled>
                                         </div>
                                     </div>
                                     <div class="col-12">
                                         <div class="mb-3">
-                                            <label for="company_code" class="form-label"><?= $texts['company_code'] ?></label>
+                                            <label for="company_code" class="form-label">รหัสบริษัท</label>
                                             <input type="text" class="form-control" id="company_code" name="company_code" disabled>
                                         </div>
                                     </div>

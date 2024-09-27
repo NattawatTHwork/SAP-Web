@@ -42,13 +42,13 @@
                                 <div class="row pb-4">
                                     <div class="col-12">
                                         <div class="mb-3">
-                                            <label for="gl_account" class="form-label">[<?= $texts['gl_account'] ?>]</label>
+                                            <label for="gl_account" class="form-label">บัญชี G/L</label>
                                             <input type="text" class="form-control" id="gl_account" name="gl_account" disabled>
                                         </div>
                                     </div>
                                     <div class="col-12">
                                         <div class="mb-3">
-                                            <label for="company_code" class="form-label"><?= $texts['company_code'] ?></label>
+                                            <label for="company_code" class="form-label">รหัสบริษัท</label>
                                             <input type="text" class="form-control" id="company_code" name="company_code" disabled>
                                         </div>
                                     </div>
@@ -152,7 +152,7 @@
                                             <div class="row pb-4">
                                                 <div class="col-12">
                                                     <div class="text-center">
-                                                        <button type="submit" class="btn btn-primary w-100" id="submitBtnTypeDescription"><?= $texts['save'] ?></button>
+                                                        <button type="submit" class="btn btn-primary w-100" id="submitBtnTypeDescription">บันทึก</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -280,7 +280,7 @@
                                             <div class="row pb-4">
                                                 <div class="col-12">
                                                     <div class="text-center">
-                                                        <button type="submit" class="btn btn-primary w-100" id="submitBtnControlData"><?= $texts['save'] ?></button>
+                                                        <button type="submit" class="btn btn-primary w-100" id="submitBtnControlData">บันทึก</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -394,7 +394,7 @@
                                             <div class="row pb-4">
                                                 <div class="col-12">
                                                     <div class="text-center">
-                                                        <button type="submit" class="btn btn-primary w-100" id="submitBtnInterestBankCreation"><?= $texts['save'] ?></button>
+                                                        <button type="submit" class="btn btn-primary w-100" id="submitBtnInterestBankCreation">บันทึก</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -448,7 +448,7 @@
                                             <div class="row pb-4">
                                                 <div class="col-12">
                                                     <div class="text-center">
-                                                        <button type="submit" class="btn btn-primary w-100" id="submitBtnCAData"><?= $texts['save'] ?></button>
+                                                        <button type="submit" class="btn btn-primary w-100" id="submitBtnCAData">บันทึก</button>
                                                     </div>
                                                 </div>
                                             </div>

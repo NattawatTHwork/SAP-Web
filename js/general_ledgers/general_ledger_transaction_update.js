@@ -150,7 +150,7 @@ function handleUpdateResponse(data) {
     if (data.status === 'success') {
         Swal.fire({
             icon: 'success',
-            title: texts.success,
+            title: 'สำเร็จ',
         })
         .then(() => {
             window.location.href = 'general_ledger_transaction_update.php?gl_transaction_id=' + gl_transaction_id;
@@ -158,7 +158,7 @@ function handleUpdateResponse(data) {
     } else {
         Swal.fire({
             icon: 'error',
-            title: texts.error,
+            title: 'เกิดข้อผิดพลาด',
         });
     }
 }

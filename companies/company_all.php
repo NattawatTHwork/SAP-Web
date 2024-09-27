@@ -35,7 +35,7 @@
         <div class="d-sm-flex justify-content-end mb-2 row">
             <div class="col-sm-12 col-md-4">
                 <a href="company_create.php" class="btn btn-primary w-100 btn-block">
-                    <?= $texts['company_create'] ?>
+                    เพิ่มบริษัท
                 </a>
             </div>
         </div>
@@ -50,9 +50,9 @@
                             <table id="datatables" class="table table-striped" style="width:100%">
                                 <thead>
                                     <tr>
-                                        <th><?= $texts['company_code'] ?></th>
-                                        <th><?= $texts['name'] ?></th>
-                                        <th><?= $texts['option'] ?></th>
+                                        <th>รหัสบริษัท</th>
+                                        <th>ชื่อ</th>
+                                        <th>ตัวเลือก</th>
                                     </tr>
                                 </thead>
                                 <tbody>

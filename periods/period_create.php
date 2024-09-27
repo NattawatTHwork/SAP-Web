@@ -40,42 +40,42 @@
                         <div class="card-body m-4">
                             <!-- Form for period create details -->
                             <form id="InputForm">
-                                <h6 class="fw-bold fs-4"><?= $texts['period_create'] ?></h6>
+                                <h6 class="fw-bold fs-4">สร้างงวด</h6>
                                 <div class="row pb-4">
                                     <input type="hidden" id="period_group_id" name="period_group_id" value="<?= $_GET['period_group_id'] ?>">
                                     <div class="col-12">
                                         <div class="mb-3">
-                                            <label for="period_code" class="form-label"><?= $texts['period_code'] ?></label>
+                                            <label for="period_code" class="form-label">งวด</label>
                                             <input type="text" class="form-control" id="period_code" name="period_code" required>
                                         </div>
                                     </div>
                                     <div class="col-12">
                                         <div class="mb-3">
-                                            <label for="number_month" class="form-label"><?= $texts['month'] ?></label>
+                                            <label for="number_month" class="form-label">เดือน</label>
                                             <input type="text" class="form-control" id="number_month" name="number_month" required>
                                         </div>
                                     </div>
                                     <div class="col-12">
                                         <div class="mb-3">
-                                            <label for="number_day" class="form-label"><?= $texts['day'] ?></label>
+                                            <label for="number_day" class="form-label">วัน</label>
                                             <input type="number" class="form-control" id="number_day" name="number_day" required>
                                         </div>
                                     </div>
                                     <div class="col-12">
                                         <div class="mb-3">
-                                            <label for="change_year" class="form-label"><?= $texts['change_year'] ?></label>
+                                            <label for="change_year" class="form-label">การเปลี่ยนปี</label>
                                             <input type="number" class="form-control" id="change_year" name="change_year" required>
                                         </div>
                                     </div>
                                     <div class="col-12">
                                         <div class="mb-3">
-                                            <label for="text_period_en" class="form-label"><?= $texts['text_period_en'] ?></label>
+                                            <label for="text_period_en" class="form-label">ข้อความงวดภาษาอังกฤษ</label>
                                             <input type="text" class="form-control" id="text_period_en" name="text_period_en">
                                         </div>
                                     </div>
                                     <div class="col-12">
                                         <div class="mb-3">
-                                            <label for="text_period_th" class="form-label"><?= $texts['text_period_th'] ?></label>
+                                            <label for="text_period_th" class="form-label">ข้อความงวดภาษาไทย</label>
                                             <input type="text" class="form-control" id="text_period_th" name="text_period_th">
                                         </div>
                                     </div>
@@ -84,7 +84,7 @@
                                 <div class="row pb-4">
                                     <div class="col-12">
                                         <div class="text-center">
-                                            <button type="submit" class="btn btn-primary w-100" id="submitBtn"><?= $texts['save'] ?></button>
+                                            <button type="submit" class="btn btn-primary w-100" id="submitBtn">บันทึก</button>
                                         </div>
                                     </div>
                                 </div>

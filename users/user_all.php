@@ -35,7 +35,7 @@
         <div class="d-sm-flex justify-content-end mb-2 row">
             <div class="col-sm-12 col-md-4">
                 <a href="user_create.php" class="btn btn-primary w-100 btn-block">
-                    <?= $texts['user_create'] ?>
+                    เพิ่มผู้ใช้
                 </a>
             </div>
         </div>
@@ -50,11 +50,11 @@
                             <table id="datatables" class="table table-striped" style="width:100%">
                                 <thead>
                                     <tr>
-                                        <th><?= $texts['username'] ?></th>
-                                        <th><?= $texts['fullname'] ?></th>
-                                        <th><?= $texts['role'] ?></th>
-                                        <th><?= $texts['status'] ?></th>
-                                        <th><?= $texts['option'] ?></th>
+                                        <th>ชื่อผู้ใช้</th>
+                                        <th>ชื่อ - สกุล</th>
+                                        <th>สิทธิ์</th>
+                                        <th>สถานะ</th>
+                                        <th>ตัวเลือก</th>
                                     </tr>
                                 </thead>
                                 <tbody>

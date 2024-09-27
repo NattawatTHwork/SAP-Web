@@ -10,8 +10,8 @@ document.getElementById('InputForm').addEventListener('submit', function handleF
     if (jsonData.new_password.length < 6) {
         Swal.fire({
             icon: 'warning',
-            title: texts.error,
-            text: texts.password_too_short
+            title: 'เกิดข้อผิดพลาด',
+            text: 'รหัสผ่านต้องมีความยาวไม่น้อยกว่า 6 ตัวอักษร'
         });
         submitButton.disabled = false;
         return;
@@ -20,8 +20,8 @@ document.getElementById('InputForm').addEventListener('submit', function handleF
     if (jsonData.new_password !== jsonData.repeat_new_password) {
         Swal.fire({
             icon: 'warning',
-            title: texts.error,
-            text: texts.not_match
+            title: 'เกิดข้อผิดพลาด',
+            text: 'รหัสผ่านและการยืนยันรหัสผ่านไม่ตรงกัน'
         });
         submitButton.disabled = false;
         return;
@@ -52,7 +52,7 @@ function handleUpdateResponse(data) {
     if (data.status === 'success') {
         Swal.fire({
             icon: 'success',
-            title: texts.success,
+            title: 'สำเร็จ',
         })
         .then(() => {
             window.location.href = 'user_all.php';
@@ -60,7 +60,7 @@ function handleUpdateResponse(data) {
     } else {
         Swal.fire({
             icon: 'error',
-            title: texts.error,
+            title: 'เกิดข้อผิดพลาด',
         });
     }
 }

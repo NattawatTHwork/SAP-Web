@@ -102,7 +102,7 @@
                                 <div class="row pb-4">
                                     <div class="col-12">
                                         <div class="text-center">
-                                            <button type="submit" class="btn btn-primary w-100" id="submitBtn"><?= $texts['save'] ?></button>
+                                            <button type="submit" class="btn btn-primary w-100" id="submitBtn">บันทึก</button>
                                         </div>
                                     </div>
                                 </div>
@@ -128,10 +128,10 @@
                             <table id="datatables" class="table table-striped" style="width:100%">
                                 <thead>
                                     <tr>
-                                        <th><?= $texts['gl_account'] ?></th>
+                                        <th>บัญชี G/L</th>
                                         <th>D/C</th>
                                         <th>จำนวนสกุลเงินเอกสาร</th>
-                                        <th><?= $texts['option'] ?></th>
+                                        <th>ตัวเลือก</th>
                                     </tr>
                                 </thead>
                                 <tbody>

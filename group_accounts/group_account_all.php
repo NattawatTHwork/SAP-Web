@@ -35,7 +35,7 @@
         <div class="d-sm-flex justify-content-end mb-2 row">
             <div class="col-sm-12 col-md-4">
                 <a href="group_account_create.php" class="btn btn-primary w-100 btn-block">
-                    <?= $texts['group_account_create'] ?>
+                    สร้างกลุ่มบัญชี
                 </a>
             </div>
         </div>
@@ -50,12 +50,12 @@
                             <table id="datatables" class="table table-striped" style="width:100%">
                                 <thead>
                                     <tr>
-                                        <th><?= $texts['chart_account_code'] ?></th>
-                                        <th><?= $texts['group_account_code'] ?></th>
-                                        <th><?= $texts['name_account'] ?></th>
-                                        <th><?= $texts['account_from'] ?></th>
-                                        <th><?= $texts['account_to'] ?></th>
-                                        <th><?= $texts['option'] ?></th>
+                                        <th>รหัสผังบัญชี</th>
+                                        <th>รหัสกลุ่มบัญชี</th>
+                                        <th>ชื่อ</th>
+                                        <th>จากบัญชี</th>
+                                        <th>ถึงบัญชี</th>
+                                        <th>ตัวเลือก</th>
                                     </tr>
                                 </thead>
                                 <tbody>

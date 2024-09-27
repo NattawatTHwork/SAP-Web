@@ -43,158 +43,158 @@
                                 <div class="row pb-4">
                                     <div class="col-md-4">
                                         <div class="mb-3">
-                                            <label for="country_code" class="form-label"><?= $texts['country'] ?></label>
+                                            <label for="country_code" class="form-label">ประเทศ</label>
                                             <input type="text" class="form-control" id="country_code" name="country_code" disabled>
                                         </div>
                                     </div>
                                 </div>
 
-                                <h6 class="fw-bold fs-4"><?= $texts['general_information'] ?></h6>
+                                <h6 class="fw-bold fs-4">ข้อมูลทั่วไป</h6>
                                 <div class="row pb-4">
                                     <div class="col-md-4">
                                         <div class="mb-3">
-                                            <label for="other_country_key" class="form-label"><?= $texts['other_key'] ?></label>
+                                            <label for="other_country_key" class="form-label">คีย์ประเทศอื่น</label>
                                             <input type="text" class="form-control" id="other_country_key" name="other_country_key" disabled>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="mb-3">
-                                            <label for="name" class="form-label"><?= $texts['name'] ?></label>
+                                            <label for="name" class="form-label">ชื่อ</label>
                                             <input type="text" class="form-control" id="country_name" name="country_name" disabled>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="mb-3">
-                                            <label for="full_name" class="form-label"><?= $texts['long_name'] ?></label>
+                                            <label for="full_name" class="form-label">ชื่อแบบยาว</label>
                                             <input type="text" class="form-control" id="full_name" name="full_name" disabled>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="mb-3">
-                                            <label for="nationality" class="form-label"><?= $texts['nationality'] ?></label>
+                                            <label for="nationality" class="form-label">สัญชาติ</label>
                                             <input type="text" class="form-control" id="nationality" name="nationality" disabled>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="mb-3">
-                                            <label for="full_nationality" class="form-label"><?= $texts['long_nationality'] ?></label>
+                                            <label for="full_nationality" class="form-label">สัญชาติ (แบบยาว)</label>
                                             <input type="text" class="form-control" id="full_nationality" name="full_nationality" disabled>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="mb-3">
-                                            <label for="country_vehicle_key" class="form-label"><?= $texts['vehicle_key'] ?></label>
+                                            <label for="country_vehicle_key" class="form-label">คีย์พาหนะประเทศ</label>
                                             <input type="text" class="form-control" id="country_vehicle_key" name="country_vehicle_key" disabled>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="mb-3">
-                                            <label for="language_key" class="form-label"><?= $texts['language_key'] ?></label>
+                                            <label for="language_key" class="form-label">คีย์ภาษา</label>
                                             <input type="text" class="form-control" id="language_key" name="language_key" disabled>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="mb-3">
-                                            <label for="major_currency_index" class="form-label"><?= $texts['currency_index'] ?></label>
+                                            <label for="major_currency_index" class="form-label">ดัชนีสกุลเงินหลัก</label>
                                             <input type="text" class="form-control" id="major_currency_index" name="major_currency_index" disabled>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="mb-3">
-                                            <label for="major_currency" class="form-label"><?= $texts['currency'] ?></label>
+                                            <label for="major_currency" class="form-label">สกุลเงินหลัก</label>
                                             <input type="text" class="form-control" id="major_currency" name="major_currency" disabled>
                                         </div>
                                     </div>
                                 </div>
 
-                                <h6 class="fw-bold fs-4"><?= $texts['features'] ?></h6>
+                                <h6 class="fw-bold fs-4">คุณสมบัติ</h6>
                                 <div class="row pb-4">
                                     <div class="col-md-4">
                                         <div class="mb-3">
-                                            <label for="trade_statistic_abbreviation" class="form-label"><?= $texts['trade_statistics_abbreviation'] ?></label>
+                                            <label for="trade_statistic_abbreviation" class="form-label">ชื่อย่อสถิติการค้า</label>
                                             <input type="text" class="form-control" id="trade_statistic_abbreviation" name="trade_statistic_abbreviation" disabled>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="mb-3">
-                                            <label for="step" class="form-label"><?= $texts['steps'] ?></label>
+                                            <label for="step" class="form-label">ขั้นตอน</label>
                                             <input type="text" class="form-control" id="step" name="step" disabled>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="mb-3">
-                                            <label for="iso_key" class="form-label"><?= $texts['iso_code'] ?></label>
+                                            <label for="iso_key" class="form-label">รหัส ISO</label>
                                             <input type="text" class="form-control" id="iso_key" name="iso_key" disabled>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="mb-3">
-                                            <label for="three_iso_key" class="form-label"><?= $texts['iso_code_3'] ?></label>
+                                            <label for="three_iso_key" class="form-label">รหัส ISO 3 ตัวอักษร</label>
                                             <input type="text" class="form-control" id="three_iso_key" name="three_iso_key" disabled>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="mb-3">
-                                            <label for="intrastat_key" class="form-label"><?= $texts['intrastat_code'] ?></label>
+                                            <label for="intrastat_key" class="form-label">รหัส Intrastat</label>
                                             <input type="text" class="form-control" id="intrastat_key" name="intrastat_key" disabled>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="mb-3">
-                                            <label for="member_euro" class="form-label"><?= $texts['european_member'] ?></label>
+                                            <label for="member_euro" class="form-label">สมาชิกสภาพยุโรป</label>
                                             <div class="form-check">
                                                 <input type="checkbox" class="form-check-input" id="member_euro" name="member_euro" disabled>
-                                                <label class="form-check-label" for="member_euro"><?= $texts['european_member'] ?></label>
+                                                <label class="form-check-label" for="member_euro">สมาชิกสภาพยุโรป</label>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="mb-3">
-                                            <label for="capital_goods_indicator" class="form-label"><?= $texts['commodity_indicator'] ?></label>
+                                            <label for="capital_goods_indicator" class="form-label">ตัวบ่งชี้สินค้าทุน</label>
                                             <div class="form-check">
                                                 <input type="checkbox" class="form-check-input" id="capital_goods_indicator" name="capital_goods_indicator" disabled>
-                                                <label class="form-check-label" for="capital_goods_indicator"><?= $texts['commodity_indicator'] ?></label>
+                                                <label class="form-check-label" for="capital_goods_indicator">ตัวบ่งชี้สินค้าทุน</label>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
 
-                                <h6 class="fw-bold fs-4"><?= $texts['address_format'] ?></h6>
+                                <h6 class="fw-bold fs-4">รูปแบบที่อยู่</h6>
                                 <div class="row pb-4">
                                     <div class="col-md-4">
                                         <div class="mb-3">
-                                            <label for="address_outline_key" class="form-label"><?= $texts['address_template_key'] ?></label>
+                                            <label for="address_outline_key" class="form-label">คีย์โครงร่างที่อยู่</label>
                                             <input type="text" class="form-control" id="address_outline_key" name="address_outline_key" disabled>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="mb-3">
-                                            <label for="standard_name_format" class="form-label"><?= $texts['standard_name_format'] ?></label>
+                                            <label for="standard_name_format" class="form-label">รูปแบบชื่อมาตรฐาน</label>
                                             <input type="text" class="form-control" id="standard_name_format" name="standard_name_format" disabled>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="mb-3">
-                                            <label for="type_country_name" class="form-label"><?= $texts['country_name_print'] ?></label>
+                                            <label for="type_country_name" class="form-label">พิมพ์ชื่อประเทศ</label>
                                             <div class="form-check">
                                                 <input type="checkbox" class="form-check-input" id="type_country_name" name="type_country_name" disabled>
-                                                <label class="form-check-label" for="type_country_name"><?= $texts['country_name_print'] ?></label>
+                                                <label class="form-check-label" for="type_country_name">พิมพ์ชื่อประเทศ</label>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
 
-                                <h6 class="fw-bold fs-4"><?= $texts['date_and_decimal_format'] ?></h6>
+                                <h6 class="fw-bold fs-4">รูปแบบวันที่และจุดทศนิยม</h6>
                                 <div class="row pb-4">
                                     <div class="col-md-4">
                                         <div class="mb-3">
-                                            <label for="date_format" class="form-label"><?= $texts['date_format'] ?></label>
+                                            <label for="date_format" class="form-label">รูปแบบวันที่</label>
                                             <input type="text" class="form-control" id="date_format" name="date_format" disabled>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="mb-3">
-                                            <label for="decimal_format" class="form-label"><?= $texts['decimal_point_format'] ?></label>
+                                            <label for="decimal_format" class="form-label">รูปแบบจุดทศนิยม</label>
                                             <input type="text" class="form-control" id="decimal_format" name="decimal_format" disabled>
                                         </div>
                                     </div>

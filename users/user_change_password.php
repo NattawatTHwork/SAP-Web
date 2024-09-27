@@ -42,17 +42,17 @@
                             <form id="InputForm">
                                 <input type="hidden" id="user_id" name="user_id" value="<?= $_GET['user_id'] ?>">
 
-                                <h6 class="fw-bold fs-4 mb-3"><?= $texts['user_change_password'] ?></h6>
+                                <h6 class="fw-bold fs-4 mb-3">เปลี่ยนรหัสผ่านผู้ใช้</h6>
                                 <div class="row pb-4">
                                     <div class="col-12">
                                         <div class="mb-3">
-                                            <label for="new_password" class="form-label"><?= $texts['password'] ?></label>
+                                            <label for="new_password" class="form-label">รหัสผ่าน</label>
                                             <input type="text" class="form-control" id="new_password" name="new_password">
                                         </div>
                                     </div>
                                     <div class="col-12">
                                         <div class="mb-3">
-                                            <label for="repeat_new_password" class="form-label"><?= $texts['confirm_password'] ?></label>
+                                            <label for="repeat_new_password" class="form-label">ยืนยันรหัสผ่าน</label>
                                             <input type="text" class="form-control" id="repeat_new_password" name="repeat_new_password">
                                         </div>
                                     </div>
@@ -61,7 +61,7 @@
                                 <div class="row pb-4">
                                     <div class="col-12">
                                         <div class="text-center">
-                                            <button type="submit" class="btn btn-primary w-100" id="submitBtn"><?= $texts['save'] ?></button>
+                                            <button type="submit" class="btn btn-primary w-100" id="submitBtn">บันทึก</button>
                                         </div>
                                     </div>
                                 </div>

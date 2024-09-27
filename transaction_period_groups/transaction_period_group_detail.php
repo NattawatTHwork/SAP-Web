@@ -40,17 +40,17 @@
                         <div class="card-body m-4">
                             <!-- Form for transaction_period_group details -->
                             <form id="InputForm">
-                                <h6 class="fw-bold fs-4"><?= $texts['transaction_period_group_detail'] ?></h6>
+                                <h6 class="fw-bold fs-4">รายละเอียดกลุ่มงวดการผ่านรายการ</h6>
                                 <div class="row pb-4">
                                     <div class="col-12">
                                         <div class="mb-3">
-                                            <label for="transaction_period_group_code" class="form-label"><?= $texts['transaction_period_group_code'] ?></label>
+                                            <label for="transaction_period_group_code" class="form-label">รหัสกลุ่มงวดการผ่านรายการ</label>
                                             <input type="text" class="form-control" id="transaction_period_group_code" name="transaction_period_group_code" disabled>
                                         </div>
                                     </div>
                                     <div class="col-12">
                                         <div class="mb-3">
-                                            <label for="description" class="form-label"><?= $texts['description'] ?></label>
+                                            <label for="description" class="form-label">คำอธิบาย</label>
                                             <input type="text" class="form-control" id="description" name="description" disabled>
                                         </div>
                                     </div>

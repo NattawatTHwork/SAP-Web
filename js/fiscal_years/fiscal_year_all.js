@@ -25,7 +25,7 @@ function fetchData(token) {
 
 function displayTables(datas) {
     let html = '';
-    const noDataHtml = '<tr><td></td><td></td><td></td><td>' + texts.no_data + '</td><td></td><td></td><td></td></tr>';
+    const noDataHtml = '<tr><td></td><td></td><td></td><td>ไม่มีข้อมูล</td><td></td><td></td><td></td></tr>';
     if (datas.status === 'success') {
         if (datas.data.length > 0) {
             datas.data.forEach(data => {
@@ -39,12 +39,12 @@ function displayTables(datas) {
                     <td>
                         <div class="dropdown">
                             <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                ${texts.option}
+                                ตัวเลือก
                             </button>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="fiscal_year_detail.php?fiscal_year_id=${data.fiscal_year_id}">${texts.view_data}</a></li>
-                                <li><a class="dropdown-item" href="fiscal_year_update.php?fiscal_year_id=${data.fiscal_year_id}">${texts.edit}</a></li>
-                                <li><a class="dropdown-item" href="#" onclick="delete_data('${data.fiscal_year_id}', '${data.fiscal_year_code}'); return false;">${texts.delete}</a></li>
+                                <li><a class="dropdown-item" href="fiscal_year_detail.php?fiscal_year_id=${data.fiscal_year_id}">ดูข้อมูล</a></li>
+                                <li><a class="dropdown-item" href="fiscal_year_update.php?fiscal_year_id=${data.fiscal_year_id}">แก้ไข</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="delete_data('${data.fiscal_year_id}', '${data.fiscal_year_code}'); return false;">ลบ</a></li>
                             </ul>
                         </div>
                     </td>`;
@@ -68,11 +68,11 @@ function displayTables(datas) {
 function delete_data(fiscal_yearId, fiscal_year_code) {
     Swal.fire({
         title: fiscal_year_code,
-        text: texts.want_delete,
+        text: 'คุณต้องการลบใช่ไหม',
         icon: 'warning',
         showCancelButton: true,
-        confirmButtonText: texts.delete,
-        cancelButtonText: texts.cancel
+        confirmButtonText: 'ลบ',
+        cancelButtonText: 'ยกเลิก'
     }).then((result) => {
         if (result.isConfirmed) {
             getSessionToken()
@@ -98,14 +98,14 @@ function fetchDelete(fiscal_yearId, token) {
 function handleDeleteResponse(response) {
     if (response.status === 'success') {
         Swal.fire({
-            title: texts.success,
+            title: 'สำเร็จ',
             icon: 'success'
         }).then(() => {
             location.reload();
         });
     } else {
         Swal.fire({
-            title: texts.error,
+            title: 'เกิดข้อผิดพลาด',
             icon: 'error'
         });
     }

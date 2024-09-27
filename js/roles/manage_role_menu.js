@@ -133,7 +133,7 @@ function handleCreateResponse(data) {
         const role_id = getQueryParam('role_id');
         Swal.fire({
             icon: 'success',
-            title: texts.success,
+            title: 'สำเร็จ',
         })
             .then(() => {
                 window.location.href = 'manage_role_menu.php?role_id=' + role_id;
@@ -141,7 +141,7 @@ function handleCreateResponse(data) {
     } else {
         Swal.fire({
             icon: 'error',
-            title: texts.error,
+            title: 'เกิดข้อผิดพลาด',
         });
     }
 }

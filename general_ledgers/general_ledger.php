@@ -130,7 +130,7 @@
                                             <div class="row pb-4">
                                                 <div class="col-12">
                                                     <div class="text-center">
-                                                        <button type="submit" class="btn btn-primary w-100" id="submitBtnGeneralData"><?= $texts['save'] ?></button>
+                                                        <button type="submit" class="btn btn-primary w-100" id="submitBtnGeneralData">บันทึก</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -258,7 +258,7 @@
                                             <div class="row pb-4">
                                                 <div class="col-12">
                                                     <div class="text-center">
-                                                        <button type="submit" class="btn btn-primary w-100" id="submitBtnControlData"><?= $texts['save'] ?></button>
+                                                        <button type="submit" class="btn btn-primary w-100" id="submitBtnControlData">บันทึก</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -281,9 +281,9 @@
                                 <table id="datatables" class="table table-striped" style="width:100%">
                                     <thead>
                                         <tr>
-                                            <th><?= $texts['gl_account'] ?></th>
-                                            <th><?= $texts['company_code'] ?></th>
-                                            <th><?= $texts['option'] ?></th>
+                                            <th>บัญชี G/L</th>
+                                            <th>รหัสบริษัท</th>
+                                            <th>ตัวเลือก</th>
                                         </tr>
                                     </thead>
                                     <tbody>

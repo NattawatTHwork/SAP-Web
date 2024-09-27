@@ -84,7 +84,7 @@
 
         <li class="nav-item">
             <a class="nav-link collapsed" data-bs-target="#user-management" data-bs-toggle="collapse" href="#">
-                <i class="bi bi-menu-button-wide"></i><span>User Management</span><i class="bi bi-chevron-down ms-auto"></i>
+                <i class="bi bi-menu-button-wide"></i><span>ระบบบริหารผู้ใช้ระบบงาน</span><i class="bi bi-chevron-down ms-auto"></i>
             </a>
             <ul id="user-management" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                 <li>
@@ -98,41 +98,6 @@
                     </a>
                 </li>
             </ul>
-        </li>
-
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="<?= $path ?>index.php">
-                <i class="bi bi-grid"></i>
-                <span>ระบบงบประมาณ</span>
-            </a>
-        </li>
-
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="<?= $path ?>index.php">
-                <i class="bi bi-grid"></i>
-                <span>ระบบจัดซื้อจัดจ้าง</span>
-            </a>
-        </li>
-
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="<?= $path ?>index.php">
-                <i class="bi bi-grid"></i>
-                <span>ระบบคลังสินค้า</span>
-            </a>
-        </li>
-
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="<?= $path ?>index.php">
-                <i class="bi bi-grid"></i>
-                <span>ระบบการผลิต</span>
-            </a>
-        </li>
-
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="<?= $path ?>index.php">
-                <i class="bi bi-grid"></i>
-                <span>ระบบงานขาย</span>
-            </a>
         </li>
 
         <li class="nav-item">
@@ -153,26 +118,6 @@
             </ul>
         </li>
 
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="<?= $path ?>index.php">
-                <i class="bi bi-grid"></i>
-                <span>ระบบรายงาน</span>
-            </a>
-        </li>
-
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="<?= $path ?>index.php">
-                <i class="bi bi-grid"></i>
-                <span>ระบบบริหารผู้ใช้ระบบงาน</span>
-            </a>
-        </li>
-        
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="<?= $path ?>index.php">
-                <i class="bi bi-grid"></i>
-                <span>ระบบเชื่อมโยง API</span>
-            </a>
-        </li>
     </ul>
 
 </aside><!-- End Sidebar-->

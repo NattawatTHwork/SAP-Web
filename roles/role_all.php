@@ -51,7 +51,7 @@
                                 <thead>
                                     <tr>
                                         <th>สิทธิ์</th>
-                                        <th><?= $texts['option'] ?></th>
+                                        <th>ตัวเลือก</th>
                                     </tr>
                                 </thead>
                                 <tbody>

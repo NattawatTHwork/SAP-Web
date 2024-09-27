@@ -99,7 +99,7 @@ function fetchGLTransactionData(token, general_ledger_id) {
 
 function displayTables(datas) {
     let html = '';
-    const noDataHtml = '<tr><td></td><td></td><td>' + texts.no_data + '</td><td></td></tr>';
+    const noDataHtml = '<tr><td></td><td></td><td>ไม่มีข้อมูล</td><td></td></tr>';
     if (datas.status === 'success') {
         if (datas.data.length > 0) {
             datas.data.forEach(data => {
@@ -110,11 +110,11 @@ function displayTables(datas) {
                     <td>
                         <div class="dropdown">
                             <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                ${texts.option}
+                                ตัวเลือก
                             </button>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="general_ledger_transaction_update.php?gl_transaction_id=${data.gl_transaction_id}">${texts.edit}</a></li>
-                                <li><a class="dropdown-item" href="#" onclick="delete_data('${data.gl_transaction_id}', '${data.amount}'); return false;">${texts.delete}</a></li>
+                                <li><a class="dropdown-item" href="general_ledger_transaction_update.php?gl_transaction_id=${data.gl_transaction_id}">แก้ไข</a></li>
+                                <li><a class="dropdown-item" href="#" onclick="delete_data('${data.gl_transaction_id}', '${data.amount}'); return false;">ลบ</a></li>
                             </ul>
                         </div>
                     </td>`;
@@ -172,7 +172,7 @@ function handleUpdateResponse(data) {
     if (data.status === 'success') {
         Swal.fire({
             icon: 'success',
-            title: texts.success,
+            title: 'สำเร็จ',
         })
             .then(() => {
                 window.location.href = 'general_ledger_update.php?general_ledger_id=' + general_ledger_id;
@@ -180,7 +180,7 @@ function handleUpdateResponse(data) {
     } else {
         Swal.fire({
             icon: 'error',
-            title: texts.error,
+            title: 'เกิดข้อผิดพลาด',
         });
     }
 }

@@ -40,18 +40,18 @@
                         <div class="card-body m-4">
                             <!-- Form for period_group details -->
                             <form id="InputForm">
-                                <h6 class="fw-bold fs-4"><?= $texts['period_group_update'] ?></h6>
+                                <h6 class="fw-bold fs-4">แก้ไขกลุ่มงวด</h6>
                                 <div class="row pb-4">
                                     <input type="hidden" class="form-control" id="period_group_id" name="period_group_id" required>
                                     <div class="col-12">
                                         <div class="mb-3">
-                                            <label for="period_group_code" class="form-label"><?= $texts['period_group_code'] ?></label>
+                                            <label for="period_group_code" class="form-label">รหัสกลุ่มงวด</label>
                                             <input type="text" class="form-control" id="period_group_code" name="period_group_code" required>
                                         </div>
                                     </div>
                                     <div class="col-12">
                                         <div class="mb-3">
-                                            <label for="description" class="form-label"><?= $texts['description'] ?></label>
+                                            <label for="description" class="form-label">คำอธิบาย</label>
                                             <input type="text" class="form-control" id="description" name="description" required>
                                         </div>
                                     </div>
@@ -59,7 +59,7 @@
                                 <div class="row pb-4">
                                     <div class="col-12">
                                         <div class="text-center">
-                                            <button type="submit" class="btn btn-primary w-100" id="submitBtn"><?= $texts['save'] ?></button>
+                                            <button type="submit" class="btn btn-primary w-100" id="submitBtn">บันทึก</button>
                                         </div>
                                     </div>
                                 </div>

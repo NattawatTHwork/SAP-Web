@@ -40,18 +40,18 @@
                         <div class="card-body m-4">
                             <!-- Form for central_general_ledger create details -->
                             <form id="InputForm">
-                                <h6 class="fw-bold fs-4"><?= $texts['central_general_ledger_create'] ?></h6>
+                                <h6 class="fw-bold fs-4">เพิ่มบัญชีแยกประเภททั่วไปส่วนกลาง</h6>
                                 <div class="row pb-4">
                                     <input type="hidden" class="form-control" id="user_id" name="user_id" value="<?= $_SESSION['user_id'] ?>" required>
                                     <div class="col-12">
                                         <div class="mb-3">
-                                            <label for="gl_account" class="form-label"><?= $texts['gl_account'] ?></label>
+                                            <label for="gl_account" class="form-label">บัญชี G/L</label>
                                             <input type="text" class="form-control" id="gl_account" name="gl_account" required>
                                         </div>
                                     </div>
                                     <div class="col-12">
                                         <div class="mb-3">
-                                            <label for="company_id" class="form-label"><?= $texts['company_code'] ?></label>
+                                            <label for="company_id" class="form-label">รหัสบริษัท</label>
                                             <select class="form-control" id="company_id" name="company_id" required>
                                                 <!-- Dynamic options will be populated here -->
                                             </select>
@@ -62,7 +62,7 @@
                                 <div class="row pb-4">
                                     <div class="col-12">
                                         <div class="text-center">
-                                            <button type="submit" class="btn btn-primary w-100" id="submitBtn"><?= $texts['save'] ?></button>
+                                            <button type="submit" class="btn btn-primary w-100" id="submitBtn">บันทึก</button>
                                         </div>
                                     </div>
                                 </div>

@@ -68,36 +68,36 @@ function handleFetchResponse(token, data) { // Accept token and menuData as para
     } else if (menuData.status === 'exist') {
         Swal.fire({
             icon: 'error',
-            title: texts.error,
-            text: texts.username_not_exist
+            title: 'เกิดข้อผิดพลาด',
+            text: 'ไม่พบชื่อผู้ใช้'
         });
         return Promise.reject('Username does not exist');
     } else if (menuData.status === 'deactivated') {
         Swal.fire({
             icon: 'error',
-            title: texts.error,
-            text: texts.account_deactivated
+            title: 'เกิดข้อผิดพลาด',
+            text: 'บัญชีถูกยกเลิก'
         });
         return Promise.reject('Account is deactivated');
     } else if (menuData.status === 'inactive') {
         Swal.fire({
             icon: 'error',
-            title: texts.error,
-            text: texts.account_inactive
+            title: 'เกิดข้อผิดพลาด',
+            text: 'บัญชีถูกปิดใช้งาน'
         });
         return Promise.reject('Account is inactive');
     } else if (menuData.status === 'incorrect') {
         Swal.fire({
             icon: 'error',
-            title: texts.error,
-            text: texts.incorrect_password
+            title: 'เกิดข้อผิดพลาด',
+            text: 'รหัสผ่านไม่ถูกต้อง'
         });
         return Promise.reject('Incorrect password');
     } else {
         Swal.fire({
             icon: 'error',
-            title: texts.error,
-            text: texts.unknown_error
+            title: 'เกิดข้อผิดพลาด',
+            text: 'เกิดข้อผิดพลาดที่ไม่ทราบสาเหตุ'
         });
         return Promise.reject('Unknown error');
     }
@@ -108,7 +108,7 @@ function handleSessionResponse(data) {
         Swal.fire({
             position: "center",
             icon: "success",
-            title: texts.success,
+            title: 'สำเร็จ',
             showConfirmButton: false,
             timer: 1500
         }).then(() => {
@@ -118,7 +118,7 @@ function handleSessionResponse(data) {
         console.error('Session could not be set:', data.message);
         Swal.fire({
             icon: 'error',
-            title: texts.error,
+            title: 'เกิดข้อผิดพลาด',
             text: 'Session could not be set.'
         });
     }

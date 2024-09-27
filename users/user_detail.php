@@ -40,35 +40,35 @@
                         <div class="card-body m-4">
                             <!-- Form for user details -->
                             <form id="InputForm">
-                                <h6 class="fw-bold fs-4 mb-3"><?= $texts['user_detail'] ?></h6>
+                                <h6 class="fw-bold fs-4 mb-3">รายระเอียดผู้ใช้</h6>
                                 <div class="row pb-4">
                                     <div class="col-12">
                                         <div class="mb-3">
-                                            <label for="username" class="form-label"><?= $texts['username'] ?></label>
+                                            <label for="username" class="form-label">ชื่อผู้ใช้</label>
                                             <input type="text" class="form-control" id="username" name="username" disabled>
                                         </div>
                                     </div>
                                     <div class="col-12">
                                         <div class="mb-3">
-                                            <label for="firstname" class="form-label"><?= $texts['firstname'] ?></label>
+                                            <label for="firstname" class="form-label">ชื่อ</label>
                                             <input type="text" class="form-control" id="firstname" name="firstname" disabled>
                                         </div>
                                     </div>
                                     <div class="col-12">
                                         <div class="mb-3">
-                                            <label for="lastname" class="form-label"><?= $texts['lastname'] ?></label>
+                                            <label for="lastname" class="form-label">นามสกุล</label>
                                             <input type="text" class="form-control" id="lastname" name="lastname" disabled>
                                         </div>
                                     </div>
                                     <div class="col-12">
                                         <div class="mb-3">
-                                            <label for="role" class="form-label"><?= $texts['role'] ?></label>
+                                            <label for="role" class="form-label">สิทธิ์</label>
                                             <input type="text" class="form-control" id="role" name="role" disabled>
                                         </div>
                                     </div>
                                     <div class="col-12">
                                         <div class="mb-3">
-                                            <label for="statusflag" class="form-label"><?= $texts['status'] ?></label>
+                                            <label for="statusflag" class="form-label">สถานะ</label>
                                             <input type="text" class="form-control" id="statusflag" name="statusflag" disabled>
                                         </div>
                                     </div>

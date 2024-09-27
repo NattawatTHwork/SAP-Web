@@ -32,7 +32,7 @@ function handleCreateResponse(data) {
     if (data.status === 'success') {
         Swal.fire({
             icon: 'success',
-            title: texts.success,
+            title: 'สำเร็จ',
         })
         .then(() => {
             window.location.href = 'period_group_all.php';
@@ -40,7 +40,7 @@ function handleCreateResponse(data) {
     } else {
         Swal.fire({
             icon: 'error',
-            title: texts.error,
+            title: 'เกิดข้อผิดพลาด',
         });
     }
 }

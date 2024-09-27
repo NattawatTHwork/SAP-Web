@@ -107,7 +107,7 @@ function handleCreateResponse(data) {
         const general_ledger_id = getQueryParam('general_ledger_id');
         Swal.fire({
             icon: 'success',
-            title: texts.success,
+            title: 'สำเร็จ',
         })
         .then(() => {
             window.location.href = 'general_ledger_update.php?general_ledger_id=' + general_ledger_id;
@@ -115,7 +115,7 @@ function handleCreateResponse(data) {
     } else {
         Swal.fire({
             icon: 'error',
-            title: texts.error,
+            title: 'เกิดข้อผิดพลาด',
         });
     }
 }

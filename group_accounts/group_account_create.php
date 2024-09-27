@@ -40,11 +40,11 @@
                         <div class="card-body m-4">
                             <!-- Form for group_account create details -->
                             <form id="InputForm">
-                                <h6 class="fw-bold fs-4"><?= $texts['group_account_create'] ?></h6>
+                                <h6 class="fw-bold fs-4">สร้างกลุ่มบัญชี</h6>
                                 <div class="row pb-4">
                                     <div class="col-12">
                                         <div class="mb-3">
-                                            <label for="chart_account_id" class="form-label"><?= $texts['chart_account_code'] ?></label>
+                                            <label for="chart_account_id" class="form-label">รหัสผังบัญชี</label>
                                             <select class="form-control" id="chart_account_id" name="chart_account_id" required>
                                                 <!-- Dynamic options will be populated here -->
                                             </select>
@@ -52,25 +52,25 @@
                                     </div>
                                     <div class="col-12">
                                         <div class="mb-3">
-                                            <label for="group_account_code" class="form-label"><?= $texts['group_account_code'] ?></label>
+                                            <label for="group_account_code" class="form-label">รหัสกลุ่มบัญชี</label>
                                             <input type="text" class="form-control" id="group_account_code" name="group_account_code" required>
                                         </div>
                                     </div>
                                     <div class="col-12">
                                         <div class="mb-3">
-                                            <label for="name_account" class="form-label"><?= $texts['name_account'] ?></label>
+                                            <label for="name_account" class="form-label">ชื่อ</label>
                                             <input type="text" class="form-control" id="name_account" name="name_account" required>
                                         </div>
                                     </div>
                                     <div class="col-12">
                                         <div class="mb-3">
-                                            <label for="account_from" class="form-label"><?= $texts['account_from'] ?></label>
+                                            <label for="account_from" class="form-label">จากบัญชี</label>
                                             <input type="text" class="form-control" id="account_from" name="account_from" required>
                                         </div>
                                     </div>
                                     <div class="col-12">
                                         <div class="mb-3">
-                                            <label for="account_to" class="form-label"><?= $texts['account_to'] ?></label>
+                                            <label for="account_to" class="form-label">ถึงบัญชี</label>
                                             <input type="text" class="form-control" id="account_to" name="account_to" required>
                                         </div>
                                     </div>
@@ -79,7 +79,7 @@
                                 <div class="row pb-4">
                                     <div class="col-12">
                                         <div class="text-center">
-                                            <button type="submit" class="btn btn-primary w-100" id="submitBtn"><?= $texts['save'] ?></button>
+                                            <button type="submit" class="btn btn-primary w-100" id="submitBtn">บันทึก</button>
                                         </div>
                                     </div>
                                 </div>
