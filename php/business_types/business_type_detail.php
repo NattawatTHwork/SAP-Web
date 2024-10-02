@@ -2,10 +2,10 @@
 if (isset($_SESSION['allowed_menu']) && is_array($_SESSION['allowed_menu'])) {
     $allowed_menu = $_SESSION['allowed_menu'];
     if (!in_array(11, $allowed_menu)) {
-        header('Location: ' . $path . 'index.php');
+        header('Location: ' . $path_um . 'index.php');
         exit();
     }
 } else {
-    header('Location: ' . $path . 'login.php');
+    header('Location: ' . $path_um . 'login.php');
     exit();
 }

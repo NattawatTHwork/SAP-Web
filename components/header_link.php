@@ -1,4 +1,5 @@
 <?php $path = '/SAP-Web/' ?>
+<?php $path_um = '/UM-Web/' ?>
 <!-- Favicons -->
 <link href="<?= $path ?>assets/img/favicon.png" rel="icon">
 <link href="<?= $path ?>assets/img/apple-touch-icon.png" rel="apple-touch-icon">
