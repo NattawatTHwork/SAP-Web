@@ -122,7 +122,7 @@
                                                     <div class="row pb-4">
                                                         <div class="col-12">
                                                             <div class="text-center">
-                                                                <button type="submit" class="btn btn-primary w-100" id="submitBtn">บันทึก</button>
+                                                                <button type="submit" class="btn btn-primary w-100" id="submitBasicDataBtn">บันทึก</button>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -134,13 +134,13 @@
 
                                                 <!-- Control Data Form -->
                                                 <form id="detail">
-                                                    <input type="hidden" class="form-control" id="gl_control_data_id" name="gl_control_data_id" required>
+                                                    <input type="hidden" class="form-control" id="general_ledger_detail_id" name="general_ledger_detail_id" required>
 
                                                     <div class="row pb-4">
                                                         <div class="col-12">
                                                             <div class="mb-3">
-                                                                <label for="company_code" class="form-label">รหัสบริษัท</label>
-                                                                <input type="text" class="form-control" id="company_code" name="company_code">
+                                                                <label for="company_code_detail" class="form-label">รหัสบริษัท</label>
+                                                                <input type="text" class="form-control" id="company_code_detail" name="company_code_detail" disabled>
                                                             </div>
                                                         </div>
                                                         <div class="col-12">
@@ -152,7 +152,7 @@
                                                         <div class="col-12">
                                                             <div class="mb-3">
                                                                 <label for="translatn_date" class="form-label">วันที่ทำธุรกรรม</label>
-                                                                <input type="text" class="form-control" id="translatn_date" name="translatn_date">
+                                                                <input type="date" class="form-control" id="translatn_date" name="translatn_date">
                                                             </div>
                                                         </div>
                                                         <div class="col-12">
@@ -164,8 +164,8 @@
                                                         <div class="col-12">
                                                             <div class="mb-3">
                                                                 <div class="form-check">
-                                                                    <input type="checkbox" class="form-check-input" id="calculate_tex" name="calculate_tex">
-                                                                    <label class="form-check-label" for="calculate_tex">คำนวณภาษี</label>
+                                                                    <input type="checkbox" class="form-check-input" id="calculate_tax" name="calculate_tax">
+                                                                    <label class="form-check-label" for="calculate_tax">คำนวณภาษี</label>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -174,7 +174,7 @@
                                                     <div class="row pb-4">
                                                         <div class="col-12">
                                                             <div class="text-center">
-                                                                <button type="submit" class="btn btn-primary w-100" id="submitBtnControlData">บันทึก</button>
+                                                                <button type="submit" class="btn btn-primary w-100" id="submitDetailBtn">บันทึก</button>
                                                             </div>
                                                         </div>
                                                     </div>

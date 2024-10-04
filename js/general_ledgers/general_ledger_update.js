@@ -3,55 +3,22 @@ document.addEventListener("DOMContentLoaded", async function () {
         const sessionToken = await getSessionToken();
         const general_ledger_id = getQueryParam('general_ledger_id');
 
-        // await Promise.all([
-        //     await handleGetCompanyIds(sessionToken.token)
-        // ]);
-
-        await handleGetDetail(sessionToken.token, general_ledger_id);
+        await handleGetGeneralLedger(sessionToken.token, general_ledger_id);
+        await handleGetGeneralLedgerDetail(sessionToken.token, general_ledger_id);
         await handleGetGLTransactionAll(sessionToken.token, general_ledger_id);
     } catch (error) {
         handleError(error);
     }
 });
 
-// function handleGetCompanyIds(token) {
-//     fetchCompanyIds(token)
-//         .then(data => populateCompanyIdOptions(data))
-//         .catch(error => handleError(error));
-// }
-
-// function fetchCompanyIds(token) {
-//     return fetch(apiUrl + 'companies/get_company_all.php', {
-//         method: 'GET',
-//         headers: {
-//             'Authorization': `Bearer ${token}`
-//         }
-//     })
-//         .then(response => response.json());
-// }
-
-// function populateCompanyIdOptions(data) {
-//     const CompanyIdSelect = document.getElementById('company_id');
-//     if (data.status === 'success') {
-//         data.data.forEach(company => {
-//             const option = document.createElement('option');
-//             option.value = company.company_id;
-//             option.textContent = company.company_code;
-//             CompanyIdSelect.appendChild(option);
-//         });
-//     } else {
-//         handleError(data.message);
-//     }
-// }
-
-// แสดงรายละเอียดข้อมูลบัญชีทั่วไป
-function handleGetDetail(token, general_ledger_id) {
-    fetchData(token, general_ledger_id)
-        .then(data => showData(data))
+// แสดงข้อมูลพื้นฐาน
+function handleGetGeneralLedger(token, general_ledger_id) {
+    fetchGeneralLedgerData(token, general_ledger_id)
+        .then(data => showGeneralLedgerData(data))
         .catch(error => handleError(error));
 }
 
-function fetchData(token, general_ledger_id) {
+function fetchGeneralLedgerData(token, general_ledger_id) {
     return fetch(apiUrl + 'general_ledgers/get_general_ledger.php?general_ledger_id=' + general_ledger_id, {
         method: 'GET',
         headers: {
@@ -61,7 +28,7 @@ function fetchData(token, general_ledger_id) {
         .then(response => response.json());
 }
 
-function showData(data) {
+function showGeneralLedgerData(data) {
     if (data.status === 'success') {
         const general_ledger = data.data;
 
@@ -75,6 +42,38 @@ function showData(data) {
         document.getElementById('branch_number').value = general_ledger.branch_number;
         document.getElementById('currency').value = general_ledger.currency;
         document.getElementById('company_code').value = general_ledger.company_code;
+    } else {
+        handleError(data.message);
+    }
+}
+
+// แสดงรายละเอียด
+function handleGetGeneralLedgerDetail(token, general_ledger_id) {
+    fetchGeneralLedgerDetailData(token, general_ledger_id)
+        .then(data => showGeneralLedgerDetailData(data))
+        .catch(error => handleError(error));
+}
+
+function fetchGeneralLedgerDetailData(token, general_ledger_id) {
+    return fetch(apiUrl + 'general_ledger_details/get_general_ledger_detail.php?general_ledger_id=' + general_ledger_id, {
+        method: 'GET',
+        headers: {
+            'Authorization': `Bearer ${token}`
+        }
+    })
+        .then(response => response.json());
+}
+
+function showGeneralLedgerDetailData(data) {
+    if (data.status === 'success') {
+        const general_ledger = data.data;
+
+        document.getElementById('general_ledger_detail_id').value = general_ledger.general_ledger_detail_id;
+        document.getElementById('company_code_detail').value = general_ledger.company_code;
+        document.getElementById('exchange_rate').value = general_ledger.exchange_rate;
+        document.getElementById('translatn_date').value = general_ledger.translatn_date;
+        document.getElementById('trading_part_ba').value = general_ledger.trading_part_ba;
+        document.getElementById('calculate_tax').checked = general_ledger.calculate_tax === 't';
     } else {
         handleError(data.message);
     }
@@ -135,26 +134,26 @@ function displayTables(datas) {
     });
 }
 
-// อัพเดทข้อมูลบัญชีทั่วไป
-document.getElementById('InputForm').addEventListener('submit', function handleFormSubmit(event) {
+// อัพเดทข้อมูลพื้นฐาน
+document.getElementById('basic_data').addEventListener('submit', function handleFormSubmit(event) {
     event.preventDefault();
 
-    const submitButton = document.getElementById('submitBtn');
-    submitButton.disabled = true;
+    const submitBasicDataButton = document.getElementById('submitBasicDataBtn');
+    submitBasicDataButton.disabled = true;
 
     const formData = new FormData(event.target);
     const jsonData = convertFormDataToJson(formData);
 
     getSessionToken()
-        .then(mySession => updateData(mySession.token, jsonData))
-        .then(response => handleUpdateResponse(response))
+        .then(mySession => updateBasicData(mySession.token, jsonData))
+        .then(response => handleUpdateResponse(response, 'basic_data'))
         .catch(error => handleError(error))
         .finally(() => {
-            submitButton.disabled = false;
+            submitBasicDataButton.disabled = false;
         });
 });
 
-function updateData(token, jsonData) {
+function updateBasicData(token, jsonData) {
     return fetch(apiUrl + 'general_ledgers/update_general_ledger.php', {
         method: 'POST',
         headers: {
@@ -166,7 +165,39 @@ function updateData(token, jsonData) {
         .then(response => response.json());
 }
 
-function handleUpdateResponse(data) {
+// อัพเดทรายละเอียด
+document.getElementById('detail').addEventListener('submit', function handleFormSubmit(event) {
+    event.preventDefault();
+
+    const submitDetailButton = document.getElementById('submitDetailBtn');
+    submitDetailButton.disabled = true;
+
+    const formData = new FormData(event.target);
+    const jsonData = convertFormDataToJson(formData);
+    console.log(jsonData)
+
+    getSessionToken()
+        .then(mySession => updateDetailData(mySession.token, jsonData))
+        .then(response => handleUpdateResponse(response, 'detail'))
+        .catch(error => handleError(error))
+        .finally(() => {
+            submitDetailButton.disabled = false;
+        });
+});
+
+function updateDetailData(token, jsonData) {
+    return fetch(apiUrl + 'general_ledger_details/update_general_ledger_detail.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify(jsonData)
+    })
+        .then(response => response.json());
+}
+
+function handleUpdateResponse(data, message) {
     const general_ledger_id = getQueryParam('general_ledger_id');
 
     if (data.status === 'success') {
@@ -175,7 +206,11 @@ function handleUpdateResponse(data) {
             title: 'สำเร็จ',
         })
             .then(() => {
-                window.location.href = 'general_ledger_update.php?general_ledger_id=' + general_ledger_id;
+                if (message === 'basic_data') {
+                    handleGetGeneralLedger(sessionToken.token, general_ledger_id);
+                } else if (message === 'detail') {
+                    handleGetGeneralLedgerDetail(sessionToken.token, general_ledger_id);
+                }
             });
     } else {
         Swal.fire({

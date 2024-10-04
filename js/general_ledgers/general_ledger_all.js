@@ -26,6 +26,9 @@ function fetchData(token) {
 function displayTables(datas) {
     let html = '';
     const noDataHtml = '<tr><td></td><td></td><td>ไม่มีข้อมูล</td><td></td><td></td></tr>';
+    if ($.fn.DataTable.isDataTable('#datatables')) {
+        $('#datatables').DataTable().clear().destroy();
+    }
     if (datas.status === 'success') {
         if (datas.data.length > 0) {
             datas.data.forEach(data => {
@@ -98,7 +101,7 @@ function handleDeleteResponse(response) {
             title: 'สำเร็จ',
             icon: 'success'
         }).then(() => {
-            location.reload();
+            handleGetAll();
         });
     } else {
         Swal.fire({
