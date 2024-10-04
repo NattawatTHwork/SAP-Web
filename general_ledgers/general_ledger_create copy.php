@@ -240,7 +240,20 @@
                                 </thead>
                                 <tbody id="tableBody">
                                     <!-- Default row -->
-
+                                    <tr>
+                                        <td><input type="text" class="form-control" placeholder="บัญชี G/L"></td>
+                                        <td>
+                                            <select class="form-control">
+                                                <option value="D">D</option>
+                                                <option value="C">C</option>
+                                            </select>
+                                        </td>
+                                        <td><input type="number" class="form-control" placeholder="จำนวนสกุลเงินเอกสาร"></td>
+                                        <td>
+                                            <button class="btn btn-info" onclick="showModal(this)">เพิ่มเติม</button>
+                                            <button class="btn btn-danger" onclick="deleteRow(this)">ลบ</button>
+                                        </td>
+                                    </tr>
                                 </tbody>
                             </table>
                             <button class="btn btn-primary" onclick="addRow()">เพิ่มแถว</button>
@@ -261,31 +274,32 @@
                                 <div class="modal-body">
                                     <form id="additionalDataForm">
                                         <div class="form-check">
-                                            <input type="checkbox" class="form-check-input" id="calculate_tax" name="calculate_tax" onchange="updateAdditionalData(this)">
+                                            <input type="checkbox" class="form-check-input" id="calculate_tax" name="calculate_tax">
                                             <label class="form-check-label" for="calculate_tax">คำนวณภาษี</label>
                                         </div>
                                         <div class="mb-3">
                                             <label for="business_stablishment" class="form-label">ที่ประกอบธุรกิจ</label>
-                                            <input type="text" class="form-control" id="business_stablishment" name="business_stablishment" oninput="updateAdditionalData(this)">
+                                            <input type="text" class="form-control" id="business_stablishment" name="business_stablishment">
                                         </div>
                                         <div class="mb-3">
                                             <label for="business_type_id" class="form-label">ประเภทธุรกิจ</label>
-                                            <select class="form-control" id="business_type_id" name="business_type_id" onchange="updateAdditionalData(this)">
+                                            <select class="form-control" id="business_type_id" name="business_type_id" required>
                                                 <!-- Dynamic options will be populated here -->
                                             </select>
                                         </div>
                                         <div class="mb-3">
                                             <label for="determination" class="form-label">การกำหนด</label>
-                                            <input type="text" class="form-control" id="determination" name="determination" oninput="updateAdditionalData(this)">
+                                            <input type="text" class="form-control" id="determination" name="determination">
                                         </div>
                                         <div class="mb-3">
                                             <label for="description" class="form-label">ข้อความ</label>
-                                            <input type="text" class="form-control" id="description" name="description" oninput="updateAdditionalData(this)">
+                                            <input type="text" class="form-control" id="description" name="description">
                                         </div>
                                     </form>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">ปิด</button>
+                                    <button type="button" class="btn btn-primary" onclick="saveAdditionalData()">บันทึกข้อมูล</button>
                                 </div>
                             </div>
                         </div>
@@ -299,74 +313,28 @@
                             const tableBody = document.getElementById('tableBody');
                             const row = document.createElement('tr');
                             row.innerHTML = `
-            <td><input type="text" class="form-control" placeholder="บัญชี G/L" oninput="updateRowData(this, 0)"></td>
+            <td><input type="text" class="form-control" placeholder="บัญชี G/L"></td>
             <td>
-                <select class="form-control" onchange="updateRowData(this, 1)">
-                    <option value="">เลือก D/C</option>
+                <select class="form-control">
                     <option value="D">D</option>
                     <option value="C">C</option>
                 </select>
             </td>
-            <td><input type="number" class="form-control" placeholder="จำนวนสกุลเงินเอกสาร" oninput="updateRowData(this, 2)"></td>
+            <td><input type="number" class="form-control" placeholder="จำนวนสกุลเงินเอกสาร"></td>
             <td>
                 <button class="btn btn-info" onclick="showModal(this)">เพิ่มเติม</button>
                 <button class="btn btn-danger" onclick="deleteRow(this)">ลบ</button>
             </td>
         `;
                             tableBody.appendChild(row);
-
-                            // Add an empty object for the new row
-                            dataRows.push({
-                                gl_account: "",
-                                dc_type: "",
-                                amount: "",
-                                calculate_tax: 0,
-                                business_stablishment: "",
-                                business_type_id: "",
-                                determination: "",
-                                description: ""
-                            });
-
-                            console.log(dataRows); // For debugging
-                        }
-
-                        // Function to update row data as user types/selects values
-                        function updateRowData(input, fieldIndex) {
-                            const rowIndex = input.parentNode.parentNode.rowIndex - 1;
-
-                            // Check if rowIndex is within bounds of the dataRows array
-                            if (rowIndex >= 0 && rowIndex < dataRows.length) {
-                                const value = input.value;
-
-                                switch (fieldIndex) {
-                                    case 0: // G/L account
-                                        dataRows[rowIndex].gl_account = value;
-                                        break;
-                                    case 1: // D/C
-                                        dataRows[rowIndex].dc_type = value;
-                                        break;
-                                    case 2: // Amount
-                                        dataRows[rowIndex].amount = value;
-                                        break;
-                                }
-                                console.log(dataRows); // For debugging
-                            }
+                            dataRows.push({}); // Add an empty object for the new row
                         }
 
                         // Function to delete a row
                         function deleteRow(button) {
-                            const row = button.parentNode.parentNode; // Get the current row
-                            const rowIndex = row.rowIndex - 1; // Get the index of the row in the data array
-
-                            // Delete the row from the table
-                            document.getElementById('datatables').deleteRow(row.rowIndex);
-
-                            // Remove the corresponding data from the dataRows array
-                            if (rowIndex >= 0 && rowIndex < dataRows.length) {
-                                dataRows.splice(rowIndex, 1); // Remove the corresponding data
-                            }
-
-                            console.log(dataRows); // For debugging
+                            const rowIndex = button.parentNode.parentNode.rowIndex - 1;
+                            document.getElementById('datatables').deleteRow(rowIndex + 1); // Delete the row from the table
+                            dataRows.splice(rowIndex, 1); // Remove the corresponding data
                         }
 
                         let currentRowIndex;
@@ -376,16 +344,35 @@
                             $('#dataModal').modal('show');
                         }
 
-                        // Function to update additional data from the modal
-                        function updateAdditionalData(input) {
-                            const value = input.value || input.checked;
-                            const fieldName = input.name;
+                        // Function to save the additional data from the modal
+                        function saveAdditionalData() {
+                            const form = document.getElementById('additionalDataForm');
+                            const formData = new FormData(form);
+                            let additionalData = {};
+                            formData.forEach((value, key) => {
+                                additionalData[key] = value;
+                            });
+                            additionalData['calculate_tax'] = document.getElementById('calculate_tax').checked ? 1 : 0;
 
-                            // Update the corresponding data for the current row
-                            if (currentRowIndex >= 0 && currentRowIndex < dataRows.length) {
-                                dataRows[currentRowIndex][fieldName] = value;
-                                console.log(dataRows); // For debugging
-                            }
+                            // Merge additional data with the existing row data
+                            const row = document.getElementById('datatables').rows[currentRowIndex + 1];
+                            const glAccount = row.cells[0].querySelector('input').value;
+                            const dcType = row.cells[1].querySelector('select').value;
+                            const amount = row.cells[2].querySelector('input').value;
+
+                            // Flatten the data into a single object
+                            dataRows[currentRowIndex] = {
+                                gl_account: glAccount,
+                                dc_type: dcType,
+                                amount: amount,
+                                calculate_tax: additionalData.calculate_tax,
+                                business_stablishment: additionalData.business_stablishment,
+                                business_type_id: additionalData.business_type_id,
+                                determination: additionalData.determination,
+                                description: additionalData.description
+                            };
+                            console.log(dataRows); // For debugging, you can remove this later
+                            $('#dataModal').modal('hide');
                         }
                     </script>
 
