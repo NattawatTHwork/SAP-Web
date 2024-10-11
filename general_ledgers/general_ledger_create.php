@@ -32,6 +32,14 @@
             </nav>
         </div><!-- End Page Title -->
 
+        <div class="d-sm-flex justify-content-end mb-2 row">
+            <div class="col-sm-12 col-md-4">
+                <button type="button" class="btn btn-primary w-100 btn-block" id="submitBtn" onclick="saveGeneralLedger()">
+                    บันทึก
+                </button>
+            </div>
+        </div>
+
         <section class="section">
             <div class="row">
                 <div class="col-lg-12">
@@ -56,116 +64,148 @@
 
                                         </ul>
                                         <div class="tab-content pt-2">
-
                                             <div class="tab-pane fade show active basic-data" id="basic-data">
-
-                                                <form id="basic_data">
-                                                    <input type="hidden" class="form-control" id="general_ledger_id" name="general_ledger_id" required>
-
-                                                    <div class="row pb-4">
-                                                        <div class="col-md-6 mb-3">
-                                                            <div class="row align-items-center">
-                                                                <div class="col-4 mb-3">
-                                                                    <label for="document_date" class="form-label">วันที่เอกสาร</label>
+                                                <div class="row pb-4">
+                                                    <div class="col-md-9"> <!-- Left Form -->
+                                                        <form id="basic_data">
+                                                            <div class="row">
+                                                                <input type="hidden" id="created_by" name="created_by" value="<?= $_SESSION['user_id'] ?>" required>
+                                                                <div class="col-md-6 mb-3">
+                                                                    <div class="row align-items-center">
+                                                                        <div class="col-4 mb-3">
+                                                                            <label for="document_date" class="form-label">วันที่เอกสาร</label>
+                                                                        </div>
+                                                                        <div class="col-8 mb-3">
+                                                                            <input type="date" class="form-control" id="document_date" name="document_date" required>
+                                                                        </div>
+                                                                    </div>
                                                                 </div>
-                                                                <div class="col-8 mb-3">
-                                                                    <input type="date" class="form-control" id="document_date" name="document_date">
+                                                                <div class="col-md-6 mb-3">
+                                                                    <div class="row align-items-center">
+                                                                        <div class="col-4 mb-3">
+                                                                            <label for="posting_date" class="form-label">วันผ่านรายการ</label>
+                                                                        </div>
+                                                                        <div class="col-8 mb-3">
+                                                                            <input type="date" class="form-control" id="posting_date" name="posting_date">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-4 mb-3">
+                                                                    <div class="row align-items-center">
+                                                                        <div class="col-4 mb-3">
+                                                                            <label for="reference" class="form-label">การอ้างอิง</label>
+                                                                        </div>
+                                                                        <div class="col-8 mb-3">
+                                                                            <input type="text" class="form-control" id="reference" name="reference">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-4 mb-3">
+                                                                    <div class="row align-items-center">
+                                                                        <div class="col-4 mb-3">
+                                                                            <label for="company_id" class="form-label">รหัสบริษัท</label>
+                                                                        </div>
+                                                                        <div class="col-8 mb-3">
+                                                                            <select class="form-control" id="company_id" name="company_id" required>
+                                                                                <!-- Dynamic options will be populated here -->
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-4 mb-3">
+                                                                    <div class="row align-items-center">
+                                                                        <div class="col-4 mb-3">
+                                                                            <label for="currency" class="form-label">สกุลเงิน</label>
+                                                                        </div>
+                                                                        <div class="col-8 mb-3">
+                                                                            <input type="text" class="form-control" id="currency" name="currency">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-12 mb-3">
+                                                                    <div class="row align-items-center">
+                                                                        <div class="col-md-2 col-4 mb-3">
+                                                                            <label for="document_header_text" class="form-label">Doc.Header Text</label>
+                                                                        </div>
+                                                                        <div class="col-md-10 col-8 mb-3">
+                                                                            <input type="text" class="form-control" id="document_header_text" name="document_header_text">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-6 mb-3">
+                                                                    <div class="row align-items-center">
+                                                                        <div class="col-4 mb-3">
+                                                                            <label for="document_type" class="form-label">ประเภทเอกสาร</label>
+                                                                        </div>
+                                                                        <div class="col-8 mb-3">
+                                                                            <input type="text" class="form-control" id="document_type" name="document_type">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-6 mb-3">
+                                                                    <div class="row align-items-center">
+                                                                        <div class="col-4 mb-3">
+                                                                            <label for="branch_number" class="form-label">เลขที่สาขา</label>
+                                                                        </div>
+                                                                        <div class="col-8 mb-3">
+                                                                            <input type="text" class="form-control" id="branch_number" name="branch_number">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-6 mb-3">
+                                                                    <div class="row align-items-center">
+                                                                        <div class="col-4 mb-3">
+                                                                            <label for="company_id" class="form-label">รหัสบริษัท</label>
+                                                                        </div>
+                                                                        <div class="col-8 mb-3">
+                                                                            <select class="form-control" id="company_id" name="company_id" required>
+                                                                                <!-- Dynamic options will be populated here -->
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-6 mb-3">
+                                                                    <div class="row align-items-center">
+                                                                        <div class="col-4 mb-3">
+                                                                            <label for="currency" class="form-label">สกุลเงิน</label>
+                                                                        </div>
+                                                                        <div class="col-8 mb-3">
+                                                                            <input type="text" class="form-control" id="currency" name="currency">
+                                                                        </div>
+                                                                    </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                        <div class="col-md-6 mb-3">
-                                                            <div class="row align-items-center">
-                                                                <div class="col-4 mb-3">
-                                                                    <label for="posting_date" class="form-label">วันผ่านรายการ</label>
-                                                                </div>
-                                                                <div class="col-8 mb-3">
-                                                                    <input type="date" class="form-control" id="posting_date" name="posting_date">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-12 mb-3">
-                                                            <div class="row align-items-center">
-                                                                <div class="col-md-2 col-4 mb-3">
-                                                                    <label for="reference" class="form-label">การอ้างอิง</label>
-                                                                </div>
-                                                                <div class="col-md-10 col-8 mb-3">
-                                                                    <input type="text" class="form-control" id="reference" name="reference">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-12 mb-3">
-                                                            <div class="row align-items-center">
-                                                                <div class="col-md-2 col-4 mb-3">
-                                                                    <label for="document_header_text" class="form-label">Doc.Header Text</label>
-                                                                </div>
-                                                                <div class="col-md-10 col-8 mb-3">
-                                                                    <input type="text" class="form-control" id="document_header_text" name="document_header_text">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-6 mb-3">
-                                                            <div class="row align-items-center">
-                                                                <div class="col-4 mb-3">
-                                                                    <label for="document_type" class="form-label">ประเภทเอกสาร</label>
-                                                                </div>
-                                                                <div class="col-8 mb-3">
-                                                                    <input type="text" class="form-control" id="document_type" name="document_type">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-6 mb-3">
-                                                            <div class="row align-items-center">
-                                                                <div class="col-4 mb-3">
-                                                                    <label for="branch_number" class="form-label">เลขที่สาขา</label>
-                                                                </div>
-                                                                <div class="col-8 mb-3">
-                                                                    <input type="text" class="form-control" id="branch_number" name="branch_number">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-12 mb-3">
-                                                            <div class="row align-items-center">
-                                                                <div class="col-md-2 col-4 mb-3">
-                                                                    <label for="intercompany_number" class="form-label">เลขที่ระหว่างบ.</label>
-                                                                </div>
-                                                                <div class="col-md-10 col-8 mb-3">
-                                                                    <input type="text" class="form-control" id="intercompany_number" name="intercompany_number">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-6 mb-3">
-                                                            <div class="row align-items-center">
-                                                                <div class="col-4 mb-3">
-                                                                    <label for="company_id" class="form-label">รหัสบริษัท</label>
-                                                                </div>
-                                                                <div class="col-8 mb-3">
-                                                                    <select class="form-control" id="company_id" name="company_id" required>
-                                                                        <!-- Dynamic options will be populated here -->
-                                                                    </select>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-6 mb-3">
-                                                            <div class="row align-items-center">
-                                                                <div class="col-4 mb-3">
-                                                                    <label for="currency" class="form-label">สกุลเงิน</label>
-                                                                </div>
-                                                                <div class="col-8 mb-3">
-                                                                    <input type="text" class="form-control" id="currency" name="currency">
-                                                                </div>
-                                                            </div>
-                                                        </div>
+                                                        </form>
                                                     </div>
 
-                                                </form>
+                                                    <div class="col-md-3"> <!-- Right Form -->
+                                                        <div class="border-start border-2 ps-3" style="height: 100%;">
+                                                            <h5>ข้อมูลจำนวนเงิน</h5>
 
+                                                            <form id="additional_data">
+                                                                <div class="mb-3">
+                                                                    <label for="debit_total" class="form-label">เดบิตรวม</label>
+                                                                    <div class="input-group">
+                                                                        <input type="text" class="form-control" id="debit_total" name="debit_total" disabled>
+                                                                        <span class="input-group-text">บาท</span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="mb-3">
+                                                                    <label for="credit_total" class="form-label">เครดิตรวม</label>
+                                                                    <div class="input-group">
+                                                                        <input type="text" class="form-control" id="credit_total" name="credit_total" disabled>
+                                                                        <span class="input-group-text">บาท</span>
+                                                                    </div>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
 
                                             <div class="tab-pane fade detail pt-3" id="detail">
 
-                                                <form id="detail">
-                                                    <input type="hidden" class="form-control" id="general_ledger_detail_id" name="general_ledger_detail_id" required>
-
+                                                <form id="detail_data">
                                                     <div class="row pb-4">
                                                         <div class="col-md-6 mb-3">
                                                             <div class="row align-items-center">
@@ -254,9 +294,7 @@
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h5 class="modal-title" id="dataModalLabel">ข้อมูลเพิ่มเติม</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span>&times;</span>
-                                    </button>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
                                     <form id="additionalDataForm">
@@ -285,109 +323,11 @@
                                     </form>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">ปิด</button>
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">ปิด</button>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-                    <script>
-                        let dataRows = [];
-
-                        // Function to add a new row
-                        function addRow() {
-                            const tableBody = document.getElementById('tableBody');
-                            const row = document.createElement('tr');
-                            row.innerHTML = `
-            <td><input type="text" class="form-control" placeholder="บัญชี G/L" oninput="updateRowData(this, 0)"></td>
-            <td>
-                <select class="form-control" onchange="updateRowData(this, 1)">
-                    <option value="">เลือก D/C</option>
-                    <option value="D">D</option>
-                    <option value="C">C</option>
-                </select>
-            </td>
-            <td><input type="number" class="form-control" placeholder="จำนวนสกุลเงินเอกสาร" oninput="updateRowData(this, 2)"></td>
-            <td>
-                <button class="btn btn-info" onclick="showModal(this)">เพิ่มเติม</button>
-                <button class="btn btn-danger" onclick="deleteRow(this)">ลบ</button>
-            </td>
-        `;
-                            tableBody.appendChild(row);
-
-                            // Add an empty object for the new row
-                            dataRows.push({
-                                gl_account: "",
-                                dc_type: "",
-                                amount: "",
-                                calculate_tax: 0,
-                                business_stablishment: "",
-                                business_type_id: "",
-                                determination: "",
-                                description: ""
-                            });
-
-                            console.log(dataRows); // For debugging
-                        }
-
-                        // Function to update row data as user types/selects values
-                        function updateRowData(input, fieldIndex) {
-                            const rowIndex = input.parentNode.parentNode.rowIndex - 1;
-
-                            // Check if rowIndex is within bounds of the dataRows array
-                            if (rowIndex >= 0 && rowIndex < dataRows.length) {
-                                const value = input.value;
-
-                                switch (fieldIndex) {
-                                    case 0: // G/L account
-                                        dataRows[rowIndex].gl_account = value;
-                                        break;
-                                    case 1: // D/C
-                                        dataRows[rowIndex].dc_type = value;
-                                        break;
-                                    case 2: // Amount
-                                        dataRows[rowIndex].amount = value;
-                                        break;
-                                }
-                                console.log(dataRows); // For debugging
-                            }
-                        }
-
-                        // Function to delete a row
-                        function deleteRow(button) {
-                            const row = button.parentNode.parentNode; // Get the current row
-                            const rowIndex = row.rowIndex - 1; // Get the index of the row in the data array
-
-                            // Delete the row from the table
-                            document.getElementById('datatables').deleteRow(row.rowIndex);
-
-                            // Remove the corresponding data from the dataRows array
-                            if (rowIndex >= 0 && rowIndex < dataRows.length) {
-                                dataRows.splice(rowIndex, 1); // Remove the corresponding data
-                            }
-
-                            console.log(dataRows); // For debugging
-                        }
-
-                        let currentRowIndex;
-                        // Function to show modal and edit additional data
-                        function showModal(button) {
-                            currentRowIndex = button.parentNode.parentNode.rowIndex - 1;
-                            $('#dataModal').modal('show');
-                        }
-
-                        // Function to update additional data from the modal
-                        function updateAdditionalData(input) {
-                            const value = input.value || input.checked;
-                            const fieldName = input.name;
-
-                            // Update the corresponding data for the current row
-                            if (currentRowIndex >= 0 && currentRowIndex < dataRows.length) {
-                                dataRows[currentRowIndex][fieldName] = value;
-                                console.log(dataRows); // For debugging
-                            }
-                        }
-                    </script>
 
                 </div>
 
