@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Period Create</title>
+    <title>เพิ่มงวด</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -22,12 +22,12 @@
     <main id="main" class="main">
 
         <div class="pagetitle">
-            <h1>Period Create</h1>
+            <h1>เพิ่มงวด</h1>
             <nav>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-                    <li class="breadcrumb-item">Period</li>
-                    <li class="breadcrumb-item active">Period Create</li>
+                    <li class="breadcrumb-item"><a href="index.php">หน้าหลัก</a></li>
+                    <li class="breadcrumb-item">งวด</li>
+                    <li class="breadcrumb-item active">เพิ่มงวด</li>
                 </ol>
             </nav>
         </div><!-- End Page Title -->

@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Group Account Detail</title>
+    <title>รายละเอียดกลุ่มบัญชี</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -22,12 +22,12 @@
     <main id="main" class="main">
 
         <div class="pagetitle">
-            <h1>Group Account Detail</h1>
+            <h1>รายละเอียดกลุ่มบัญชี</h1>
             <nav>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-                    <li class="breadcrumb-item">Group Account</li>
-                    <li class="breadcrumb-item active">Group Account Detail</li>
+                    <li class="breadcrumb-item"><a href="index.php">หน้าหลัก</a></li>
+                    <li class="breadcrumb-item">กลุ่มบัญชี</li>
+                    <li class="breadcrumb-item active">รายละเอียดกลุ่มบัญชี</li>
                 </ol>
             </nav>
         </div><!-- End Page Title -->

@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Central General Ledger Create</title>
+    <title>เพิ่มบัญชีแยกประเภททั่วไปส่วนกลาง</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -22,12 +22,12 @@
     <main id="main" class="main">
 
         <div class="pagetitle">
-            <h1>Central General Ledger Create</h1>
+            <h1>เพิ่มบัญชีแยกประเภททั่วไปส่วนกลาง</h1>
             <nav>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-                    <li class="breadcrumb-item">Central General Ledger</li>
-                    <li class="breadcrumb-item active">Central General Ledger Create</li>
+                    <li class="breadcrumb-item"><a href="index.php">หน้าหลัก</a></li>
+                    <li class="breadcrumb-item">บัญชีแยกประเภททั่วไปส่วนกลาง</li>
+                    <li class="breadcrumb-item active">เพิ่มบัญชีแยกประเภททั่วไปส่วนกลาง</li>
                 </ol>
             </nav>
         </div><!-- End Page Title -->

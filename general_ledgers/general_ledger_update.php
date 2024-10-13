@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>General Ledgers Update</title>
+    <title>แก้ไขบัญชีแยกประเภททั่วไป</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -22,12 +22,12 @@
     <main id="main" class="main">
 
         <div class="pagetitle">
-            <h1>General Ledgers Update</h1>
+            <h1>แก้ไขบัญชีแยกประเภททั่วไป</h1>
             <nav>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-                    <li class="breadcrumb-item">General Ledgers</li>
-                    <li class="breadcrumb-item active">General Ledgers Update</li>
+                    <li class="breadcrumb-item"><a href="index.php">หน้าหลัก</a></li>
+                    <li class="breadcrumb-item">บัญชีแยกประเภททั่วไป</li>
+                    <li class="breadcrumb-item active">แก้ไขบัญชีแยกประเภททั่วไป</li>
                 </ol>
             </nav>
         </div><!-- End Page Title -->
@@ -114,13 +114,15 @@
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-md-4 mb-3">
+                                                                <div class="col-md-4 mb-2">
                                                                     <div class="row align-items-center">
-                                                                        <div class="col-4 mb-3">
-                                                                            <label for="currency" class="form-label">สกุลเงิน</label>
+                                                                        <div class="col-4 mb-2">
+                                                                            <label for="currency_id" class="form-label">สกุลเงิน</label>
                                                                         </div>
-                                                                        <div class="col-8 mb-3">
-                                                                            <input type="text" class="form-control" id="currency" name="currency">
+                                                                        <div class="col-8 mb-2">
+                                                                            <select class="form-control" id="currency_id" name="currency_id">
+                                                                                <!-- Dynamic options will be populated here -->
+                                                                            </select>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -134,45 +136,27 @@
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-md-6 mb-3">
+                                                                <div class="col-md-6 mb-2">
                                                                     <div class="row align-items-center">
-                                                                        <div class="col-4 mb-3">
-                                                                            <label for="document_type" class="form-label">ประเภทเอกสาร</label>
+                                                                        <div class="col-4 mb-2">
+                                                                            <label for="document_type_id" class="form-label">ประเภทเอกสาร</label>
                                                                         </div>
-                                                                        <div class="col-8 mb-3">
-                                                                            <input type="text" class="form-control" id="document_type" name="document_type">
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-md-6 mb-3">
-                                                                    <div class="row align-items-center">
-                                                                        <div class="col-4 mb-3">
-                                                                            <label for="branch_number" class="form-label">เลขที่สาขา</label>
-                                                                        </div>
-                                                                        <div class="col-8 mb-3">
-                                                                            <input type="text" class="form-control" id="branch_number" name="branch_number">
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-md-6 mb-3">
-                                                                    <div class="row align-items-center">
-                                                                        <div class="col-4 mb-3">
-                                                                            <label for="company_id" class="form-label">รหัสบริษัท</label>
-                                                                        </div>
-                                                                        <div class="col-8 mb-3">
-                                                                            <select class="form-control" id="company_id" name="company_id" required>
+                                                                        <div class="col-8 mb-2">
+                                                                            <select class="form-control" id="document_type_id" name="document_type_id" required>
                                                                                 <!-- Dynamic options will be populated here -->
                                                                             </select>
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-md-6 mb-3">
+                                                                <div class="col-md-6 mb-2">
                                                                     <div class="row align-items-center">
-                                                                        <div class="col-4 mb-3">
-                                                                            <label for="currency" class="form-label">สกุลเงิน</label>
+                                                                        <div class="col-4 mb-2">
+                                                                            <label for="branch_number_id" class="form-label">เลขที่สาขา</label>
                                                                         </div>
-                                                                        <div class="col-8 mb-3">
-                                                                            <input type="text" class="form-control" id="currency" name="currency">
+                                                                        <div class="col-8 mb-2">
+                                                                            <select class="form-control" id="branch_number_id" name="branch_number_id">
+                                                                                <!-- Dynamic options will be populated here -->
+                                                                            </select>
                                                                         </div>
                                                                     </div>
                                                                 </div>

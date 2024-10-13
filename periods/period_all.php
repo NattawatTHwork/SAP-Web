@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Period All</title>
+    <title>งวดทั้งหมด</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -22,12 +22,12 @@
     <main id="main" class="main">
 
         <div class="pagetitle">
-            <h1>Period All</h1>
+            <h1>งวดทั้งหมด</h1>
             <nav>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-                    <li class="breadcrumb-item">Period</li>
-                    <li class="breadcrumb-item active">Period All</li>
+                    <li class="breadcrumb-item"><a href="index.php">หน้าหลัก</a></li>
+                    <li class="breadcrumb-item">งวด</li>
+                    <li class="breadcrumb-item active">งวดทั้งหมด</li>
                 </ol>
             </nav>
         </div><!-- End Page Title -->
@@ -35,7 +35,7 @@
         <div class="d-sm-flex justify-content-end mb-2 row">
             <div class="col-sm-12 col-md-4">
                 <a href="period_create.php?period_group_id=<?= $_GET['period_group_id'] ?>" class="btn btn-primary w-100 btn-block">
-                    สร้างงวด
+                    เพิ่มงวด
                 </a>
             </div>
         </div>

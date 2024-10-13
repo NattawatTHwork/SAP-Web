@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Chart Account Create</title>
+    <title>สร้างผังบัญชี</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -22,12 +22,12 @@
     <main id="main" class="main">
 
         <div class="pagetitle">
-            <h1>Chart Account Create</h1>
+            <h1>สร้างผังบัญชี</h1>
             <nav>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-                    <li class="breadcrumb-item">Chart Account</li>
-                    <li class="breadcrumb-item active">Chart Account Create</li>
+                    <li class="breadcrumb-item"><a href="index.php">หน้าหลัก</a></li>
+                    <li class="breadcrumb-item">ผังบัญชี</li>
+                    <li class="breadcrumb-item active">สร้างผังบัญชี</li>
                 </ol>
             </nav>
         </div><!-- End Page Title -->

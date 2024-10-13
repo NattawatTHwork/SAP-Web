@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Central General Ledgers Manage</title>
+    <title>จัดการบัญชีแยกประเภททั่วไปส่วนกลาง</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -23,12 +23,12 @@
 
         <div class="pagetitle">
             <div class="pagetitle">
-                <h1>Central General Ledgers Manage</h1>
+                <h1>จัดการบัญชีแยกประเภททั่วไปส่วนกลาง</h1>
                 <nav>
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-                        <li class="breadcrumb-item">Central General Ledgers</li>
-                        <li class="breadcrumb-item active">Central General Ledgers Manage</li>
+                        <li class="breadcrumb-item"><a href="index.php">หน้าหลัก</a></li>
+                        <li class="breadcrumb-item">บัญชีแยกประเภททั่วไปส่วนกลาง</li>
+                        <li class="breadcrumb-item active">จัดการบัญชีแยกประเภททั่วไปส่วนกลาง</li>
                     </ol>
                 </nav>
             </div><!-- End Page Title -->

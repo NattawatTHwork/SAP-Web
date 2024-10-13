@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Transaction Period Group Detail</title>
+    <title>รายละเอียดชุดงวดการผ่านรายการ</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -22,12 +22,12 @@
     <main id="main" class="main">
 
         <div class="pagetitle">
-            <h1>Transaction Period Group Detail</h1>
+            <h1>รายละเอียดชุดงวดการผ่านรายการ</h1>
             <nav>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-                    <li class="breadcrumb-item">Transaction Period Group</li>
-                    <li class="breadcrumb-item active">Transaction Period Group Detail</li>
+                    <li class="breadcrumb-item"><a href="index.php">หน้าหลัก</a></li>
+                    <li class="breadcrumb-item">ชุดงวดการผ่านรายการ</li>
+                    <li class="breadcrumb-item active">รายละเอียดชุดงวดการผ่านรายการ</li>
                 </ol>
             </nav>
         </div><!-- End Page Title -->

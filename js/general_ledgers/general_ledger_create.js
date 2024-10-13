@@ -5,12 +5,16 @@ document.addEventListener("DOMContentLoaded", async function () {
         await handleGetCompanyIds(sessionToken.token);
         await handleGetCentralGeneralLedgers(sessionToken.token);
         await handleGetBusinessTypes(sessionToken.token);
+        await handleGetDocumentTypes(sessionToken.token); // Fetch document types
+        await handleGetBranchNumbers(sessionToken.token); // Fetch branch numbers
+        await handleGetCurrencies(sessionToken.token);    // Fetch currencies
+        await handleGetTransactionPeriods(sessionToken.token);
     } catch (error) {
         handleError(error);
     }
 });
 
-// ฟังก์ชันดึงข้อมูลบริษัท ----------------------------------------------------------------
+// Fetch and populate company IDs
 async function handleGetCompanyIds(token) {
     try {
         const data = await fetchCompanyIds(token);
@@ -72,6 +76,138 @@ function updateCompanyCode() {
     }
 }
 
+// Fetch and populate document types
+async function handleGetDocumentTypes(token) {
+    try {
+        const data = await fetchDocumentTypes(token);
+        populateDocumentTypeOptions(data);
+    } catch (error) {
+        handleError(error);
+    }
+}
+
+function fetchDocumentTypes(token) {
+    return fetch(apiUrl + 'document_types/get_document_type_all.php', {
+        method: 'GET',
+        headers: {
+            'Authorization': `Bearer ${token}`
+        }
+    }).then(response => response.json());
+}
+
+function populateDocumentTypeOptions(data) {
+    const documentTypeSelect = document.getElementById('document_type_id');
+    if (!documentTypeSelect) return;
+
+    documentTypeSelect.innerHTML = '<option value="">เลือกประเภทเอกสาร</option>';
+
+    if (data.status === 'success') {
+        data.data.forEach(documentType => {
+            const option = document.createElement('option');
+            option.value = documentType.document_type_id;
+            option.textContent = documentType.document_type_code;
+            documentTypeSelect.appendChild(option);
+        });
+    } else {
+        handleError(data.message);
+    }
+}
+
+// Fetch and populate branch numbers
+async function handleGetBranchNumbers(token) {
+    try {
+        const data = await fetchBranchNumbers(token);
+        populateBranchNumberOptions(data);
+    } catch (error) {
+        handleError(error);
+    }
+}
+
+function fetchBranchNumbers(token) {
+    return fetch(apiUrl + 'branch_numbers/get_branch_number_all.php', {
+        method: 'GET',
+        headers: {
+            'Authorization': `Bearer ${token}`
+        }
+    }).then(response => response.json());
+}
+
+function populateBranchNumberOptions(data) {
+    const branchNumberSelect = document.getElementById('branch_number_id');
+    if (!branchNumberSelect) return;
+
+    branchNumberSelect.innerHTML = '<option value="">เลือกเลขที่สาขา</option>';
+
+    if (data.status === 'success') {
+        data.data.forEach(branchNumber => {
+            const option = document.createElement('option');
+            option.value = branchNumber.branch_number_id;
+            option.textContent = branchNumber.branch_number_code;
+            branchNumberSelect.appendChild(option);
+        });
+    } else {
+        handleError(data.message);
+    }
+}
+
+// Fetch and populate currencies
+async function handleGetCurrencies(token) {
+    try {
+        const data = await fetchCurrencies(token);
+        populateCurrencyOptions(data);
+    } catch (error) {
+        handleError(error);
+    }
+}
+
+function fetchCurrencies(token) {
+    return fetch(apiUrl + 'currencies/get_currency_all.php', {
+        method: 'GET',
+        headers: {
+            'Authorization': `Bearer ${token}`
+        }
+    }).then(response => response.json());
+}
+
+function populateCurrencyOptions(data) {
+    const currencySelect = document.getElementById('currency_id');
+    if (!currencySelect) return;
+
+    currencySelect.innerHTML = '<option value="">เลือกสกุลเงิน</option>';
+
+    if (data.status === 'success') {
+        data.data.forEach(currency => {
+            const option = document.createElement('option');
+            option.value = currency.currency_id;
+            option.textContent = currency.currency_code;
+            currencySelect.appendChild(option);
+        });
+    } else {
+        handleError(data.message);
+    }
+}
+
+// Fetch and populate Transaction Periods
+let TransactionPeriod = '';
+
+async function handleGetTransactionPeriods(token) {
+    try {
+        const data = await fetchTransactionPeriods(token);
+        TransactionPeriod = data.data[0];
+    } catch (error) {
+        handleError(error);
+    }
+}
+
+function fetchTransactionPeriods(token) {
+    return fetch(apiUrl + 'transaction_periods/get_transaction_period_all.php', {
+        method: 'GET',
+        headers: {
+            'Authorization': `Bearer ${token}`
+        }
+    }).then(response => response.json());
+}
+
 // ฟังก์ชันดึงข้อมูลบัญชี G/L ---------------------------------------------------------------------------
 let centralGeneralLedgers = [];
 let businessTypes = [];
@@ -124,7 +260,6 @@ async function handleGetBusinessTypes(token) {
         handleError(error);
     }
 }
-
 
 function fetchBusinessTypes(token) {
     return fetch(apiUrl + 'business_types/get_business_type_all.php', {
@@ -199,7 +334,7 @@ function addRow() {
 // สร้าง option สำหรับบัญชี G/L ในแถวใหม่
 function generateCentralGeneralLedgerOptions() {
     const emptyOption = `<option value="">เลือกบัญชีทั่วไป</option>`;
-    
+
     return emptyOption + centralGeneralLedgers
         .map(ledger => `<option value="${ledger.central_general_ledger_id}">${ledger.gl_account}</option>`)
         .join('');
@@ -207,7 +342,7 @@ function generateCentralGeneralLedgerOptions() {
 
 function generateBusinessTypeOptions() {
     const emptyOption = `<option value="">เลือกประเภทธุรกิจ</option>`;
-    
+
     return emptyOption + businessTypes
         .map(type => `<option value="${type.business_type_id}">${type.business_type_code} - ${type.description}</option>`)
         .join('');
@@ -248,8 +383,8 @@ function updateAdditionalData(input) {
     const fieldName = input.name;
 
     if (currentRowIndex >= 0 && currentRowIndex < dataRows.length) {
-        dataRows[currentRowIndex][fieldName] = value; 
-        console.log(dataRows); 
+        dataRows[currentRowIndex][fieldName] = value;
+        console.log(dataRows);
     } else {
         console.error("Invalid currentRowIndex: ", currentRowIndex);
     }
@@ -322,6 +457,19 @@ function calculateTotals() {
     return { debitTotal, creditTotal };
 }
 
+function isPostingDateInPeriod(postingDate, periodFromFirst, periodFromFirstYear, periodToFirst, periodToFirstYear) {
+    const postingDateObj = new Date(postingDate);
+    const periodFromDate = new Date(`${periodFromFirstYear}-${padZero(periodFromFirst)}-01`);
+    const periodToDate = new Date(`${periodToFirstYear}-${padZero(periodToFirst)}-01`);
+    periodToDate.setMonth(periodToDate.getMonth() + 1);
+
+    return postingDateObj >= periodFromDate && postingDateObj < periodToDate;
+}
+
+function padZero(number) {
+    return number < 10 ? '0' + number : number;
+}
+
 // เพิ่มข้อมูลทั่วไป
 function saveGeneralLedger() {
     const submitButton = document.getElementById('submitBtn');
@@ -343,18 +491,36 @@ function saveGeneralLedger() {
         return;
     }
 
-    if (!generalLedgerData.posting_date) {
+    // ตรวจสอบว่ามี TransactionPeriod และ posting_date หรือไม่
+    if (TransactionPeriod && generalLedgerData.posting_date) {
+        const periodFromFirst = TransactionPeriod.period_from_first;
+        const periodFromFirstYear = TransactionPeriod.period_from_first_year;
+        const periodToFirst = TransactionPeriod.period_to_first;
+        const periodToFirstYear = TransactionPeriod.period_to_first_year;
+
+        // ตรวจสอบว่า posting_date อยู่ในช่วงเวลาที่กำหนดหรือไม่
+        if (!isPostingDateInPeriod(generalLedgerData.posting_date, periodFromFirst, periodFromFirstYear, periodToFirst, periodToFirstYear)) {
+            Swal.fire({
+                icon: 'error',
+                title: 'วันที่ผ่านรายการไม่อยู่ในช่วงเวลาที่กำหนด!',
+                text: `กรุณากรอกวันที่ที่อยู่ในช่วง ${periodFromFirst}/${periodFromFirstYear} ถึง ${periodToFirst}/${periodToFirstYear}`,
+            }).then(() => {
+                submitButton.disabled = false;
+            });
+            return;
+        }
+    } else {
         Swal.fire({
             icon: 'error',
-            title: 'วันผ่านรายการห้ามเป็นค่าว่าง!',
-            text: 'กรุณากรอกวันผ่านรายการก่อนดำเนินการต่อ',
+            title: 'ไม่พบข้อมูลช่วงเวลา!',
+            text: 'กรุณาตรวจสอบข้อมูลช่วงเวลาหรือวันที่ผ่านรายการ',
         }).then(() => {
             submitButton.disabled = false;
         });
         return;
     }
 
-    if (!generalLedgerData.document_type) {
+    if (!generalLedgerData.document_type_id) {
         Swal.fire({
             icon: 'error',
             title: 'ประเภทเอกสารห้ามเป็นค่าว่าง!',
@@ -423,13 +589,14 @@ function saveGeneralLedger() {
         }).then(() => {
             submitButton.disabled = false;
         });
-        return; 
+        return;
     }
 
     const filteredDataRows = dataRows.filter(row => !isEmptyRow(row));
 
     getSessionToken()
         .then(mySession => createData(mySession.token, generalLedgerData, filteredDataRows))
+        // .then(res => console.log(res))
         .then(response => handleCreateResponse(response))
         .catch(error => handleError(error))
         .finally(() => {
@@ -462,7 +629,7 @@ function createData(token, generalLedgerData, dataRows) {
             transactions: dataRows
         })
     })
-    .then(response => response.json());
+        .then(response => response.json());
 }
 
 function handleCreateResponse(data) {

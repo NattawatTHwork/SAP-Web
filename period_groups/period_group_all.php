@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Period Group All</title>
+    <title>กลุ่มงวดทั้งหมด</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -22,12 +22,12 @@
     <main id="main" class="main">
 
         <div class="pagetitle">
-            <h1>Period Group All</h1>
+            <h1>กลุ่มงวดทั้งหมด</h1>
             <nav>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-                    <li class="breadcrumb-item">Period Group</li>
-                    <li class="breadcrumb-item active">Period Group All</li>
+                    <li class="breadcrumb-item"><a href="index.php">หน้าหลัก</a></li>
+                    <li class="breadcrumb-item">กลุ่มงวด</li>
+                    <li class="breadcrumb-item active">กลุ่มงวดทั้งหมด</li>
                 </ol>
             </nav>
         </div><!-- End Page Title -->

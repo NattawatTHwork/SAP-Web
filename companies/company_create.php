@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Company Create</title>
+    <title>เพิ่มบริษัท</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -22,12 +22,12 @@
     <main id="main" class="main">
 
         <div class="pagetitle">
-            <h1>Company Create</h1>
+            <h1>เพิ่มบริษัท</h1>
             <nav>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-                    <li class="breadcrumb-item">Company</li>
-                    <li class="breadcrumb-item active">Company Create</li>
+                    <li class="breadcrumb-item"><a href="index.php">หน้าหลัก</a></li>
+                    <li class="breadcrumb-item">ธุรกิจ</li>
+                    <li class="breadcrumb-item active">เพิ่มบริษัท</li>
                 </ol>
             </nav>
         </div><!-- End Page Title -->

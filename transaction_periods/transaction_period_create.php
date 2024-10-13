@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Transaction Period Create</title>
+    <title>เพิ่มงวดการผ่านรายการ</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -22,12 +22,12 @@
     <main id="main" class="main">
 
         <div class="pagetitle">
-            <h1>Transaction Period Create</h1>
+            <h1>เพิ่มงวดการผ่านรายการ</h1>
             <nav>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-                    <li class="breadcrumb-item">Transaction Period</li>
-                    <li class="breadcrumb-item active">Transaction Period Create</li>
+                    <li class="breadcrumb-item"><a href="index.php">หน้าหลัก</a></li>
+                    <li class="breadcrumb-item">งวดการผ่านรายการ</li>
+                    <li class="breadcrumb-item active">เพิ่มงวดการผ่านรายการ</li>
                 </ol>
             </nav>
         </div><!-- End Page Title -->
@@ -133,7 +133,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                
+
                                 <div class="row pb-4">
                                     <div class="col-12">
                                         <div class="text-center">

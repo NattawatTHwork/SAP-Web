@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Fiscal Year All</title>
+    <title>ชุดการเลือกปีบัญชีทั้งหมด</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -22,12 +22,12 @@
     <main id="main" class="main">
 
         <div class="pagetitle">
-            <h1>Fiscal Year All</h1>
+            <h1>ชุดการเลือกปีบัญชีทั้งหมด</h1>
             <nav>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-                    <li class="breadcrumb-item">Fiscal Year</li>
-                    <li class="breadcrumb-item active">Fiscal Year All</li>
+                    <li class="breadcrumb-item"><a href="index.php">หน้าหลัก</a></li>
+                    <li class="breadcrumb-item">ชุดการเลือกปีบัญชี</li>
+                    <li class="breadcrumb-item active">ชุดการเลือกปีบัญชีทั้งหมด</li>
                 </ol>
             </nav>
         </div><!-- End Page Title -->
