@@ -215,6 +215,8 @@ function displayTables(datas) {
                     <td>${documentDateThai}</td>
                     <td>${postingDateThai}</td>
                     <td>${data.document_type_code}</td>
+                    <td>${data.document_sequence ?? ''}</td>
+                    <td>${data.year ?? ''}</td>
                     <td>${data.reference}</td>
                     <td>${data.document_header_text}</td>
                     <td>${data.currency_code ?? ''}</td>
